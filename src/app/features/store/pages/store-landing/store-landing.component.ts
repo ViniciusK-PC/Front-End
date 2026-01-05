@@ -87,11 +87,24 @@ import { RouterLink } from '@angular/router';
       <!-- Navigation Bar (Dark) -->
       <nav class="nav-bar" [ngClass]="{'hidden': isScrolled}">
         <div class="nav-wrapper">
-          <button class="cat-button">
-            <span class="cat-icon">☰</span>
-            <span class="cat-text">CATEGORIAS</span>
-            <span class="cat-arrow">▼</span>
-          </button>
+          <div class="cat-dropdown-wrapper">
+            <button class="cat-button">
+              <span class="cat-icon">☰</span>
+              <span class="cat-text">CATEGORIAS</span>
+              <span class="cat-arrow">▼</span>
+            </button>
+            <div class="cat-dropdown">
+              <a href="#ferramentas-eletricas" class="cat-dropdown-link">Ferramentas Elétricas e Manuais</a>
+              <a href="#equipamento-auto" class="cat-dropdown-link">Equipamento Auto Center</a>
+              <a href="#ferramentas-manuais" class="cat-dropdown-link">Ferramentas Manuais</a>
+              <a href="#injecao-eletronica" class="cat-dropdown-link">Injeção Eletrônica e Motor</a>
+              <a href="#ferramentas-pneumaticas" class="cat-dropdown-link">Ferramentas Pneumáticas</a>
+              <a href="#lava-jato" class="cat-dropdown-link">Lava Jato e Posto</a>
+              <a href="#ferramentas-automotivas" class="cat-dropdown-link">Ferramentas Automotivas</a>
+              <a href="#jardinagem" class="cat-dropdown-link">Jardinagem</a>
+              <a href="#todos-departamentos" class="cat-dropdown-link cat-dropdown-all">Ver todos os departamentos</a>
+            </div>
+          </div>
           <a href="#frete" class="nav-link">Frete Grátis</a>
           <a href="#cupons" class="nav-link">Cupons de Desconto</a>
           <a href="#whatsapp" class="nav-link">Canal WhatsApp</a>
@@ -505,6 +518,60 @@ import { RouterLink } from '@angular/router';
     .cat-arrow {
       font-size: 10px;
       opacity: 0.8;
+    }
+
+    /* Categories Dropdown */
+    .cat-dropdown-wrapper {
+      position: relative;
+    }
+
+    .cat-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 280px;
+      background: #2d3748;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 2000;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .cat-dropdown-wrapper:hover .cat-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      max-height: 500px;
+    }
+
+    .cat-dropdown-link {
+      display: block;
+      padding: 14px 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: all 0.2s;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .cat-dropdown-link:hover {
+      background: #1e293b;
+      color: #ff8c42;
+      padding-left: 25px;
+    }
+
+    .cat-dropdown-link:last-child {
+      border-bottom: none;
+    }
+
+    .cat-dropdown-all {
+      font-weight: 600;
+      background: rgba(255,140,66,0.1);
     }
 
     .nav-link {
