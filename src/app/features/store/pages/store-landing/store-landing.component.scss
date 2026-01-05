@@ -489,178 +489,420 @@
     margin-bottom: 1.5rem;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    line-height: 1.1;
-    font-weight: 900;
-    margin-bottom: 1.5rem;
-    letter-spacing: -2px;
+/* === MODERN HERO SLIDER === */
+.hero-slider {
+    background: #001C55;
+    padding: 60px 0;
+    margin-top: 0;
+    overflow: hidden;
 
-    span {
-        background: linear-gradient(to right, var(--primary), var(--accent));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-}
-
-.hero p {
-    font-size: 1.25rem;
-    color: var(--grey);
-    line-height: 1.6;
-    margin-bottom: 2.5rem;
-    max-width: 500px;
-}
-
-.hero-actions {
-    display: flex;
-    gap: 1rem;
-}
-
-.btn-primary {
-    padding: 1rem 2rem;
-    background: var(--primary);
-    color: white;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
-    transition: transform 0.3s, background 0.3s;
-
-    &:hover {
-        transform: translateY(-2px);
-        background: var(--primary-dark);
-    }
-}
-
-.btn-outline {
-    padding: 1rem 2rem;
-    border: 2px solid var(--grey);
-    color: var(--dark);
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-
-    &:hover {
-        border-color: var(--dark);
-        background: var(--light);
-    }
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 24px;
-    box-shadow: 30px 30px 80px rgba(0, 0, 0, 0.1);
-    transform: rotate(2deg);
-}
-
-/* Categories */
-.categories {
-    padding: 6rem 5%;
-    background: var(--light);
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-
-    h2 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-    }
-}
-
-.category-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-}
-
-.category-card {
-    background: white;
-    border-radius: 20px;
-    padding: 2.5rem;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
-
-    &:hover {
-        transform: scale(1.02);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    .hero-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
     }
 
-    .card-image {
+    .hero-slide {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 60px;
+        min-height: 420px;
+    }
+
+    .hero-content {
         flex: 1;
-        max-width: 200px;
+        color: white;
+
+        .badge {
+            display: inline-block;
+            background: #FF5000;
+            color: white;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 54px;
+            line-height: 1.1;
+            font-weight: 900;
+            margin-bottom: 25px;
+            color: white;
+
+            span {
+                color: #FF5000;
+                display: block;
+            }
+        }
+
+        p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+
+        .hero-actions {
+            .btn-primary {
+                padding: 15px 35px;
+                background: #FF5000;
+                color: white;
+                font-size: 18px;
+                font-weight: 800;
+                border-radius: 8px;
+                text-decoration: none;
+                transition: all 0.3s;
+                display: inline-block;
+                box-shadow: 0 10px 20px rgba(255, 80, 0, 0.3);
+
+                &:hover {
+                    transform: translateY(-3px);
+                    background: #e64a00;
+                    box-shadow: 0 15px 30px rgba(255, 80, 0, 0.4);
+                }
+            }
+        }
+    }
+
+    .hero-image-box {
+        flex: 1.2;
 
         img {
             width: 100%;
             height: auto;
-            filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.15));
+            border-radius: 12px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
         }
     }
 
-    .card-content {
-        flex: 1.5;
-    }
+    .hero-controls {
+        .hero-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    h3 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-    }
+            &:hover {
+                background: #FF5000;
+            }
 
-    p {
-        color: var(--grey);
-        margin-bottom: 1.5rem;
-        font-size: 0.9375rem;
-        line-height: 1.5;
+            &.prev {
+                left: -70px;
+            }
+
+            &.next {
+                right: -70px;
+            }
+        }
+
+        .hero-dots {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+
+            .dot {
+                width: 12px;
+                height: 12px;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                cursor: pointer;
+
+                &.active {
+                    background: #FF5000;
+                    border-color: #FF5000;
+                }
+            }
+        }
     }
 }
 
-.btn-card {
-    padding: 0.75rem 1.5rem;
-    background: var(--dark);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
+/* === OFERTAS EM DESTAQUE (LOJA DO MECANICO STYLE) === */
+.featured-offers-section {
+    padding: 80px 0;
+    background: #f4f6f9;
+
+    .container-offers {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 30px;
+        position: relative;
+        border: 2px solid #FF5000;
+        border-radius: 16px;
+        padding-top: 50px;
+        padding-bottom: 40px;
+        background: white;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-tag-container {
+        position: absolute;
+        top: -20px;
+        left: 20px;
+        z-index: 5;
+    }
+
+    .section-tag {
+        background: #001C55;
+        color: white;
+        padding: 8px 20px;
+        font-weight: 900;
+        font-size: 14px;
+        border: 2px solid #FF5000;
+        border-radius: 4px;
+        text-transform: uppercase;
+    }
+}
+
+.offers-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 30px;
+}
+
+.offers-main-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product-promo-card {
+    background: #001C55;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s;
+    border: 1px solid #001C55;
 
     &:hover {
-        background: var(--primary);
+        transform: translateY(-5px);
+    }
+
+    .promo-header {
+        background: #FF5000;
+        padding: 12px;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .discount-val {
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 0.8;
+        }
+
+        .discount-desc {
+            font-size: 10px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+    }
+
+    .promo-img {
+        background: white;
+        padding: 20px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .promo-body {
+        padding: 15px;
+        flex-grow: 1;
+
+        .product-title {
+            font-size: 14px;
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1.3;
+            height: 36px;
+            overflow: hidden;
+        }
+
+        .price-container {
+            margin-bottom: 10px;
+
+            .currency {
+                color: #FF5000;
+                font-weight: 800;
+                font-size: 14px;
+            }
+
+            .price-val {
+                color: white;
+                font-size: 24px;
+                font-weight: 900;
+            }
+        }
+
+        .payment-info {
+            .cash-price {
+                color: #FF5000;
+                font-size: 11px;
+                font-weight: 700;
+                margin-bottom: 4px;
+            }
+
+            .install-price {
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 10px;
+            }
+        }
+    }
+
+    .promo-footer {
+        padding: 12px 18px;
+        background: #F8F9FA;
+        color: #001C55;
+        font-size: 11px;
+        border-top: 1px solid #EEE;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .delivery-badge {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            &::before {
+                content: '';
+                display: inline-block;
+                width: 70px;
+                height: 15px;
+                background: url('https://img.lojadomecanico.com.br/assets/frontend/images/icons/entrega-rapida.png') no-repeat left center;
+                background-size: contain;
+            }
+
+            .fast {
+                font-weight: 900;
+                color: #001C55;
+            }
+        }
     }
 }
 
-/* Benefits */
-.benefits {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem;
-    padding: 6rem 10%;
-    background: white;
-    text-align: center;
+.offers-sidebar-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.benefit-item {
-    .icon {
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
+.vertical-promo-card {
+    background: #001C55;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    height: calc(50% - 10px);
+    position: relative;
+    border: 2px solid #FF5000;
+
+    .promo-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+
+        .discount-val {
+            color: white;
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .discount-desc {
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+        }
     }
 
-    h4 {
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
+    .vertical-content {
+        display: flex;
+        align-items: center;
+        gap: 20px;
     }
 
-    p {
-        color: var(--grey);
+    .vertical-info {
+        flex: 1;
+
+        .product-title {
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .vertical-price {
+            .currency {
+                color: #FF5000;
+                font-weight: 800;
+            }
+
+            .price-val {
+                color: white;
+                font-size: 24px;
+                font-weight: 900;
+            }
+        }
+
+        .cash-note {
+            color: #FF5000;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .install-note {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 10px;
+            margin-top: 5px;
+        }
+    }
+
+    .vertical-img {
+        width: 130px;
+        height: 130px;
+        background: white;
+        border-radius: 8px;
+        padding: 10px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
     }
 }
 
