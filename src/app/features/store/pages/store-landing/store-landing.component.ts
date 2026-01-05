@@ -8,67 +8,65 @@ import { RouterLink } from '@angular/router';
   imports: [CommonModule, RouterLink],
   template: `
     <div class="store-container">
-      <!-- Top Bar (Dark Blue) -->
+      <!-- Top Bar (Dark Navy) -->
       <div class="top-bar">
-        <div class="top-bar-content">
-          <div class="top-links">
-            <a href="#cupons">Cupons de Desconto</a>
-            <a href="#ofertas">Melhor Preço Hoje</a>
-            <a href="#consorcio">Consórcio</a>
-            <a href="#afiliados">Afiliados</a>
-            <a href="#vendas">Vendas corporativas</a>
-            <a href="#negocio">Monte seu negócio</a>
-            <a href="#lojas">Nossas Lojas</a>
-            <a href="#atendimento">Atendimento</a>
-          </div>
+        <div class="top-bar-wrapper">
+          <a href="#cupons">Cupons de Desconto</a>
+          <a href="#ofertas">Melhor Preço Hoje</a>
+          <a href="#consorcio">Consórcio</a>
+          <a href="#afiliados">Afiliados</a>
+          <a href="#vendas">Vendas corporativas</a>
+          <a href="#negocio">Monte seu negócio</a>
+          <a href="#lojas">Nossas Lojas</a>
+          <a href="#atendimento">Atendimento</a>
         </div>
       </div>
 
-      <!-- Main Header (Orange/Gradient) -->
+      <!-- Main Header (Orange Gradient) -->
       <header class="main-header">
-        <div class="header-content">
+        <div class="header-wrapper">
           <!-- Logo -->
-          <div class="brand">
-            <div class="logo-icon">⚡</div>
-            <h1 class="brand-name">Eletrotécnica Maurício</h1>
+          <div class="logo-section">
+            <div class="logo-box">⚡</div>
+            <h1 class="logo-text">Eletrotécnica Maurício</h1>
           </div>
 
-          <!-- Search Bar -->
-          <div class="search-wrapper">
-            <input type="text" placeholder="Buscar produtos" class="search-input">
-            <button class="search-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <!-- Search -->
+          <div class="search-section">
+            <input type="text" placeholder="Buscar produtos" class="search-field">
+            <button class="search-button">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <circle cx="11" cy="11" r="8"></circle>
                 <path d="m21 21-4.35-4.35"></path>
               </svg>
             </button>
           </div>
 
-          <!-- Header Actions -->
-          <div class="header-actions">
-            <a href="tel:1139684075" class="action-item">
-              <span class="action-icon">📞</span>
-              <div class="action-info">
-                <small>Televendas</small>
+          <!-- Actions -->
+          <div class="actions-section">
+            <a href="tel:1139684075" class="action-box">
+              <span class="action-emoji">📞</span>
+              <div class="action-label">
+                <span>Televendas</span>
                 <strong>(11) 3968-4075</strong>
               </div>
             </a>
-            <a routerLink="/login" class="action-item">
-              <span class="action-icon">📋</span>
-              <div class="action-info">
-                <small>Meus</small>
+            <a routerLink="/login" class="action-box">
+              <span class="action-emoji">📋</span>
+              <div class="action-label">
+                <span>Meus</span>
                 <strong>Pedidos</strong>
               </div>
             </a>
-            <a routerLink="/login" class="action-item">
-              <span class="action-icon">👤</span>
-              <div class="action-info">
-                <small>Entre ou</small>
+            <a routerLink="/login" class="action-box">
+              <span class="action-emoji">👤</span>
+              <div class="action-label">
+                <span>Entre ou</span>
                 <strong>Cadastre-se</strong>
               </div>
             </a>
-            <button class="cart-btn">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <button class="cart-button">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="9" cy="21" r="1"></circle>
                 <circle cx="20" cy="21" r="1"></circle>
                 <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -78,13 +76,13 @@ import { RouterLink } from '@angular/router';
         </div>
       </header>
 
-      <!-- Navigation Menu (White/Light) -->
-      <nav class="nav-menu">
-        <div class="nav-content">
-          <button class="categories-btn">
-            <span class="menu-icon">☰</span>
-            CATEGORIAS
-            <span class="arrow">▼</span>
+      <!-- Navigation Bar (Dark) -->
+      <nav class="nav-bar">
+        <div class="nav-wrapper">
+          <button class="cat-button">
+            <span class="cat-icon">☰</span>
+            <span class="cat-text">CATEGORIAS</span>
+            <span class="cat-arrow">▼</span>
           </button>
           <a href="#frete" class="nav-link">Frete Grátis</a>
           <a href="#cupons" class="nav-link">Cupons de Desconto</a>
@@ -198,258 +196,249 @@ import { RouterLink } from '@angular/router';
       overflow-x: hidden;
     }
 
-    /* Top Bar (Dark Blue) */
+    /* === TOP BAR === */
     .top-bar {
-      background: #1a1f36;
-      color: white;
-      font-size: 0.8125rem;
+      background: #2c3e50;
+      padding: 8px 0;
     }
 
-    .top-bar-content {
-      max-width: 1400px;
+    .top-bar-wrapper {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0.5rem 2rem;
+      padding: 0 20px;
       display: flex;
       justify-content: center;
-    }
-
-    .top-links {
-      display: flex;
-      gap: 2rem;
+      gap: 30px;
       flex-wrap: wrap;
-      justify-content: center;
     }
 
-    .top-links a {
+    .top-bar-wrapper a {
       color: white;
       text-decoration: none;
-      transition: opacity 0.3s;
+      font-size: 13px;
       font-weight: 400;
+      transition: opacity 0.2s;
     }
 
-    .top-links a:hover {
-      opacity: 0.7;
+    .top-bar-wrapper a:hover {
+      opacity: 0.8;
     }
 
-    /* Main Header (Orange Gradient) */
+    /* === MAIN HEADER === */
     .main-header {
-      background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA500 100%);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background: linear-gradient(90deg, #FF6B35 0%, #FF8C42 50%, #FFA500 100%);
+      padding: 12px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
-    .header-content {
-      max-width: 1400px;
+    .header-wrapper {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 0 20px;
       display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 2rem;
+      grid-template-columns: 280px 1fr auto;
+      gap: 20px;
       align-items: center;
     }
 
     /* Logo */
-    .brand {
+    .logo-section {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 12px;
     }
 
-    .logo-icon {
+    .logo-box {
       background: white;
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.75rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      font-size: 28px;
+      flex-shrink: 0;
     }
 
-    .brand-name {
-      font-size: 1.75rem;
+    .logo-text {
+      font-size: 22px;
       font-weight: 800;
       margin: 0;
       color: white;
-      letter-spacing: -0.5px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
     }
 
     /* Search */
-    .search-wrapper {
+    .search-section {
       display: flex;
-      max-width: 600px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      background: white;
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 500px;
     }
 
-    .search-input {
+    .search-field {
       flex: 1;
-      padding: 0.875rem 1.25rem;
+      padding: 10px 16px;
       border: none;
-      border-radius: 6px 0 0 6px;
-      font-size: 0.9375rem;
       outline: none;
+      font-size: 14px;
+      color: #333;
     }
 
-    .search-input::placeholder {
-      color: #9ca3af;
+    .search-field::placeholder {
+      color: #999;
     }
 
-    .search-btn {
-      padding: 0.875rem 1.5rem;
-      background: var(--primary);
-      color: white;
+    .search-button {
+      padding: 0 18px;
+      background: #2563eb;
       border: none;
-      border-radius: 0 6px 6px 0;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.3s;
+      transition: background 0.2s;
     }
 
-    .search-btn:hover {
-      background: var(--primary-dark);
+    .search-button:hover {
+      background: #1e40af;
     }
 
-    .search-btn svg {
-      width: 20px;
-      height: 20px;
+    .search-button svg {
+      color: white;
     }
 
-    /* Header Actions */
-    .header-actions {
+    /* Actions */
+    .actions-section {
       display: flex;
-      gap: 0.5rem;
+      gap: 8px;
       align-items: center;
     }
 
-    .action-item {
+    .action-box {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.75rem;
+      gap: 8px;
+      padding: 8px 12px;
       background: rgba(255,255,255,0.15);
-      border-radius: 8px;
+      border-radius: 6px;
       text-decoration: none;
-      transition: all 0.3s;
+      transition: background 0.2s;
       backdrop-filter: blur(10px);
     }
 
-    .action-item:hover {
+    .action-box:hover {
       background: rgba(255,255,255,0.25);
-      transform: translateY(-2px);
     }
 
-    .action-icon {
-      font-size: 1.25rem;
+    .action-emoji {
+      font-size: 20px;
+      line-height: 1;
     }
 
-    .action-info {
+    .action-label {
       display: flex;
       flex-direction: column;
-      gap: 0.125rem;
+      gap: 2px;
     }
 
-    .action-info small {
-      font-size: 0.6875rem;
-      color: rgba(255,255,255,0.9);
+    .action-label span {
+      font-size: 11px;
+      color: rgba(255,255,255,0.95);
       font-weight: 400;
+      line-height: 1;
     }
 
-    .action-info strong {
-      font-size: 0.8125rem;
+    .action-label strong {
+      font-size: 13px;
       color: white;
       font-weight: 700;
+      line-height: 1;
     }
 
-    .cart-btn {
-      padding: 0.75rem;
+    .cart-button {
+      padding: 10px;
       background: rgba(255,255,255,0.2);
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       color: white;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s;
-      backdrop-filter: blur(10px);
+      transition: background 0.2s;
     }
 
-    .cart-btn:hover {
+    .cart-button:hover {
       background: rgba(255,255,255,0.3);
-      transform: translateY(-2px);
     }
 
-    .cart-btn svg {
-      width: 24px;
-      height: 24px;
+    /* === NAVIGATION BAR === */
+    .nav-bar {
+      background: #1a1f36;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    /* Navigation Menu (White/Light) */
-    .nav-menu {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .nav-content {
-      max-width: 1400px;
+    .nav-wrapper {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 20px;
       display: flex;
-      gap: 0;
       align-items: center;
+      gap: 0;
     }
 
-    .categories-btn {
-      background: var(--dark);
+    .cat-button {
+      background: #0f172a;
       color: white;
       border: none;
-      padding: 1rem 1.5rem;
+      padding: 14px 20px;
       font-weight: 700;
-      font-size: 0.875rem;
+      font-size: 13px;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      transition: background 0.3s;
+      gap: 10px;
+      transition: background 0.2s;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      border-right: 1px solid rgba(255,255,255,0.1);
     }
 
-    .categories-btn:hover {
-      background: #1f2937;
+    .cat-button:hover {
+      background: #1e293b;
     }
 
-    .menu-icon {
-      font-size: 1.25rem;
+    .cat-icon {
+      font-size: 16px;
     }
 
-    .arrow {
-      font-size: 0.75rem;
-      margin-left: auto;
+    .cat-text {
+      flex: 1;
+    }
+
+    .cat-arrow {
+      font-size: 10px;
+      opacity: 0.8;
     }
 
     .nav-link {
-      color: var(--dark);
+      color: white;
       text-decoration: none;
-      padding: 1rem 1.25rem;
-      font-weight: 500;
-      font-size: 0.875rem;
-      transition: all 0.3s;
-      border-bottom: 3px solid transparent;
+      padding: 14px 18px;
+      font-weight: 400;
+      font-size: 13px;
+      transition: all 0.2s;
       white-space: nowrap;
+      border-bottom: 2px solid transparent;
     }
 
     .nav-link:hover {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-      background: rgba(37, 99, 235, 0.05);
+      background: rgba(255,255,255,0.05);
+      border-bottom-color: #FF8C42;
     }
 
     /* Hero */
