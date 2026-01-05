@@ -19,8 +19,8 @@ import { RouterLink } from '@angular/router';
         </div>
       </div>
 
-      <!-- Main Header (Orange Gradient) -->
-      <header class="main-header" [ngClass]="{'sticky': isScrolled}">
+      <!-- Main Header (Orange Gradient) - Always Fixed -->
+      <header class="main-header">
         <div class="header-wrapper">
           <!-- Logo -->
           <div class="logo-section">
@@ -243,17 +243,13 @@ import { RouterLink } from '@angular/router';
     .main-header {
       background: linear-gradient(90deg, #FF6B35 0%, #FF8C42 50%, #FFA500 100%);
       padding: 12px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      transition: all 0.3s ease;
-    }
-
-    .main-header.sticky {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
     }
 
     .header-wrapper {
