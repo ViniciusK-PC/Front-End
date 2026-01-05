@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   imports: [CommonModule, RouterLink],
   template: `
     <div class="store-container">
-      <!-- Top Bar -->
+      <!-- Top Bar (Dark Blue) -->
       <div class="top-bar">
         <div class="top-bar-content">
           <div class="top-links">
@@ -16,68 +16,85 @@ import { RouterLink } from '@angular/router';
             <a href="#ofertas">Melhor Preço Hoje</a>
             <a href="#consorcio">Consórcio</a>
             <a href="#afiliados">Afiliados</a>
-          </div>
-          <div class="top-actions">
-            <span class="phone">📞 <strong>(11) 3968-4075</strong></span>
-            <a routerLink="/login" class="login-link">🔐 Entre ou Cadastre-se</a>
+            <a href="#vendas">Vendas corporativas</a>
+            <a href="#negocio">Monte seu negócio</a>
+            <a href="#lojas">Nossas Lojas</a>
+            <a href="#atendimento">Atendimento</a>
           </div>
         </div>
       </div>
 
-      <!-- Main Header -->
+      <!-- Main Header (Orange/Gradient) -->
       <header class="main-header">
         <div class="header-content">
           <!-- Logo -->
           <div class="brand">
             <div class="logo-icon">⚡</div>
-            <div class="brand-text">
-              <h1>Eletrotécnica <span>Maurício</span></h1>
-              <p>Ferramentas e Equipamentos Profissionais</p>
-            </div>
+            <h1 class="brand-name">Eletrotécnica Maurício</h1>
           </div>
 
           <!-- Search Bar -->
-          <div class="search-container">
+          <div class="search-wrapper">
             <input type="text" placeholder="Buscar produtos" class="search-input">
-            <button class="search-btn">🔍</button>
+            <button class="search-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
           </div>
 
           <!-- Header Actions -->
           <div class="header-actions">
-            <a href="tel:1139684075" class="action-btn">
-              <span class="icon">📞</span>
-              <div class="action-text">
+            <a href="tel:1139684075" class="action-item">
+              <span class="action-icon">📞</span>
+              <div class="action-info">
                 <small>Televendas</small>
                 <strong>(11) 3968-4075</strong>
               </div>
             </a>
-            <a routerLink="/login" class="action-btn">
-              <span class="icon">📋</span>
-              <div class="action-text">
+            <a routerLink="/login" class="action-item">
+              <span class="action-icon">📋</span>
+              <div class="action-info">
                 <small>Meus</small>
                 <strong>Pedidos</strong>
               </div>
             </a>
-            <a routerLink="/login" class="action-btn admin-btn">
-              <span class="icon">🔐</span>
-              <div class="action-text">
-                <small>Acesso</small>
-                <strong>Restrito</strong>
+            <a routerLink="/login" class="action-item">
+              <span class="action-icon">👤</span>
+              <div class="action-info">
+                <small>Entre ou</small>
+                <strong>Cadastre-se</strong>
               </div>
             </a>
+            <button class="cart-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+            </button>
           </div>
         </div>
       </header>
 
-      <!-- Navigation Menu -->
+      <!-- Navigation Menu (White/Light) -->
       <nav class="nav-menu">
         <div class="nav-content">
-          <a href="#ferramentas" class="nav-item">Ferramentas Elétricas</a>
-          <a href="#cortadores" class="nav-item">Cortadores de Grama</a>
-          <a href="#equipamentos" class="nav-item">Equipamentos</a>
-          <a href="#ofertas" class="nav-item highlight">🔥 Ofertas</a>
-          <a href="#marcenaria" class="nav-item">Marcenaria</a>
-          <a href="#construcao" class="nav-item">Construção Civil</a>
+          <button class="categories-btn">
+            <span class="menu-icon">☰</span>
+            CATEGORIAS
+            <span class="arrow">▼</span>
+          </button>
+          <a href="#frete" class="nav-link">Frete Grátis</a>
+          <a href="#cupons" class="nav-link">Cupons de Desconto</a>
+          <a href="#whatsapp" class="nav-link">Canal WhatsApp</a>
+          <a href="#saldos" class="nav-link">Saldos</a>
+          <a href="#auto" class="nav-link">Auto mecânica</a>
+          <a href="#borracharia" class="nav-link">Borracharia</a>
+          <a href="#marcenaria" class="nav-link">Marcenaria</a>
+          <a href="#eletrica" class="nav-link">Auto elétrica</a>
+          <a href="#construcao" class="nav-link">Construção Civil</a>
         </div>
       </nav>
 
@@ -181,11 +198,11 @@ import { RouterLink } from '@angular/router';
       overflow-x: hidden;
     }
 
-    /* Top Bar */
+    /* Top Bar (Dark Blue) */
     .top-bar {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      background: #1a1f36;
       color: white;
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
     }
 
     .top-bar-content {
@@ -193,52 +210,31 @@ import { RouterLink } from '@angular/router';
       margin: 0 auto;
       padding: 0.5rem 2rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
     }
 
     .top-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .top-links a {
       color: white;
       text-decoration: none;
       transition: opacity 0.3s;
+      font-weight: 400;
     }
 
     .top-links a:hover {
-      opacity: 0.8;
+      opacity: 0.7;
     }
 
-    .top-actions {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .phone {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .login-link {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: opacity 0.3s;
-    }
-
-    .login-link:hover {
-      opacity: 0.8;
-    }
-
-    /* Main Header */
+    /* Main Header (Orange Gradient) */
     .main-header {
-      background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 50%, #FFA500 100%);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -247,7 +243,7 @@ import { RouterLink } from '@angular/router';
     .header-content {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 1.5rem 2rem;
+      padding: 1rem 2rem;
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: 2rem;
@@ -258,58 +254,48 @@ import { RouterLink } from '@angular/router';
     .brand {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
     .logo-icon {
-      background: linear-gradient(135deg, #FFD700, #FFA500);
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
+      background: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
+      font-size: 1.75rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    .brand-text h1 {
-      font-size: 1.5rem;
+    .brand-name {
+      font-size: 1.75rem;
       font-weight: 800;
       margin: 0;
-      color: var(--dark);
+      color: white;
       letter-spacing: -0.5px;
-    }
-
-    .brand-text h1 span {
-      color: var(--primary);
-    }
-
-    .brand-text p {
-      font-size: 0.75rem;
-      color: var(--grey);
-      margin: 0.25rem 0 0 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
     /* Search */
-    .search-container {
+    .search-wrapper {
       display: flex;
       max-width: 600px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
 
     .search-input {
       flex: 1;
       padding: 0.875rem 1.25rem;
-      border: 2px solid #e5e7eb;
-      border-right: none;
-      border-radius: 8px 0 0 8px;
+      border: none;
+      border-radius: 6px 0 0 6px;
       font-size: 0.9375rem;
       outline: none;
-      transition: border-color 0.3s;
     }
 
-    .search-input:focus {
-      border-color: var(--primary);
+    .search-input::placeholder {
+      color: #9ca3af;
     }
 
     .search-btn {
@@ -317,9 +303,11 @@ import { RouterLink } from '@angular/router';
       background: var(--primary);
       color: white;
       border: none;
-      border-radius: 0 8px 8px 0;
+      border-radius: 0 6px 6px 0;
       cursor: pointer;
-      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: background 0.3s;
     }
 
@@ -327,66 +315,86 @@ import { RouterLink } from '@angular/router';
       background: var(--primary-dark);
     }
 
+    .search-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
     /* Header Actions */
     .header-actions {
       display: flex;
-      gap: 1rem;
+      gap: 0.5rem;
+      align-items: center;
     }
 
-    .action-btn {
+    .action-item {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
-      background: var(--light);
-      border-radius: 10px;
+      gap: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      background: rgba(255,255,255,0.15);
+      border-radius: 8px;
       text-decoration: none;
       transition: all 0.3s;
+      backdrop-filter: blur(10px);
     }
 
-    .action-btn:hover {
-      background: #e5e7eb;
+    .action-item:hover {
+      background: rgba(255,255,255,0.25);
       transform: translateY(-2px);
     }
 
-    .action-btn .icon {
-      font-size: 1.5rem;
+    .action-icon {
+      font-size: 1.25rem;
     }
 
-    .action-text {
+    .action-info {
       display: flex;
       flex-direction: column;
       gap: 0.125rem;
     }
 
-    .action-text small {
-      font-size: 0.75rem;
-      color: var(--grey);
+    .action-info small {
+      font-size: 0.6875rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: 400;
     }
 
-    .action-text strong {
-      font-size: 0.875rem;
-      color: var(--dark);
-    }
-
-    .admin-btn {
-      background: linear-gradient(135deg, var(--accent), #059669);
+    .action-info strong {
+      font-size: 0.8125rem;
       color: white;
+      font-weight: 700;
     }
 
-    .admin-btn .action-text small,
-    .admin-btn .action-text strong {
+    .cart-btn {
+      padding: 0.75rem;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 8px;
       color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
     }
 
-    .admin-btn:hover {
-      background: linear-gradient(135deg, #059669, var(--accent));
+    .cart-btn:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-2px);
     }
 
-    /* Navigation Menu */
+    .cart-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Navigation Menu (White/Light) */
     .nav-menu {
-      background: var(--dark);
-      border-top: 3px solid var(--primary);
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
     .nav-content {
@@ -394,27 +402,54 @@ import { RouterLink } from '@angular/router';
       margin: 0 auto;
       padding: 0 2rem;
       display: flex;
-      gap: 2rem;
+      gap: 0;
+      align-items: center;
     }
 
-    .nav-item {
+    .categories-btn {
+      background: var(--dark);
       color: white;
-      text-decoration: none;
-      padding: 1rem 0;
-      font-weight: 500;
-      font-size: 0.9375rem;
-      transition: color 0.3s;
-      border-bottom: 3px solid transparent;
-    }
-
-    .nav-item:hover {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-
-    .nav-item.highlight {
-      color: #FFD700;
+      border: none;
+      padding: 1rem 1.5rem;
       font-weight: 700;
+      font-size: 0.875rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: background 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .categories-btn:hover {
+      background: #1f2937;
+    }
+
+    .menu-icon {
+      font-size: 1.25rem;
+    }
+
+    .arrow {
+      font-size: 0.75rem;
+      margin-left: auto;
+    }
+
+    .nav-link {
+      color: var(--dark);
+      text-decoration: none;
+      padding: 1rem 1.25rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: all 0.3s;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      background: rgba(37, 99, 235, 0.05);
     }
 
     /* Hero */
