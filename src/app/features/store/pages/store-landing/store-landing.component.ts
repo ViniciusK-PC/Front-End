@@ -529,7 +529,7 @@ import { RouterLink } from '@angular/router';
       position: absolute;
       top: 100%;
       left: 0;
-      width: 280px;
+      width: 100vw;
       background: #2d3748;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       opacity: 0;
