@@ -198,8 +198,9 @@ import { RouterLink } from '@angular/router';
 
     /* === TOP BAR === */
     .top-bar {
-      background: #2c3e50;
-      padding: 8px 0;
+      background: #1a1f2e;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
 
     .top-bar-wrapper {
@@ -207,21 +208,22 @@ import { RouterLink } from '@angular/router';
       margin: 0 auto;
       padding: 0 20px;
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
     }
 
     .top-bar-wrapper a {
-      color: white;
+      color: #e5e7eb;
       text-decoration: none;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 400;
-      transition: opacity 0.2s;
+      transition: color 0.2s;
+      white-space: nowrap;
     }
 
     .top-bar-wrapper a:hover {
-      opacity: 0.8;
+      color: white;
     }
 
     /* === MAIN HEADER === */
