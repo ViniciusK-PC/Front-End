@@ -20,7 +20,7 @@ import { RouterLink } from '@angular/router';
       </div>
 
       <!-- Main Header (Orange Gradient) - Always Fixed -->
-      <header class="main-header">
+      <header class="main-header" [ngClass]="{'sticky': isScrolled}">
         <div class="header-wrapper">
           <!-- Logo -->
           <div class="logo-section">
@@ -210,7 +210,6 @@ import { RouterLink } from '@angular/router';
     .top-bar {
       background: #1a1f2e;
       padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
       transition: all 0.3s ease;
       max-height: 50px;
       overflow: hidden;
@@ -256,11 +255,17 @@ import { RouterLink } from '@angular/router';
       padding: 12px 0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       position: fixed;
-      top: 50px; /* Below top-bar */
+      top: 50px; /* Below top-bar by default */
       left: 0;
       right: 0;
       z-index: 1001;
-      transition: all 0.3s ease;
+      transition: top 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* When scrolled, header moves to top */
+    .main-header.sticky {
+      top: 0;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
     }
 
     /* Page Content - Padding for fixed header */
