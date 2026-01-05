@@ -14,9 +14,70 @@ export class StoreLandingComponent implements OnInit {
   private lastScrollTop = 0;
   private ticking = false;
 
+  // Banner Carousel
+  currentBannerIndex = 0;
+  bannerSlides = Array(10).fill(0); // 10 banners
+  private bannerAutoPlayInterval: any;
+
+  // Products Carousel
+  currentProductIndex = 0;
+  cardWidth = 220; // Largura de cada card + gap
+  totalCards = 8;
+  visibleCards = 6;
+
   ngOnInit() {
     // Initial check
     this.checkScroll();
+    // Start banner auto-play
+    this.startBannerAutoPlay();
+  }
+
+  // Banner Carousel Methods
+  startBannerAutoPlay() {
+    this.bannerAutoPlayInterval = setInterval(() => {
+      this.nextBannerSlide();
+    }, 5000); // Troca a cada 5 segundos
+  }
+
+  stopBannerAutoPlay() {
+    if (this.bannerAutoPlayInterval) {
+      clearInterval(this.bannerAutoPlayInterval);
+    }
+  }
+
+  nextBannerSlide() {
+    this.currentBannerIndex = (this.currentBannerIndex + 1) % this.bannerSlides.length;
+  }
+
+  prevBannerSlide() {
+    this.currentBannerIndex = this.currentBannerIndex === 0 
+      ? this.bannerSlides.length - 1 
+      : this.currentBannerIndex - 1;
+  }
+
+  goToBannerSlide(index: number) {
+    this.currentBannerIndex = index;
+    // Reset auto-play timer
+    this.stopBannerAutoPlay();
+    this.startBannerAutoPlay();
+  }
+
+  // Products Carousel Methods
+  nextProductSlide() {
+    const maxIndex = this.totalCards - this.visibleCards;
+    if (this.currentProductIndex < maxIndex) {
+      this.currentProductIndex++;
+    } else {
+      this.currentProductIndex = 0; // Loop back to start
+    }
+  }
+
+  prevProductSlide() {
+    if (this.currentProductIndex > 0) {
+      this.currentProductIndex--;
+    } else {
+      this.currentProductIndex = this.totalCards - this.visibleCards; // Go to end
+    }
   }
 
   @HostListener('window:scroll')
