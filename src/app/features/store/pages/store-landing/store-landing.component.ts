@@ -256,7 +256,7 @@ import { RouterLink } from '@angular/router';
       padding: 12px 0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       position: fixed;
-      top: 36px; /* Below top-bar by default */
+      top: 33px; /* Below top-bar by default */
       left: 0;
       right: 0;
       z-index: 1001;
