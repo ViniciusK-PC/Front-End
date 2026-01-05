@@ -464,7 +464,7 @@ import { RouterLink } from '@angular/router';
       background: #1a1f36;
       transition: all 0.3s ease;
       max-height: 60px;
-      overflow: hidden;
+      overflow: visible;
       position: fixed;
       top: 111px; /* Below top-bar (36px) + main-header (75px) */
       left: 0;
