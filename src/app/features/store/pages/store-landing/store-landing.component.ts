@@ -331,14 +331,9 @@ import { RouterLink } from '@angular/router';
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
-      border-bottom: 2px solid transparent;
     }
 
     .action-box:hover {
-      border-bottom-color: white;
-    }
-
-    .action-box:hover .action-label {
       /* No extra effects */
     }
 
@@ -379,13 +374,12 @@ import { RouterLink } from '@angular/router';
       line-height: 1;
       position: relative;
       display: inline-block;
+      border-bottom: 2px solid transparent;
+      transition: border-bottom-color 0.3s ease;
     }
 
     .action-box:hover .action-label strong {
-      /* text-decoration: underline;
-      text-decoration-color: white;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 2px; */
+      border-bottom-color: white;
     }
 
     .cart-button {
@@ -399,12 +393,10 @@ import { RouterLink } from '@angular/router';
       align-items: center;
       justify-content: center;
       transition: all 0.3s ease;
-      border-bottom: 2px solid transparent;
     }
 
     .cart-button:hover {
       background: rgba(255,255,255,0.3);
-      border-bottom-color: white;
     }
 
     /* === NAVIGATION BAR === */
