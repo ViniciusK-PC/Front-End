@@ -140,13 +140,203 @@ import { RouterLink } from '@angular/router';
                   </div>
                 </div>
               </div>
-              <a href="#equipamento-auto" class="cat-dropdown-link">Equipamento Auto Center</a>
-              <a href="#ferramentas-manuais" class="cat-dropdown-link">Ferramentas Manuais</a>
-              <a href="#injecao-eletronica" class="cat-dropdown-link">Injeção Eletrônica e Motor</a>
-              <a href="#ferramentas-pneumaticas" class="cat-dropdown-link">Ferramentas Pneumáticas</a>
-              <a href="#lava-jato" class="cat-dropdown-link">Lava Jato e Posto</a>
-              <a href="#ferramentas-automotivas" class="cat-dropdown-link">Ferramentas Automotivas</a>
-              <a href="#jardinagem" class="cat-dropdown-link">Jardinagem</a>
+
+
+              <!-- Ferramentas Manuais -->
+              <div class="cat-dropdown-item">
+                <a href="#ferramentas-manuais" class="cat-dropdown-link">
+                  Ferramentas Manuais
+                  <span class="submenu-arrow">›</span>
+                </a>
+                <div class="cat-submenu">
+                  <h3 class="submenu-title">Ferramentas Manuais</h3>
+                  <div class="submenu-columns">
+                    <div class="submenu-column">
+                      <a href="#kit-ferramentas" class="submenu-link">Kit de Ferramentas</a>
+                      <a href="#caixa-ferramentas" class="submenu-link">Caixa de Ferramentas</a>
+                      <a href="#chave-biela" class="submenu-link">Chave L Biela</a>
+                      <a href="#chave-combinada" class="submenu-link">Chave Combinada</a>
+                      <a href="#jogo-chave-catraca" class="submenu-link">Jogo de Chave Combinada Catraca</a>
+                      <a href="#kit-pontas" class="submenu-link">Kit de Pontas (Bits)</a>
+                      <a href="#chave-grifo" class="submenu-link">Chave Grifo (Cano)</a>
+                      <a href="#chave-canhao" class="submenu-link">Chave Canhão</a>
+                      <a href="#soquetes-3-4" class="submenu-link">Soquetes de 3/4</a>
+                      <a href="#chave-roda" class="submenu-link">Chave de Roda</a>
+                      <a href="#ferramentas-isoladas" class="submenu-link">Ferramentas Isoladas</a>
+                      <a href="#chave-allen" class="submenu-link">Chave Allen</a>
+                      <a href="#soquete-hexagonal" class="submenu-link">Soquete Tipo Hexagonal</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#alicates" class="submenu-link">Alicates</a>
+                      <a href="#jogo-chave-combinada" class="submenu-link">Jogo de Chave Combinada</a>
+                      <a href="#chave-fenda-philips" class="submenu-link">Chave de Fenda e Philips</a>
+                      <a href="#soquete-1-2" class="submenu-link">Soquete de 1/2</a>
+                      <a href="#jogo-chave-allen" class="submenu-link">Jogo de Chave Allen</a>
+                      <a href="#jogo-soquetes-impacto" class="submenu-link">Jogo de Soquetes de Impacto</a>
+                      <a href="#chave-inglesa" class="submenu-link">Chave Inglesa</a>
+                      <a href="#jogo-chave-estrela" class="submenu-link">Jogo de Chave Estrela</a>
+                      <a href="#chave-combinada-catraca" class="submenu-link">Chave Combinada Catraca</a>
+                      <a href="#jogo-chave-estrela-catraca" class="submenu-link">Jogo de Chave Estrela Catraca</a>
+                      <a href="#adaptadores-soquetes" class="submenu-link">Adaptadores p/ Soquetes</a>
+                      <a href="#extensao-soquete" class="submenu-link">Extensão P/ Soquete</a>
+                      <a href="#chave-fixa" class="submenu-link">Chave de Fixa</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#jogo-soquetes" class="submenu-link">Jogo de Soquetes</a>
+                      <a href="#maleta-ferramentas" class="submenu-link">Maleta de Ferramentas e Bolsas</a>
+                      <a href="#grampos" class="submenu-link">Grampos</a>
+                      <a href="#jogo-tork-ribe" class="submenu-link">Jogo de Tork e Ribe</a>
+                      <a href="#martelos" class="submenu-link">Martelos</a>
+                      <a href="#catraca-reversivel" class="submenu-link">Catraca Reversível P/ Soquetes</a>
+                      <a href="#chave-tork-l" class="submenu-link">Chave Tork Tipo L</a>
+                      <a href="#arco-serra" class="submenu-link">Arco de Serra</a>
+                      <a href="#marretas" class="submenu-link">Marretas</a>
+                      <a href="#cabo-forca" class="submenu-link">Cabo de Força P/ Soquetes</a>
+                      <a href="#rebitador-manual" class="submenu-link">Rebitador Manual</a>
+                      <a href="#jogo-chave-fixa" class="submenu-link">Jogo de Chave de Fixa</a>
+                      <a href="#chave-estrela" class="submenu-link">Chave Estrela</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ferramentas Pneumáticas -->
+              <div class="cat-dropdown-item">
+                <a href="#ferramentas-pneumaticas" class="cat-dropdown-link">
+                  Ferramentas Pneumáticas
+                  <span class="submenu-arrow">›</span>
+                </a>
+                <div class="cat-submenu">
+                  <h3 class="submenu-title">Ferramentas Pneumáticas</h3>
+                  <div class="submenu-columns">
+                    <div class="submenu-column">
+                      <a href="#chave-impacto-pneu" class="submenu-link">Chave Impacto</a>
+                      <a href="#kit-compressor" class="submenu-link">Kit Para Compressor</a>
+                      <a href="#pulverizadores" class="submenu-link">Pulverizadores</a>
+                      <a href="#retificas" class="submenu-link">Retificas</a>
+                      <a href="#bicos-ar" class="submenu-link">Bicos de Ar</a>
+                      <a href="#rebitadores" class="submenu-link">Rebitadores</a>
+                      <a href="#serras-pneumaticas" class="submenu-link">Serras Pneumáticas</a>
+                      <a href="#pinadores" class="submenu-link">Pinadores</a>
+                      <a href="#calafetadores" class="submenu-link">Calafetadores</a>
+                      <a href="#despontadeira" class="submenu-link">Despontadeira</a>
+                      <a href="#testadores" class="submenu-link">Testadores</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#acessorios-pneumaticos" class="submenu-link">Acessórios Pneumáticos</a>
+                      <a href="#mangueiras-ar" class="submenu-link">Mangueiras de Ar</a>
+                      <a href="#lixadeiras-pneu" class="submenu-link">Lixadeiras</a>
+                      <a href="#marteletes-pneu" class="submenu-link">Marteletes</a>
+                      <a href="#bases-antideslizantes" class="submenu-link">Bases Antideslizantes e Nivelador</a>
+                      <a href="#desincrustador" class="submenu-link">Desincrustador</a>
+                      <a href="#esmerilhadeiras-pneu" class="submenu-link">Esmerilhadeiras</a>
+                      <a href="#tesoura-puncao" class="submenu-link">Tesoura Punção</a>
+                      <a href="#politriz-pneu" class="submenu-link">Politriz</a>
+                      <a href="#motores-pneumaticos" class="submenu-link">Motores Pneumáticos</a>
+                      <a href="#hidropneumaticos" class="submenu-link">Hidropneumáticos</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#chave-catraca-pneu" class="submenu-link">Chave de Catraca</a>
+                      <a href="#filtro-regulador" class="submenu-link">Filtro Regulador</a>
+                      <a href="#grampeadores-pneu" class="submenu-link">Grampeadores</a>
+                      <a href="#tornador" class="submenu-link">Tornador</a>
+                      <a href="#furadeira-pneumatica" class="submenu-link">Furadeira Pneumática</a>
+                      <a href="#parafusadeiras-pneu" class="submenu-link">Parafusadeiras</a>
+                      <a href="#bombas-encher" class="submenu-link">Bombas de Encher</a>
+                      <a href="#vibradores-pneumaticos" class="submenu-link">Vibradores Pneumáticos</a>
+                      <a href="#facas-oscilantes" class="submenu-link">Facas Oscilantes</a>
+                      <a href="#caneta-gravacao" class="submenu-link">Caneta Gravação</a>
+                      <a href="#pistolas" class="submenu-link">Pistolas</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lava Jato e Posto -->
+              <div class="cat-dropdown-item">
+                <a href="#lava-jato" class="cat-dropdown-link">
+                  Lava Jato e Posto
+                  <span class="submenu-arrow">›</span>
+                </a>
+                <div class="cat-submenu">
+                  <h3 class="submenu-title">Lava Jato e Posto</h3>
+                  <div class="submenu-columns">
+                    <div class="submenu-column">
+                      <a href="#lavadora-alta-pressao" class="submenu-link">Lavadora de Alta Pressão</a>
+                      <a href="#posto-gasolina" class="submenu-link">Posto de Gasolina</a>
+                      <a href="#limpadora-vapor" class="submenu-link">Limpadora a Vapor</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#aspirador-po-lava" class="submenu-link">Aspirador de Pó</a>
+                      <a href="#transferidor-liquidos" class="submenu-link">Transferidor de Líquidos</a>
+                      <a href="#funil" class="submenu-link">Funil</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#varredeiras" class="submenu-link">Varredeiras</a>
+                      <a href="#lavadora-media-pressao" class="submenu-link">Lavadora de Média Pressão</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Jardinagem -->
+              <div class="cat-dropdown-item">
+                <a href="#jardinagem" class="cat-dropdown-link">
+                  Jardinagem
+                  <span class="submenu-arrow">›</span>
+                </a>
+                <div class="cat-submenu">
+                  <h3 class="submenu-title">Jardinagem</h3>
+                  <div class="submenu-columns">
+                    <div class="submenu-column">
+                      <a href="#gerador-energia" class="submenu-link">Gerador de energia</a>
+                      <a href="#cortador-grama" class="submenu-link">Cortador de grama</a>
+                      <a href="#moedor-cana" class="submenu-link">Moedor de cana</a>
+                      <a href="#soprador-folhas" class="submenu-link">Soprador de folhas</a>
+                      <a href="#pulverizador-jardim" class="submenu-link">Pulverizador</a>
+                      <a href="#mangueiras-jardim" class="submenu-link">Mangueiras</a>
+                      <a href="#aparadores-cerca" class="submenu-link">Aparadores de Cerca Viva</a>
+                      <a href="#filtro-piscina" class="submenu-link">Filtro para piscina</a>
+                      <a href="#tesoura-eletrica-grama" class="submenu-link">Tesoura elétrica para grama</a>
+                      <a href="#vaso-jardim" class="submenu-link">Vaso para Jardim</a>
+                      <a href="#aspersor" class="submenu-link">Aspersor</a>
+                      <a href="#adubadeiras" class="submenu-link">Adubadeiras</a>
+                      <a href="#carrinhos-jardim" class="submenu-link">Carrinhos para Jardim</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#motocultivador" class="submenu-link">Motocultivador</a>
+                      <a href="#bomba-agua" class="submenu-link">Bomba de Água</a>
+                      <a href="#motobomba-combustao" class="submenu-link">Motobomba à Combustão</a>
+                      <a href="#trituradores" class="submenu-link">Trituradores</a>
+                      <a href="#mini-trator" class="submenu-link">Mini Trator P/ Cortar Grama</a>
+                      <a href="#bomba-piscina" class="submenu-link">Bomba para piscina</a>
+                      <a href="#aparador-grama" class="submenu-link">Aparador de Grama</a>
+                      <a href="#roda-bomba-agua" class="submenu-link">Roda para bomba de água</a>
+                      <a href="#alternador-gerador" class="submenu-link">Alternador para gerador</a>
+                      <a href="#inseticida" class="submenu-link">Inseticida</a>
+                      <a href="#gaxeta" class="submenu-link">Gaxeta</a>
+                      <a href="#grama-sintetica" class="submenu-link">Grama Sintética</a>
+                      <a href="#acessorios-tesoura" class="submenu-link">Acessórios para Tesoura Elétrica</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#rocadeiras" class="submenu-link">Roçadeiras</a>
+                      <a href="#motosserra" class="submenu-link">Motosserra</a>
+                      <a href="#motor-estacionario" class="submenu-link">Motor Estacionário</a>
+                      <a href="#perfurador-solo" class="submenu-link">Perfurador de solo</a>
+                      <a href="#atomizador" class="submenu-link">Atomizador</a>
+                      <a href="#ferramentas-jardinagem" class="submenu-link">Ferramentas para jardinagem</a>
+                      <a href="#corda" class="submenu-link">Corda</a>
+                      <a href="#ensiladeira" class="submenu-link">Ensiladeira</a>
+                      <a href="#irrigador" class="submenu-link">Irrigador</a>
+                      <a href="#comedouros-jardim" class="submenu-link">Comedouros para Jardim</a>
+                      <a href="#chave-boia" class="submenu-link">Chave boia</a>
+                      <a href="#horta-hidroponica" class="submenu-link">Horta Hidropônica</a>
+                      <a href="#composteira" class="submenu-link">Composteira</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <a href="#todos-departamentos" class="cat-dropdown-link cat-dropdown-all">Ver todos os departamentos</a>
             </div>
           </div>
