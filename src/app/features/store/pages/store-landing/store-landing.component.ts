@@ -783,19 +783,19 @@ export class StoreLandingComponent implements OnInit {
   private checkScroll() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    // Se estiver no topo (menos de 50px), sempre mostra tudo
-    if (scrollTop < 50) {
+    // Se estiver no topo (menos de 100px), sempre mostra tudo
+    if (scrollTop < 100) {
+      this.isScrolled = false;
+    }
+    // Se estiver rolando para cima, mostra
+    else if (scrollTop < this.lastScrollTop) {
       this.isScrolled = false;
     }
     // Se estiver rolando para baixo, esconde
     else if (scrollTop > this.lastScrollTop) {
       this.isScrolled = true;
     }
-    // Se estiver rolando para cima, mostra
-    else {
-      this.isScrolled = false;
-    }
 
-    this.lastScrollTop = scrollTop;
+    this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }
 }
