@@ -197,6 +197,7 @@ import { RouterLink } from '@angular/router';
       --light: #f8fafc;
       --grey: #64748b;
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #1a1f2e; /* Match top-bar background */
     }
 
     .store-container {
