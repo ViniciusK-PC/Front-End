@@ -439,7 +439,6 @@ import { RouterLink } from '@angular/router';
     /* === NAVIGATION BAR === */
     .nav-bar {
       background: #1a1f36;
-      border-top: 1px solid rgba(255,255,255,0.1);
       transition: all 0.3s ease;
       max-height: 60px;
       overflow: hidden;
