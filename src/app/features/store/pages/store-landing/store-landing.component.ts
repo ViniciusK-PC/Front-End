@@ -3,22 +3,81 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
-    selector: 'app-store-landing',
-    standalone: true,
-    imports: [CommonModule, RouterLink],
-    template: `
+  selector: 'app-store-landing',
+  standalone: true,
+  imports: [CommonModule, RouterLink],
+  template: `
     <div class="store-container">
-      <!-- Navbar Simplificada para Loja -->
-      <nav class="store-nav">
-        <div class="brand">
-          <span class="logo">OP</span>
-          <strong>Oficina<span>Pro</span> Store</strong>
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="top-bar-content">
+          <div class="top-links">
+            <a href="#cupons">Cupons de Desconto</a>
+            <a href="#ofertas">Melhor Preço Hoje</a>
+            <a href="#consorcio">Consórcio</a>
+            <a href="#afiliados">Afiliados</a>
+          </div>
+          <div class="top-actions">
+            <span class="phone">📞 <strong>(11) 3968-4075</strong></span>
+            <a routerLink="/login" class="login-link">🔐 Entre ou Cadastre-se</a>
+          </div>
         </div>
-        <div class="nav-links">
-          <a href="#ferramentas">Ferramentas</a>
-          <a href="#cortadores">Cortadores</a>
-          <a href="#sobre">Sobre Nós</a>
-          <a routerLink="/login" class="btn-admin">Acesso Restrito</a>
+      </div>
+
+      <!-- Main Header -->
+      <header class="main-header">
+        <div class="header-content">
+          <!-- Logo -->
+          <div class="brand">
+            <div class="logo-icon">⚡</div>
+            <div class="brand-text">
+              <h1>Eletrotécnica <span>Maurício</span></h1>
+              <p>Ferramentas e Equipamentos Profissionais</p>
+            </div>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="search-container">
+            <input type="text" placeholder="Buscar produtos" class="search-input">
+            <button class="search-btn">🔍</button>
+          </div>
+
+          <!-- Header Actions -->
+          <div class="header-actions">
+            <a href="tel:1139684075" class="action-btn">
+              <span class="icon">📞</span>
+              <div class="action-text">
+                <small>Televendas</small>
+                <strong>(11) 3968-4075</strong>
+              </div>
+            </a>
+            <a routerLink="/login" class="action-btn">
+              <span class="icon">📋</span>
+              <div class="action-text">
+                <small>Meus</small>
+                <strong>Pedidos</strong>
+              </div>
+            </a>
+            <a routerLink="/login" class="action-btn admin-btn">
+              <span class="icon">🔐</span>
+              <div class="action-text">
+                <small>Acesso</small>
+                <strong>Restrito</strong>
+              </div>
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-menu">
+        <div class="nav-content">
+          <a href="#ferramentas" class="nav-item">Ferramentas Elétricas</a>
+          <a href="#cortadores" class="nav-item">Cortadores de Grama</a>
+          <a href="#equipamentos" class="nav-item">Equipamentos</a>
+          <a href="#ofertas" class="nav-item highlight">🔥 Ofertas</a>
+          <a href="#marcenaria" class="nav-item">Marcenaria</a>
+          <a href="#construcao" class="nav-item">Construção Civil</a>
         </div>
       </nav>
 
@@ -103,7 +162,7 @@ import { RouterLink } from '@angular/router';
       </footer>
     </div>
   `,
-    styles: [`
+  styles: [`
     :host {
       display: block;
       --primary: #2563eb;
@@ -122,67 +181,240 @@ import { RouterLink } from '@angular/router';
       overflow-x: hidden;
     }
 
-    /* Navbar */
-    .store-nav {
+    /* Top Bar */
+    .top-bar {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      font-size: 0.875rem;
+    }
+
+    .top-bar-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 5%;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
-    .brand {
+    .top-links {
       display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      gap: 1.5rem;
     }
 
-    .logo {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    .top-links a {
       color: white;
-      padding: 0.5rem 0.75rem;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 1.25rem;
+      text-decoration: none;
+      transition: opacity 0.3s;
     }
 
-    .brand strong {
-      font-size: 1.5rem;
-      letter-spacing: -0.5px;
+    .top-links a:hover {
+      opacity: 0.8;
     }
 
-    .brand strong span {
-      color: var(--primary);
-    }
-
-    .nav-links {
+    .top-actions {
       display: flex;
       gap: 2rem;
       align-items: center;
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--grey);
-      font-weight: 500;
-      transition: color 0.3s;
+    .phone {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .nav-links a:hover {
+    .login-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+
+    .login-link:hover {
+      opacity: 0.8;
+    }
+
+    /* Main Header */
+    .main-header {
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    /* Logo */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-icon {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
+    }
+
+    .brand-text h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .brand-text h1 span {
       color: var(--primary);
     }
 
-    .btn-admin {
-      background: var(--dark);
-      color: white !important;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
+    .brand-text p {
+      font-size: 0.75rem;
+      color: var(--grey);
+      margin: 0.25rem 0 0 0;
+    }
+
+    /* Search */
+    .search-container {
+      display: flex;
+      max-width: 600px;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 0.875rem 1.25rem;
+      border: 2px solid #e5e7eb;
+      border-right: none;
+      border-radius: 8px 0 0 8px;
+      font-size: 0.9375rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+    }
+
+    .search-btn {
+      padding: 0.875rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 0 8px 8px 0;
+      cursor: pointer;
+      font-size: 1.25rem;
+      transition: background 0.3s;
+    }
+
+    .search-btn:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Header Actions */
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: var(--light);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .action-btn:hover {
+      background: #e5e7eb;
+      transform: translateY(-2px);
+    }
+
+    .action-btn .icon {
+      font-size: 1.5rem;
+    }
+
+    .action-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.125rem;
+    }
+
+    .action-text small {
+      font-size: 0.75rem;
+      color: var(--grey);
+    }
+
+    .action-text strong {
       font-size: 0.875rem;
+      color: var(--dark);
+    }
+
+    .admin-btn {
+      background: linear-gradient(135deg, var(--accent), #059669);
+      color: white;
+    }
+
+    .admin-btn .action-text small,
+    .admin-btn .action-text strong {
+      color: white;
+    }
+
+    .admin-btn:hover {
+      background: linear-gradient(135deg, #059669, var(--accent));
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+      background: var(--dark);
+      border-top: 3px solid var(--primary);
+    }
+
+    .nav-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-item {
+      color: white;
+      text-decoration: none;
+      padding: 1rem 0;
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: color 0.3s;
+      border-bottom: 3px solid transparent;
+    }
+
+    .nav-item:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .nav-item.highlight {
+      color: #FFD700;
+      font-weight: 700;
     }
 
     /* Hero */
