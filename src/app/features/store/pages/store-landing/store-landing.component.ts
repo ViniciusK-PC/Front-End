@@ -500,6 +500,165 @@ import { RouterLink } from '@angular/router';
         </div>
       </section>
 
+      <!-- Featured Products -->
+      <section class="featured-products">
+        <div class="section-header">
+          <h2>Produtos em Destaque</h2>
+          <p>Confira nossas ferramentas mais vendidas e com melhor avaliação</p>
+        </div>
+
+        <div class="products-grid">
+          <div class="product-card">
+            <div class="product-badge">-15%</div>
+            <div class="product-image">
+              <img src="images/product1.png" alt="Furadeira de Impacto">
+            </div>
+            <div class="product-info">
+              <h3>Furadeira de Impacto 850W</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="reviews">(127)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-old">R$ 589,90</span>
+                <span class="price-current">R$ 499,90</span>
+              </div>
+              <button class="btn-add-cart">Adicionar ao Carrinho</button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-badge best-seller">Mais Vendido</div>
+            <div class="product-image">
+              <img src="images/product2.png" alt="Parafusadeira">
+            </div>
+            <div class="product-info">
+              <h3>Parafusadeira 12V com 2 Baterias</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="reviews">(243)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">R$ 349,90</span>
+              </div>
+              <button class="btn-add-cart">Adicionar ao Carrinho</button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-badge new">Lançamento</div>
+            <div class="product-image">
+              <img src="images/product3.png" alt="Esmerilhadeira">
+            </div>
+            <div class="product-info">
+              <h3>Esmerilhadeira Angular 4.1/2"</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="reviews">(89)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">R$ 279,90</span>
+              </div>
+              <button class="btn-add-cart">Adicionar ao Carrinho</button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-badge">-20%</div>
+            <div class="product-image">
+              <img src="images/product4.png" alt="Serra Circular">
+            </div>
+            <div class="product-info">
+              <h3>Serra Circular 1400W 7.1/4"</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="reviews">(156)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-old">R$ 699,90</span>
+                <span class="price-current">R$ 559,90</span>
+              </div>
+              <button class="btn-add-cart">Adicionar ao Carrinho</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Special Offers -->
+      <section class="special-offers">
+        <div class="offer-banner">
+          <div class="offer-content">
+            <span class="offer-tag">Oferta Relâmpago</span>
+            <h2>Kit Completo de Ferramentas</h2>
+            <p>Mais de 100 peças profissionais com 40% de desconto</p>
+            <div class="offer-price">
+              <span class="price-from">De R$ 1.299,90</span>
+              <span class="price-to">Por apenas R$ 779,90</span>
+            </div>
+            <div class="offer-timer">
+              <div class="timer-item">
+                <span class="timer-value">12</span>
+                <span class="timer-label">Horas</span>
+              </div>
+              <div class="timer-item">
+                <span class="timer-value">34</span>
+                <span class="timer-label">Minutos</span>
+              </div>
+              <div class="timer-item">
+                <span class="timer-value">56</span>
+                <span class="timer-label">Segundos</span>
+              </div>
+            </div>
+            <button class="btn-offer">Aproveitar Oferta</button>
+          </div>
+          <div class="offer-image">
+            <img src="images/kit-tools.png" alt="Kit de Ferramentas">
+          </div>
+        </div>
+      </section>
+
+      <!-- Partner Brands -->
+      <section class="partner-brands">
+        <div class="section-header">
+          <h2>Marcas Parceiras</h2>
+          <p>Trabalhamos com as melhores marcas do mercado</p>
+        </div>
+        <div class="brands-grid">
+          <div class="brand-item">
+            <img src="images/brand1.png" alt="Bosch">
+          </div>
+          <div class="brand-item">
+            <img src="images/brand2.png" alt="DeWalt">
+          </div>
+          <div class="brand-item">
+            <img src="images/brand3.png" alt="Makita">
+          </div>
+          <div class="brand-item">
+            <img src="images/brand4.png" alt="Stanley">
+          </div>
+          <div class="brand-item">
+            <img src="images/brand5.png" alt="Black & Decker">
+          </div>
+          <div class="brand-item">
+            <img src="images/brand6.png" alt="Vonder">
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <section class="newsletter">
+        <div class="newsletter-content">
+          <div class="newsletter-icon">📧</div>
+          <h2>Fique por dentro das novidades</h2>
+          <p>Receba ofertas exclusivas, lançamentos e dicas profissionais</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Seu melhor e-mail" required>
+            <button type="submit" class="btn-subscribe">Inscrever-se</button>
+          </form>
+          <span class="newsletter-privacy">Seus dados estão seguros conosco 🔒</span>
+        </div>
+      </section>
+
       <!-- CTA Footer -->
       </div>
       <!-- End Page Content -->
@@ -1237,6 +1396,379 @@ import { RouterLink } from '@angular/router';
       border-top: 1px solid rgba(255,255,255,0.1);
       color: rgba(255,255,255,0.4);
       font-size: 0.875rem;
+    }
+
+    /* === FEATURED PRODUCTS === */
+    .featured-products {
+      padding: 6rem 5%;
+      background: white;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #ef4444;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      z-index: 1;
+    }
+
+    .product-badge.best-seller {
+      background: #10b981;
+    }
+
+    .product-badge.new {
+      background: #3b82f6;
+    }
+
+    .product-image {
+      background: #f8fafc;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 240px;
+    }
+
+    .product-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-info h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #1e293b;
+      min-height: 2.5rem;
+    }
+
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .stars {
+      color: #fbbf24;
+      font-size: 1rem;
+    }
+
+    .reviews {
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+
+    .product-price {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .price-old {
+      text-decoration: line-through;
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+
+    .price-current {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #10b981;
+    }
+
+    .btn-add-cart {
+      width: 100%;
+      padding: 0.875rem;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-add-cart:hover {
+      background: #2563eb;
+      transform: scale(1.02);
+    }
+
+    /* === SPECIAL OFFERS === */
+    .special-offers {
+      padding: 6rem 5%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .offer-banner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .offer-content {
+      color: white;
+    }
+
+    .offer-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .offer-content h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .offer-content p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .offer-price {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .price-from {
+      font-size: 1rem;
+      opacity: 0.8;
+      text-decoration: line-through;
+    }
+
+    .price-to {
+      font-size: 2.5rem;
+      font-weight: 800;
+    }
+
+    .offer-timer {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .timer-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255,255,255,0.15);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .timer-value {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+
+    .timer-label {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+    }
+
+    .btn-offer {
+      padding: 1.25rem 3rem;
+      background: white;
+      color: #667eea;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.125rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-offer:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .offer-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .offer-image img {
+      max-width: 100%;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+    }
+
+    /* === PARTNER BRANDS === */
+    .partner-brands {
+      padding: 6rem 5%;
+      background: #f8fafc;
+    }
+
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .brand-item {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .brand-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .brand-item img {
+      max-width: 120px;
+      max-height: 60px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.6;
+      transition: all 0.3s;
+    }
+
+    .brand-item:hover img {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    /* === NEWSLETTER === */
+    .newsletter {
+      padding: 6rem 5%;
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: white;
+    }
+
+    .newsletter-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletter-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .newsletter-content h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-content p {
+      font-size: 1.125rem;
+      opacity: 0.8;
+      margin-bottom: 2rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .newsletter-form input::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+
+    .newsletter-form input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .btn-subscribe {
+      padding: 1rem 2rem;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .btn-subscribe:hover {
+      background: #2563eb;
+      transform: scale(1.05);
+    }
+
+    .newsletter-privacy {
+      font-size: 0.875rem;
+      opacity: 0.6;
+    }
+
+    /* === FOOTER === */
+    .store-footer {
+      background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+      color: white;
+      padding: 6rem 5%;
+      text-align: center;
     }
 
     /* Responsive */

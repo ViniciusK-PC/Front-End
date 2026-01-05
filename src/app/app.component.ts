@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthService } from './core/services/auth.service';
 
 @Component({
@@ -12,8 +12,13 @@ import { AuthService } from './core/services/auth.service';
 export class AppComponent {
   title = 'Oficina Pro';
   authService = inject(AuthService);
+  router = inject(Router);
 
   logout(): void {
     this.authService.logout();
+  }
+
+  isLandingPage(): boolean {
+    return this.router.url === '/' || this.router.url === '';
   }
 }

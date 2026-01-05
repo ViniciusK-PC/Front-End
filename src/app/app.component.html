@@ -1,4 +1,4 @@
-@if (authService.isAuthenticated()) {
+@if (authService.isAuthenticated() && !isLandingPage()) {
 <header class="top-bar">
   <div class="brand">
     <span class="logo">OP</span>
