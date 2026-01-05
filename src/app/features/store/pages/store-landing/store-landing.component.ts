@@ -239,7 +239,7 @@ import { RouterLink } from '@angular/router';
 
     .top-bar-wrapper a {
       color: #e5e7eb;
-      text-decoration: underline;
+      text-decoration: none;
       font-size: 12.5px;
       font-weight: 400;
       transition: color 0.2s;
@@ -397,7 +397,7 @@ import { RouterLink } from '@angular/router';
       overflow: hidden;
       transition: all 0.3s ease;
       white-space: nowrap;
-      border-bottom: 1px solid transparent;
+      border-bottom: 1px solid white;
     }
 
     .action-box:hover .action-label {
