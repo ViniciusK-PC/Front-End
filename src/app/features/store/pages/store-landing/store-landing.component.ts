@@ -100,6 +100,7 @@ import { RouterLink } from '@angular/router';
                   <span class="submenu-arrow">›</span>
                 </a>
                 <div class="cat-submenu">
+                  <h3 class="submenu-title">Ferramentas Elétricas e Máquinas</h3>
                   <div class="submenu-columns">
                     <div class="submenu-column">
                       <a href="#compressores" class="submenu-link">Compressores de ar</a>
@@ -675,6 +676,21 @@ import { RouterLink } from '@angular/router';
       background: #f5f5f5;
       color: #ff8c42;
       padding-left: 16px;
+    }
+
+    .submenu-title {
+      margin: 0 0 15px 0;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f0f0f0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Orange background when hovering category with submenu */
+    .cat-dropdown-item:hover > .cat-dropdown-link {
+      background: #ff8c42;
+      color: white;
     }
 
     .nav-link {
