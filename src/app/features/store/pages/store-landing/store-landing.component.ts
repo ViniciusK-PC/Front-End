@@ -768,6 +768,7 @@ import { RouterLink } from '@angular/router';
 })
 export class StoreLandingComponent implements OnInit {
   isScrolled = false;
+  private lastScrollTop = 0;
 
   ngOnInit() {
     // Initial check
@@ -780,6 +781,21 @@ export class StoreLandingComponent implements OnInit {
   }
 
   private checkScroll() {
-    this.isScrolled = window.pageYOffset > 50;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Se estiver no topo (menos de 50px), sempre mostra tudo
+    if (scrollTop < 50) {
+      this.isScrolled = false;
+    }
+    // Se estiver rolando para baixo, esconde
+    else if (scrollTop > this.lastScrollTop) {
+      this.isScrolled = true;
+    }
+    // Se estiver rolando para cima, mostra
+    else {
+      this.isScrolled = false;
+    }
+
+    this.lastScrollTop = scrollTop;
   }
 }
