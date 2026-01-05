@@ -239,7 +239,7 @@ import { RouterLink } from '@angular/router';
 
     .top-bar-wrapper a {
       color: #e5e7eb;
-      text-decoration: none;
+      text-decoration: underline;
       font-size: 12.5px;
       font-weight: 400;
       transition: color 0.2s;
