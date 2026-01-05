@@ -94,7 +94,51 @@ import { RouterLink } from '@angular/router';
               <span class="cat-arrow">▼</span>
             </button>
             <div class="cat-dropdown">
-              <a href="#ferramentas-eletricas" class="cat-dropdown-link">Ferramentas Elétricas e Manuais</a>
+              <div class="cat-dropdown-item">
+                <a href="#ferramentas-eletricas" class="cat-dropdown-link">
+                  Ferramentas Elétricas e Manuais
+                  <span class="submenu-arrow">›</span>
+                </a>
+                <div class="cat-submenu">
+                  <div class="submenu-columns">
+                    <div class="submenu-column">
+                      <a href="#compressores" class="submenu-link">Compressores de ar</a>
+                      <a href="#marteletes" class="submenu-link">Marteletes Elétricos</a>
+                      <a href="#lixadeira" class="submenu-link">Lixadeira e Politriz</a>
+                      <a href="#utilidades" class="submenu-link">Utilidades Para Máquinas Elétricas</a>
+                      <a href="#motor-eletrico" class="submenu-link">Motor Elétrico</a>
+                      <a href="#soprador" class="submenu-link">Soprador Térmico</a>
+                      <a href="#motobomba" class="submenu-link">Motobomba</a>
+                      <a href="#afiador" class="submenu-link">Afiador</a>
+                      <a href="#motor-gasolina" class="submenu-link">Motor a Gasolina</a>
+                      <a href="#aspiradores" class="submenu-link">Aspiradores de Pó</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#serra-eletrica" class="submenu-link">Serra Elétrica</a>
+                      <a href="#esmerilhadeira" class="submenu-link">Esmerilhadeira</a>
+                      <a href="#tupias" class="submenu-link">Tupias e Plainas</a>
+                      <a href="#moto-esmeril" class="submenu-link">Moto Esmeril</a>
+                      <a href="#retificadeiras" class="submenu-link">Retificadeiras Elétricas</a>
+                      <a href="#sopradores-eletricos" class="submenu-link">Sopradores Elétricos</a>
+                      <a href="#grampeador" class="submenu-link">Grampeador/Pinador Elétrico</a>
+                      <a href="#serras-fita" class="submenu-link">Serras Fita</a>
+                      <a href="#polidores" class="submenu-link">Polidores</a>
+                      <a href="#maquinas-solda" class="submenu-link">Máquinas de Solda Acessórios</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#parafusadeiras" class="submenu-link">Parafusadeiras Elétricas</a>
+                      <a href="#furadeira-eletrica" class="submenu-link">Furadeira elétrica</a>
+                      <a href="#chave-impacto" class="submenu-link">Chave de Impacto</a>
+                      <a href="#maquinas-industriais" class="submenu-link">Máquinas Industriais</a>
+                      <a href="#fresadora" class="submenu-link">Fresadora/ Frisadeira</a>
+                      <a href="#rosqueadeiras" class="submenu-link">Rosqueadeiras</a>
+                      <a href="#linha-bateria" class="submenu-link">Linha Bateria</a>
+                      <a href="#chave-catraca" class="submenu-link">Chave Catraca Bateria</a>
+                      <a href="#laminadoras" class="submenu-link">Laminadoras</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <a href="#equipamento-auto" class="cat-dropdown-link">Equipamento Auto Center</a>
               <a href="#ferramentas-manuais" class="cat-dropdown-link">Ferramentas Manuais</a>
               <a href="#injecao-eletronica" class="cat-dropdown-link">Injeção Eletrônica e Motor</a>
@@ -572,6 +616,65 @@ import { RouterLink } from '@angular/router';
     .cat-dropdown-all {
       font-weight: 600;
       background: rgba(255,140,66,0.1);
+    }
+
+    /* Submenu Styles */
+    .cat-dropdown-item {
+      position: relative;
+    }
+
+    .submenu-arrow {
+      float: right;
+      font-size: 16px;
+      opacity: 0.7;
+    }
+
+    .cat-submenu {
+      position: absolute;
+      left: 100%;
+      top: 0;
+      background: white;
+      min-width: 800px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-10px);
+      transition: all 0.3s ease;
+      z-index: 2001;
+      padding: 20px;
+    }
+
+    .cat-dropdown-item:hover .cat-submenu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+    }
+
+    .submenu-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .submenu-column {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .submenu-link {
+      color: #333;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-size: 13px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+
+    .submenu-link:hover {
+      background: #f5f5f5;
+      color: #ff8c42;
+      padding-left: 16px;
     }
 
     .nav-link {
