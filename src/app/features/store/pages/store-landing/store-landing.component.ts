@@ -248,6 +248,7 @@ import { RouterLink } from '@angular/router';
 
     .top-bar-wrapper a:hover {
       color: white;
+      text-decoration: underline;
     }
 
     /* === MAIN HEADER === */
