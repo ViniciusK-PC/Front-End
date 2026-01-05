@@ -85,11 +85,7 @@ import { RouterLink } from '@angular/router';
           <a href="#cupons" class="nav-link">Cupons de Desconto</a>
           <a href="#whatsapp" class="nav-link">Canal WhatsApp</a>
           <a href="#saldos" class="nav-link">Saldos</a>
-          <a href="#auto" class="nav-link">Auto mecânica</a>
-          <a href="#borracharia" class="nav-link">Borracharia</a>
-          <a href="#marcenaria" class="nav-link">Marcenaria</a>
           <a href="#eletrica" class="nav-link">Auto elétrica</a>
-          <a href="#construcao" class="nav-link">Construção Civil</a>
         </div>
       </nav>
 
