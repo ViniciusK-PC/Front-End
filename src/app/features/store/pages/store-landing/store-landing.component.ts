@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
   template: `
     <div class="store-container">
       <!-- Top Bar (Dark Navy) -->
-      <div class="top-bar">
+      <div class="top-bar" [ngClass]="{'hidden': isScrolled}">
         <div class="top-bar-wrapper">
           <a href="#cupons">Cupons de Desconto</a>
           <a href="#ofertas">Melhor Preço Hoje</a>
@@ -20,7 +20,7 @@ import { RouterLink } from '@angular/router';
       </div>
 
       <!-- Main Header (Orange Gradient) -->
-      <header class="main-header">
+      <header class="main-header" [ngClass]="{'sticky': isScrolled}">
         <div class="header-wrapper">
           <!-- Logo -->
           <div class="logo-section">
@@ -85,7 +85,7 @@ import { RouterLink } from '@angular/router';
       </header>
 
       <!-- Navigation Bar (Dark) -->
-      <nav class="nav-bar">
+      <nav class="nav-bar" [ngClass]="{'hidden': isScrolled}">
         <div class="nav-wrapper">
           <button class="cat-button">
             <span class="cat-icon">☰</span>
@@ -205,6 +205,15 @@ import { RouterLink } from '@angular/router';
       background: #1a1f2e;
       padding: 10px 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: all 0.3s ease;
+      max-height: 50px;
+      overflow: hidden;
+    }
+
+    .top-bar.hidden {
+      max-height: 0;
+      padding: 0;
+      opacity: 0;
     }
 
     .top-bar-wrapper {
@@ -235,6 +244,16 @@ import { RouterLink } from '@angular/router';
       background: linear-gradient(90deg, #FF6B35 0%, #FF8C42 50%, #FFA500 100%);
       padding: 12px 0;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .main-header.sticky {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
 
     .header-wrapper {
@@ -403,6 +422,14 @@ import { RouterLink } from '@angular/router';
     .nav-bar {
       background: #1a1f36;
       border-top: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+      max-height: 60px;
+      overflow: hidden;
+    }
+
+    .nav-bar.hidden {
+      max-height: 0;
+      opacity: 0;
     }
 
     .nav-wrapper {
@@ -739,4 +766,20 @@ import { RouterLink } from '@angular/router';
     }
   `]
 })
-export class StoreLandingComponent { }
+export class StoreLandingComponent implements OnInit {
+  isScrolled = false;
+
+  ngOnInit() {
+    // Initial check
+    this.checkScroll();
+  }
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.checkScroll();
+  }
+
+  private checkScroll() {
+    this.isScrolled = window.pageYOffset > 50;
+  }
+}
