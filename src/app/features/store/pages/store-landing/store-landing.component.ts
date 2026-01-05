@@ -408,6 +408,11 @@ import { RouterLink } from '@angular/router';
       color: rgba(255,255,255,0.95);
       font-weight: 400;
       line-height: 1;
+      transition: text-decoration 0.3s ease;
+    }
+
+    .action-box:hover .action-label span {
+      text-decoration: underline;
     }
 
     .action-label strong {
@@ -417,6 +422,11 @@ import { RouterLink } from '@angular/router';
       line-height: 1;
       position: relative;
       display: inline-block;
+      transition: text-decoration 0.3s ease;
+    }
+
+    .action-box:hover .action-label strong {
+      text-decoration: underline;
     }
 
     .cart-button {
