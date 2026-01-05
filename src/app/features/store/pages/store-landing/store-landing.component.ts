@@ -381,6 +381,15 @@ import { RouterLink } from '@angular/router';
       color: white;
       font-weight: 700;
       line-height: 1;
+      position: relative;
+      display: inline-block;
+    }
+
+    .action-box:hover .action-label strong {
+      text-decoration: underline;
+      text-decoration-color: white;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
     }
 
     .cart-button {
