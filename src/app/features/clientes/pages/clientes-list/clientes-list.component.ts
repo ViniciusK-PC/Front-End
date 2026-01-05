@@ -1,4 +1,4 @@
-import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { Component, DestroyRef, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -9,7 +9,7 @@ import { Cliente } from '../../../../core/models/cliente.model';
 @Component({
   selector: 'app-clientes-list',
   standalone: true,
-  imports: [NgIf, NgFor, AsyncPipe, RouterLink, FormsModule, DatePipe],
+  imports: [NgIf, NgFor, RouterLink, FormsModule, DatePipe],
   template: `
     <section class="page">
       <header class="page__header">

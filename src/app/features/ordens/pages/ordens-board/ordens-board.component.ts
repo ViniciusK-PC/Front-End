@@ -1,4 +1,4 @@
-import { AsyncPipe, DatePipe, NgFor, NgIf, SlicePipe } from '@angular/common';
+import { DatePipe, NgFor, NgIf, SlicePipe } from '@angular/common';
 import { Component, DestroyRef, computed, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -17,7 +17,7 @@ const COLUNAS: { status: StatusOrdem; titulo: string }[] = [
 @Component({
   selector: 'app-ordens-board',
   standalone: true,
-  imports: [NgFor, NgIf, DatePipe, RouterLink, AsyncPipe, SlicePipe],
+  imports: [NgFor, NgIf, DatePipe, RouterLink, SlicePipe],
   template: `
     <section class="page">
       <header class="page__header">
