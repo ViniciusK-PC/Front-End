@@ -19,7 +19,7 @@ export class StoreLandingComponent implements OnInit {
     this.checkScroll();
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   onWindowScroll() {
     if (!this.ticking) {
       window.requestAnimationFrame(() => {
