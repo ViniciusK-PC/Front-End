@@ -337,7 +337,88 @@ import { RouterLink } from '@angular/router';
                 </div>
               </div>
 
-              <a href="#todos-departamentos" class="cat-dropdown-link cat-dropdown-all">Ver todos os departamentos</a>
+
+              <!-- Ver todos os departamentos -->
+              <div class="cat-dropdown-item">
+                <a href="#todos-departamentos" class="cat-dropdown-link cat-dropdown-all">
+                  Ver todos os departamentos
+                  <span class="submenu-arrow">›</span>
+                </a>
+                <div class="cat-submenu cat-submenu-wide">
+                  <h3 class="submenu-title">Todos os Departamentos</h3>
+                  <div class="submenu-columns submenu-columns-4">
+                    <div class="submenu-column">
+                      <a href="#maquinas-eletricas" class="submenu-link">Máquinas Elétricas</a>
+                      <a href="#ferramentas-auto-center" class="submenu-link">Ferramentas Auto Center</a>
+                      <a href="#ferramentas-manuais-all" class="submenu-link">Ferramentas Manuais</a>
+                      <a href="#injecao-eletronica" class="submenu-link">Injeção Eletrônica e Motor</a>
+                      <a href="#ferramentas-pneumaticas-all" class="submenu-link">Ferramentas Pneumáticas</a>
+                      <a href="#compressor-ar" class="submenu-link">Compressor de ar</a>
+                      <a href="#maquina-solda" class="submenu-link">Máquina de Solda</a>
+                      <a href="#serra-eletrica" class="submenu-link">Serra Elétrica</a>
+                      <a href="#equipamento-hidraulico" class="submenu-link">Equipamento Hidráulico</a>
+                      <a href="#elevadores-rampas" class="submenu-link">Elevadores e Rampas</a>
+                      <a href="#parafusadeiras-eletricas-all" class="submenu-link">Parafusadeiras Elétricas</a>
+                      <a href="#moveis-oficina" class="submenu-link">Móveis Para Oficina</a>
+                      <a href="#lavadora-alta-pressao-all" class="submenu-link">Lavadora de Alta Pressão</a>
+                      <a href="#chave-impacto-all" class="submenu-link">Chave Impacto</a>
+                      <a href="#escadas" class="submenu-link">Escadas</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#posto-combustivel" class="submenu-link">Posto de combustível</a>
+                      <a href="#ferramentas-automotivas-all" class="submenu-link">Ferramentas Automotivas</a>
+                      <a href="#jardinagem-all" class="submenu-link">Jardinagem</a>
+                      <a href="#construcao-civil" class="submenu-link">Construção Civil</a>
+                      <a href="#funilaria-pintura" class="submenu-link">Funilaria e Pintura</a>
+                      <a href="#limpeza-bicos" class="submenu-link">Limpeza de Bicos</a>
+                      <a href="#desmontadora-pneus" class="submenu-link">Desmontadora de Pneus</a>
+                      <a href="#furadeira-all" class="submenu-link">Furadeira</a>
+                      <a href="#scanners-automotive" class="submenu-link">Scanners Automotive</a>
+                      <a href="#kit-ferramentas-all" class="submenu-link">Kit de Ferramentas</a>
+                      <a href="#esmerilhadeira-all" class="submenu-link">Esmerilhadeira</a>
+                      <a href="#tupias-plainas-all" class="submenu-link">Tupias e Plainas</a>
+                      <a href="#rocadeira-all" class="submenu-link">Roçadeira</a>
+                      <a href="#soquetes-jogos" class="submenu-link">Soquetes (Jogos)</a>
+                      <a href="#multimetros" class="submenu-link">Multímetros</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#equipamento-caminhoes" class="submenu-link">Equipamento Caminhões</a>
+                      <a href="#para-voce-sua-casa" class="submenu-link">Para Você e Sua Casa</a>
+                      <a href="#aditivos-lubrificantes" class="submenu-link">Aditivos e Lubrificantes</a>
+                      <a href="#movimentacao-carga" class="submenu-link">Movimentação e Carga</a>
+                      <a href="#camping-hobby" class="submenu-link">Camping e Hobby</a>
+                      <a href="#bomba-agua-all" class="submenu-link">Bomba de Água</a>
+                      <a href="#morsas-tornos" class="submenu-link">Morsas e Tornos</a>
+                      <a href="#suporte-motor-cambio" class="submenu-link">Suporte Motor Câmbio Leve</a>
+                      <a href="#carregador-bateria-12v" class="submenu-link">Carregador de Bateria até 12V</a>
+                      <a href="#chave-combinada-jogo" class="submenu-link">Chave Combinada (Jogo)</a>
+                      <a href="#mascara-protecao" class="submenu-link">Máscara de Proteção</a>
+                      <a href="#repuxador-spotter" class="submenu-link">Repuxador / Spotter</a>
+                      <a href="#pistola-pintura" class="submenu-link">Pistola Para Pintura</a>
+                      <a href="#rampa-motos" class="submenu-link">Rampa Para Motos</a>
+                      <a href="#maquinas-industriais-all" class="submenu-link">Máquinas Industriais</a>
+                    </div>
+                    <div class="submenu-column">
+                      <a href="#auto-eletrica" class="submenu-link">Auto Elétrica</a>
+                      <a href="#ferramentas-motos" class="submenu-link">Ferramentas Para Motos</a>
+                      <a href="#epi" class="submenu-link">EPI</a>
+                      <a href="#borracharia" class="submenu-link">Borracharia</a>
+                      <a href="#ferramentas-geral" class="submenu-link">Ferramentas em Geral</a>
+                      <a href="#lixadeira-politriz-all" class="submenu-link">Lixadeira e Politriz</a>
+                      <a href="#marteletes-eletricos-all" class="submenu-link">Marteletes Elétricos</a>
+                      <a href="#alicates-all" class="submenu-link">Alicates</a>
+                      <a href="#betoneiras" class="submenu-link">Betoneiras</a>
+                      <a href="#motosserras-all" class="submenu-link">Motosserras</a>
+                      <a href="#aspirador-po-all" class="submenu-link">Aspirador de Pó</a>
+                      <a href="#ventilador" class="submenu-link">Ventilador</a>
+                      <a href="#brocas" class="submenu-link">Brocas</a>
+                      <a href="#torno-mecanico" class="submenu-link">Torno Mecânico</a>
+                      <a href="#cortadores-grama" class="submenu-link">Cortadores de Grama</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
           <a href="#frete" class="nav-link">Frete Grátis</a>
@@ -875,6 +956,16 @@ import { RouterLink } from '@angular/router';
       font-size: 16px;
       font-weight: 600;
       color: #333;
+    }
+
+    /* Wider submenu for "Ver todos os departamentos" */
+    .cat-submenu-wide {
+      min-width: 1000px;
+    }
+
+    /* 4 columns layout */
+    .submenu-columns-4 {
+      grid-template-columns: repeat(4, 1fr);
     }
 
     /* Orange background when hovering category with submenu */
