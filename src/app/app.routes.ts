@@ -27,6 +27,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/dashboard/dashboard.component').then((c) => c.DashboardComponent),
   },
   {
+    path: 'usuarios',
+    canActivate: [authGuard, OwnerGuard],
+    loadComponent: () => import('./features/usuarios/pages/usuarios-list/usuarios-list.component').then((c) => c.UsuariosListComponent),
+  },
+  {
     path: 'relatorios',
     canActivate: [authGuard],
     loadChildren: () => import('./features/relatorios/relatorios.module').then((m) => m.RelatoriosModule),
