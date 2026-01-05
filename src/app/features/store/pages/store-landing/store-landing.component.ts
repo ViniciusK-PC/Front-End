@@ -210,9 +210,9 @@ import { RouterLink } from '@angular/router';
     /* === TOP BAR === */
     .top-bar {
       background: #1a1f2e;
-      padding: 10px 0;
+      padding: 8px 0;
       transition: all 0.3s ease;
-      max-height: 50px;
+      max-height: 36px;
       overflow: hidden;
       position: fixed;
       top: 0;
@@ -256,7 +256,7 @@ import { RouterLink } from '@angular/router';
       padding: 12px 0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       position: fixed;
-      top: 50px; /* Below top-bar by default */
+      top: 36px; /* Below top-bar by default */
       left: 0;
       right: 0;
       z-index: 1001;
@@ -271,7 +271,7 @@ import { RouterLink } from '@angular/router';
 
     /* Page Content - Padding for fixed header */
     .page-content {
-      padding-top: 182px; /* top-bar (50px) + main-header (72px) + nav-bar (60px) */
+      padding-top: 171px; /* top-bar (36px) + main-header (75px) + nav-bar (60px) */
     }
 
     .header-wrapper {
@@ -443,7 +443,7 @@ import { RouterLink } from '@angular/router';
       max-height: 60px;
       overflow: hidden;
       position: fixed;
-      top: 122px; /* Below top-bar (50px) + main-header (72px) */
+      top: 111px; /* Below top-bar (36px) + main-header (75px) */
       left: 0;
       right: 0;
       z-index: 1000;
