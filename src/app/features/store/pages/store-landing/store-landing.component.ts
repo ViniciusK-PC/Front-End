@@ -214,6 +214,11 @@ import { RouterLink } from '@angular/router';
       transition: all 0.3s ease;
       max-height: 50px;
       overflow: hidden;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1002;
     }
 
     .top-bar.hidden {
@@ -251,16 +256,16 @@ import { RouterLink } from '@angular/router';
       padding: 12px 0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       position: fixed;
-      top: 0;
+      top: 50px; /* Below top-bar */
       left: 0;
       right: 0;
-      z-index: 1000;
+      z-index: 1001;
       transition: all 0.3s ease;
     }
 
     /* Page Content - Padding for fixed header */
     .page-content {
-      padding-top: 72px; /* Header height (12px padding * 2 + ~48px content) */
+      padding-top: 182px; /* top-bar (50px) + main-header (72px) + nav-bar (60px) */
     }
 
     .header-wrapper {
@@ -432,6 +437,11 @@ import { RouterLink } from '@angular/router';
       transition: all 0.3s ease;
       max-height: 60px;
       overflow: hidden;
+      position: fixed;
+      top: 122px; /* Below top-bar (50px) + main-header (72px) */
+      left: 0;
+      right: 0;
+      z-index: 1000;
     }
 
     .nav-bar.hidden {
