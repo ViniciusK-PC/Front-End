@@ -318,15 +318,14 @@ import { RouterLink } from '@angular/router';
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
-      background: rgba(255,255,255,0.15);
+      background: transparent;
       border-radius: 6px;
       text-decoration: none;
       transition: background 0.2s;
-      backdrop-filter: blur(10px);
     }
 
     .action-box:hover {
-      background: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.15);
     }
 
     .action-emoji {
