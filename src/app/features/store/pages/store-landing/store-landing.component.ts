@@ -357,16 +357,13 @@ import { RouterLink } from '@angular/router';
       display: flex;
       flex-direction: column;
       gap: 2px;
-      max-width: 0;
-      opacity: 0;
       overflow: hidden;
       transition: all 0.3s ease;
       white-space: nowrap;
     }
 
     .action-box:hover .action-label {
-      max-width: 150px;
-      opacity: 1;
+      transform: scale(1.05);
     }
 
     .action-label span {
