@@ -13,10 +13,7 @@ import { RouterLink } from '@angular/router';
         <div class="top-bar-wrapper">
           <a href="#cupons">Cupons de Desconto</a>
           <a href="#ofertas">Melhor Preço Hoje</a>
-          <a href="#consorcio">Consórcio</a>
-          <a href="#afiliados">Afiliados</a>
           <a href="#vendas">Vendas corporativas</a>
-          <a href="#negocio">Monte seu negócio</a>
           <a href="#lojas">Nossas Lojas</a>
           <a href="#atendimento">Atendimento</a>
         </div>
