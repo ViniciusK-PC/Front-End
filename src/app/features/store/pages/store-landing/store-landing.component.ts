@@ -519,6 +519,7 @@ import { RouterLink } from '@angular/router';
     }
 
     .nav-link:hover {
+      color: #ff8c42;
       background: rgba(255,255,255,0.05);
       border-bottom-color: #FF8C42;
     }
