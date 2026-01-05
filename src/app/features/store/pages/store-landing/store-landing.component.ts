@@ -583,7 +583,7 @@ import { RouterLink } from '@angular/router';
       transition: all 0.3s ease;
       z-index: 2000;
       max-height: 0;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .cat-dropdown-wrapper:hover .cat-dropdown {
