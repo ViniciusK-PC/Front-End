@@ -100,6 +100,9 @@ import { RouterLink } from '@angular/router';
         </div>
       </nav>
 
+      <!-- Page Content (with padding for fixed header) -->
+      <div class="page-content">
+      
       <!-- Hero Section -->
       <header class="hero">
         <div class="hero-overlay"></div>
@@ -169,6 +172,9 @@ import { RouterLink } from '@angular/router';
       </section>
 
       <!-- CTA Footer -->
+      </div>
+      <!-- End Page Content -->
+
       <footer class="store-footer">
         <div class="footer-content">
           <h2>Pronto para elevar seu nível de serviço?</h2>
@@ -250,6 +256,11 @@ import { RouterLink } from '@angular/router';
       right: 0;
       z-index: 1000;
       transition: all 0.3s ease;
+    }
+
+    /* Page Content - Padding for fixed header */
+    .page-content {
+      padding-top: 72px; /* Header height (12px padding * 2 + ~48px content) */
     }
 
     .header-wrapper {
