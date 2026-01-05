@@ -811,7 +811,7 @@ import { RouterLink } from '@angular/router';
 
     /* Submenu Styles */
     .cat-dropdown-item {
-      position: relative;
+      position: static;
     }
 
     .submenu-arrow {
