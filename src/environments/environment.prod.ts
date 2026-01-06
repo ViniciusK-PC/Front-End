@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://cadastro-tec-1.onrender.com/api',
+  apiUrl: 'https://back-end-production-1d27.up.railway.app/api',
 };
 
