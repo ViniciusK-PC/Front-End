@@ -89,7 +89,7 @@ interface Usuario {
               <th>Usuário</th>
               <th>Email</th>
               <th>Função</th>
-              <th>Status</th>
+              <th class="text-center">Status</th>
               <th>Último Acesso</th>
               <th>Ações</th>
             </tr>
@@ -113,10 +113,15 @@ interface Usuario {
                   {{ getRoleLabel(usuario.perfil) }}
                 </span>
               </td>
-              <td>
-                <span class="status-badge" [class.active]="usuario.ativo" [class.inactive]="!usuario.ativo">
-                  {{ usuario.ativo ? 'Ativo' : 'Inativo' }}
-                </span>
+              <td class="text-center">
+                <button 
+                  class="btn-status" 
+                  [class.active]="usuario.ativo"
+                  [title]="usuario.ativo ? 'Clique para Desativar' : 'Clique para Ativar'"
+                  (click)="toggleStatus(usuario)"
+                >
+                  {{ usuario.ativo ? '🔓' : '🔒' }}
+                </button>
               </td>
               <td>
                 <span class="last-access">
@@ -127,13 +132,6 @@ interface Usuario {
                 <div class="action-buttons">
                   <button class="btn-icon" title="Editar" (click)="editarUsuario(usuario)">
                     ✏️
-                  </button>
-                  <button 
-                    class="btn-icon" 
-                    [title]="usuario.ativo ? 'Desativar' : 'Ativar'"
-                    (click)="toggleStatus(usuario)"
-                  >
-                    {{ usuario.ativo ? '🔒' : '🔓' }}
                   </button>
                   <button class="btn-icon btn-danger" title="Excluir" (click)="excluirUsuario(usuario)">
                     🗑️
@@ -184,12 +182,7 @@ interface Usuario {
               </select>
             </div>
 
-            <div class="form-group">
-              <label class="checkbox-label">
-                <input type="checkbox" [(ngModel)]="formulario.ativo">
-                <span>Usuário ativo</span>
-              </label>
-            </div>
+
           </div>
 
           <div class="modal-footer">
@@ -481,6 +474,42 @@ interface Usuario {
 
     .btn-icon.btn-danger:hover {
       background: #fee2e2;
+    }
+
+    .btn-status {
+      background: #f8fafc;
+      border: 2px solid #e2e8f0;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      transition: all 0.2s;
+    }
+
+    .btn-status:hover {
+      transform: scale(1.1);
+      border-color: #3b82f6;
+      background: white;
+    }
+
+    .btn-status.active {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .btn-status:not(.active) {
+      background: #fef2f2;
+      border-color: #fecaca;
+      filter: grayscale(0.5);
+    }
+
+    .text-center {
+      text-align: center;
     }
 
     .empty-state {
