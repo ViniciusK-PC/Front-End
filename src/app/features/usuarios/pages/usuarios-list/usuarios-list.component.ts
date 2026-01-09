@@ -744,18 +744,7 @@ export class UsuariosListComponent implements OnInit {
     this.carregando = true;
     this.usuarioService.listarUsuarios().subscribe({
       next: (response: UsuarioResponse[]) => {
-        this.usuarios = response.map(u => ({
-          id: u.id,
-          nome: u.nome,
-          email: u.email,
-          perfil: u.perfil,
-          ativo: u.ativo,
-          senhaHash: (u as any).senhaHash || (u as any).senha, // Suporte a campos de senha se existirem
-          dataCriacao: new Date(u.dataCriacao),
-          ultimoAcesso: u.ultimoAcesso ? new Date(u.ultimoAcesso) : undefined
-        }));
-        this.usuariosFiltrados = [...this.usuarios];
-        this.carregando = false;
+        this.processarDadosUsuarios(response);
       },
       error: (error) => {
         console.error('Erro ao carregar usuários:', error);
@@ -764,6 +753,25 @@ export class UsuariosListComponent implements OnInit {
         this.usuariosFiltrados = [];
       }
     });
+  }
+
+  private processarDadosUsuarios(response: UsuarioResponse[]) {
+    this.usuarios = response.map(u => ({
+      id: u.id,
+      nome: u.nome,
+      email: u.email,
+      perfil: u.perfil,
+      ativo: u.ativo,
+      senhaHash: (u as any).senhaHash || (u as any).senha,
+      dataCriacao: new Date(u.dataCriacao),
+      ultimoAcesso: u.ultimoAcesso ? new Date(u.ultimoAcesso) : undefined
+    }));
+    // Se já houver um filtro de perfil ativo (diferente de TODOS), 
+    // a filtragem local cuidaria, mas como estamos buscando do back,
+    // apenas o filtro de texto é necessário agora se quisermos manter consistência.
+    // Mas para manter simples, vamos apenas reaplicar o filtro de texto.
+    this.filtrarUsuarios();
+    this.carregando = false;
   }
 
 
@@ -790,7 +798,23 @@ export class UsuariosListComponent implements OnInit {
 
   filtrarPorPerfil(perfil: string) {
     this.filtroPerfil = perfil;
-    this.filtrarUsuarios();
+    this.carregando = true;
+
+    if (perfil === 'TODOS') {
+      this.carregarUsuarios();
+    } else {
+      this.usuarioService.buscarPorRole(perfil.toUpperCase()).subscribe({
+        next: (response: UsuarioResponse[]) => {
+          this.processarDadosUsuarios(response);
+        },
+        error: (error) => {
+          console.error(`Erro ao buscar usuários do perfil ${perfil}:`, error);
+          this.carregando = false;
+          this.usuarios = [];
+          this.usuariosFiltrados = [];
+        }
+      });
+    }
   }
 
   getInitials(nome: string): string {
