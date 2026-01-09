@@ -760,7 +760,7 @@ export class UsuariosListComponent implements OnInit {
       id: u.id,
       nome: u.nome,
       email: u.email,
-      perfil: u.perfil,
+      perfil: u.perfil.toLowerCase() as 'admin' | 'mecanico' | 'atendente',
       ativo: u.ativo,
       senhaHash: (u as any).senhaHash || (u as any).senha,
       dataCriacao: new Date(u.dataCriacao),
@@ -790,7 +790,7 @@ export class UsuariosListComponent implements OnInit {
 
     // Filtro por perfil
     if (this.filtroPerfil !== 'TODOS') {
-      filtrados = filtrados.filter(u => u.perfil === this.filtroPerfil);
+      filtrados = filtrados.filter(u => u.perfil.toLowerCase() === this.filtroPerfil.toLowerCase());
     }
 
     this.usuariosFiltrados = filtrados;
