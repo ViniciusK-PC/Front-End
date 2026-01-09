@@ -10,8 +10,7 @@
 
   <nav>
     @if (authService.currentUser()?.perfil === 'DONO') {
-    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-    <a routerLink="/usuarios" routerLinkActive="active">Usuários</a>
+    <!-- Links removidos e movidos para /privado -->
     }
     <a routerLink="/clientes" routerLinkActive="active">Clientes</a>
     <a routerLink="/clientes/novo" routerLinkActive="active" class="nav-btn-highlight">+ Novo Cliente</a>

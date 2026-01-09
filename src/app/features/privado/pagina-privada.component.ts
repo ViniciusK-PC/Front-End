@@ -1,11 +1,13 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { PainelService } from './painel.service';
 import { CommonModule } from '@angular/common';
+import { PainelService } from './painel.service';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { UsuariosListComponent } from '../usuarios/pages/usuarios-list/usuarios-list.component';
 
 @Component({
     selector: 'app-pagina-privada',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, DashboardComponent, UsuariosListComponent],
     templateUrl: './pagina-privada.component.html',
     styleUrl: './pagina-privada.component.scss'
 })
@@ -14,6 +16,8 @@ export class PaginaPrivadaComponent implements OnInit {
 
     statusPainel = signal<string>('Carregando...');
     mensagemPainel = signal<string>('');
+
+    abaAtiva = signal<'dashboard' | 'usuarios' | 'sistema'>('dashboard');
 
     ngOnInit() {
         this.painelService.getStatus().subscribe({
@@ -27,5 +31,9 @@ export class PaginaPrivadaComponent implements OnInit {
                 console.error(erro);
             }
         });
+    }
+
+    setAba(aba: 'dashboard' | 'usuarios' | 'sistema') {
+        this.abaAtiva.set(aba);
     }
 }

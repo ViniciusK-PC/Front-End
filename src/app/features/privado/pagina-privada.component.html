@@ -1,7 +1,41 @@
 <div class="private-container">
-    <h1>Painel Privado</h1>
-    <div class="status-card">
-        <p><strong>Status do Módulo:</strong> {{ statusPainel() }}</p>
-        <p>{{ mensagemPainel() }}</p>
-    </div>
+    <header class="painel-header">
+        <h1>Painel Privado</h1>
+        <div class="status-badge" [class.error]="statusPainel() === 'Erro'">
+            <span class="dot"></span>
+            {{ statusPainel() === 'ativo' ? 'Sistema Online' : 'Offline' }}
+        </div>
+    </header>
+
+    <nav class="painel-tabs">
+        <button [class.active]="abaAtiva() === 'dashboard'" (click)="setAba('dashboard')">
+            📊 Dashboard
+        </button>
+        <button [class.active]="abaAtiva() === 'usuarios'" (click)="setAba('usuarios')">
+            👥 Usuários
+        </button>
+        <button [class.active]="abaAtiva() === 'sistema'" (click)="setAba('sistema')">
+            ⚙️ Sistema
+        </button>
+    </nav>
+
+    <main class="painel-content">
+        @if (abaAtiva() === 'dashboard') {
+        <app-dashboard></app-dashboard>
+        }
+
+        @if (abaAtiva() === 'usuarios') {
+        <app-usuarios-list></app-usuarios-list>
+        }
+
+        @if (abaAtiva() === 'sistema') {
+        <div class="system-status-card">
+            <h2>Status do Módulo Isolado</h2>
+            <div class="status-info">
+                <p><strong>Status:</strong> {{ statusPainel() }}</p>
+                <p><strong>Mensagem:</strong> {{ mensagemPainel() }}</p>
+            </div>
+        </div>
+        }
+    </main>
 </div>
