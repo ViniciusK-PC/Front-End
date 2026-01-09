@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://back-end-production-e2a2.up.railway.app/api',
+  apiUrl: 'https://fathomless-cliffs-26716-38618d123f54.herokuapp.com/api',
 };
 
