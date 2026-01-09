@@ -9,6 +9,7 @@ interface Usuario {
   email: string;
   perfil: 'admin' | 'mecanico' | 'atendente';
   ativo: boolean;
+  senhaHash?: string;
   dataCriacao: Date;
   ultimoAcesso?: Date;
 }
@@ -169,8 +170,35 @@ interface Usuario {
             </div>
 
             <div class="form-group">
-              <label>Senha {{ usuarioEditando ? '(deixe em branco para não alterar)' : '' }}</label>
-              <input type="password" [(ngModel)]="formulario.senha" [placeholder]="usuarioEditando ? 'Nova senha (opcional)' : 'Digite a senha'">
+              <label>Senha {{ usuarioEditando ? '(Criptografada)' : '' }}</label>
+              <div class="password-input-wrapper">
+                <input 
+                  [type]="senhaVisivel ? 'text' : 'password'" 
+                  [(ngModel)]="formulario.senha" 
+                  [placeholder]="usuarioEditando ? 'Senha criptografada' : 'Digite a senha'"
+                  [readonly]="usuarioEditando && !redefinindoSenha"
+                >
+                <button 
+                  *ngIf="usuarioEditando && !redefinindoSenha" 
+                  type="button" 
+                  class="btn-reset" 
+                  (click)="redefinirSenha()"
+                  title="Redefinir Senha"
+                >
+                  🔄 Redefinir
+                </button>
+                <button 
+                  *ngIf="redefinindoSenha || !usuarioEditando"
+                  type="button"
+                  class="btn-view"
+                  (click)="senhaVisivel = !senhaVisivel"
+                >
+                  {{ senhaVisivel ? '👁️' : '🙈' }}
+                </button>
+              </div>
+              <small *ngIf="usuarioEditando && !redefinindoSenha" class="help-text">
+                Dono: Clique em Redefinir para criar uma nova senha.
+              </small>
             </div>
 
             <div class="form-group">
@@ -647,6 +675,42 @@ interface Usuario {
       background: #f8fafc;
       border-color: #cbd5e1;
     }
+
+    .password-input-wrapper {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-reset {
+      background: #f59e0b;
+      color: white;
+      border: none;
+      padding: 0 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .btn-reset:hover {
+      background: #d97706;
+    }
+
+    .btn-view {
+      background: #e2e8f0;
+      border: none;
+      padding: 0 0.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .help-text {
+      display: block;
+      margin-top: 0.5rem;
+      color: #64748b;
+      font-size: 0.75rem;
+    }
   `]
 })
 export class UsuariosListComponent implements OnInit {
@@ -667,6 +731,9 @@ export class UsuariosListComponent implements OnInit {
     ativo: true
   };
 
+  redefinindoSenha: boolean = false;
+  senhaVisivel: boolean = false;
+
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
@@ -683,6 +750,7 @@ export class UsuariosListComponent implements OnInit {
           email: u.email,
           perfil: u.perfil,
           ativo: u.ativo,
+          senhaHash: (u as any).senhaHash || (u as any).senha, // Suporte a campos de senha se existirem
           dataCriacao: new Date(u.dataCriacao),
           ultimoAcesso: u.ultimoAcesso ? new Date(u.ultimoAcesso) : undefined
         }));
@@ -806,6 +874,8 @@ export class UsuariosListComponent implements OnInit {
 
   abrirModalNovoUsuario() {
     this.usuarioEditando = null;
+    this.redefinindoSenha = false;
+    this.senhaVisivel = false;
     this.formulario = {
       nome: '',
       email: '',
@@ -816,12 +886,20 @@ export class UsuariosListComponent implements OnInit {
     this.mostrarModal = true;
   }
 
+  redefinirSenha() {
+    this.redefinindoSenha = true;
+    this.formulario.senha = '';
+    this.senhaVisivel = true;
+  }
+
   editarUsuario(usuario: Usuario) {
     this.usuarioEditando = usuario;
+    this.redefinindoSenha = false;
+    this.senhaVisivel = false;
     this.formulario = {
       nome: usuario.nome,
       email: usuario.email,
-      senha: '',
+      senha: usuario.senhaHash || '',
       perfil: usuario.perfil,
       ativo: usuario.ativo
     };
