@@ -760,53 +760,13 @@ export class UsuariosListComponent implements OnInit {
       error: (error) => {
         console.error('Erro ao carregar usuários:', error);
         this.carregando = false;
-        // Fallback para dados mockados em caso de erro
-        this.carregarDadosMockados();
+        this.usuarios = [];
+        this.usuariosFiltrados = [];
       }
     });
   }
 
-  carregarDadosMockados() {
-    this.usuarios = [
-      {
-        id: '1',
-        nome: 'Mauricio Silva',
-        email: 'mauricio@oficina.com',
-        perfil: 'admin',
-        ativo: true,
-        dataCriacao: new Date('2024-01-15'),
-        ultimoAcesso: new Date()
-      },
-      {
-        id: '2',
-        nome: 'João Santos',
-        email: 'joao@oficina.com',
-        perfil: 'mecanico',
-        ativo: true,
-        dataCriacao: new Date('2024-02-20'),
-        ultimoAcesso: new Date('2024-01-04')
-      },
-      {
-        id: '3',
-        nome: 'Maria Oliveira',
-        email: 'maria@oficina.com',
-        perfil: 'atendente',
-        ativo: true,
-        dataCriacao: new Date('2024-03-10'),
-        ultimoAcesso: new Date('2024-01-03')
-      },
-      {
-        id: '4',
-        nome: 'Pedro Costa',
-        email: 'pedro@oficina.com',
-        perfil: 'mecanico',
-        ativo: false,
-        dataCriacao: new Date('2023-12-01'),
-        ultimoAcesso: new Date('2023-12-15')
-      }
-    ];
-    this.usuariosFiltrados = [...this.usuarios];
-  }
+
 
   filtrarUsuarios() {
     let filtrados = [...this.usuarios];
