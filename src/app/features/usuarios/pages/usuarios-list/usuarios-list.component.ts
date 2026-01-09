@@ -109,7 +109,7 @@ interface Usuario {
               </td>
               <td>{{ usuario.email }}</td>
               <td>
-                <span class="role-badge" [class]="'role-' + usuario.role.toLowerCase()">
+                <span class="role-badge" [class]="'role-' + (usuario.role ? usuario.role.toLowerCase() : '')">
                   {{ getRoleLabel(usuario.role) }}
                 </span>
               </td>
