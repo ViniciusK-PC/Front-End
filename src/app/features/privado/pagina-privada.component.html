@@ -1,11 +1,5 @@
 <div class="private-container">
-    <header class="painel-header">
-        <h1>Painel Privado</h1>
-        <div class="status-badge" [class.error]="statusPainel() === 'Erro'">
-            <span class="dot"></span>
-            {{ statusPainel() === 'ativo' ? 'Sistema Online' : 'Offline' }}
-        </div>
-    </header>
+
 
     <nav class="painel-tabs">
         <button [class.active]="abaAtiva() === 'dashboard'" (click)="setAba('dashboard')">
