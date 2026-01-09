@@ -8,7 +8,7 @@ export interface Usuario {
     nome: string;
     email: string;
     senha?: string;
-    role: 'ADMIN' | 'MECANICO' | 'ATENDENTE';
+    role: 'admin' | 'mecanico' | 'atendente';
     ativo: boolean;
     dataCriacao?: Date;
     ultimoAcesso?: Date;
@@ -18,7 +18,7 @@ export interface UsuarioResponse {
     id: string;
     nome: string;
     email: string;
-    role: 'ADMIN' | 'MECANICO' | 'ATENDENTE';
+    role: 'admin' | 'mecanico' | 'atendente';
     ativo: boolean;
     dataCriacao: string;
     ultimoAcesso?: string;
@@ -28,7 +28,7 @@ export interface CriarUsuarioRequest {
     nome: string;
     email: string;
     senha: string;
-    role: 'ADMIN' | 'MECANICO' | 'ATENDENTE';
+    role: 'admin' | 'mecanico' | 'atendente';
     ativo: boolean;
 }
 
@@ -36,7 +36,7 @@ export interface AtualizarUsuarioRequest {
     nome?: string;
     email?: string;
     senha?: string;
-    role?: 'ADMIN' | 'MECANICO' | 'ATENDENTE';
+    role?: 'admin' | 'mecanico' | 'atendente';
     ativo?: boolean;
 }
 

@@ -7,7 +7,7 @@ interface Usuario {
   id: string;
   nome: string;
   email: string;
-  role: 'ADMIN' | 'MECANICO' | 'ATENDENTE';
+  role: 'admin' | 'mecanico' | 'atendente';
   ativo: boolean;
   dataCriacao: Date;
   ultimoAcesso?: Date;
@@ -53,22 +53,22 @@ interface Usuario {
           </button>
           <button 
             class="filter-btn" 
-            [class.active]="filtroRole === 'ADMIN'"
-            (click)="filtrarPorRole('ADMIN')"
+            [class.active]="filtroRole === 'admin'"
+            (click)="filtrarPorRole('admin')"
           >
             Administradores
           </button>
           <button 
             class="filter-btn" 
-            [class.active]="filtroRole === 'MECANICO'"
-            (click)="filtrarPorRole('MECANICO')"
+            [class.active]="filtroRole === 'mecanico'"
+            (click)="filtrarPorRole('mecanico')"
           >
             Mecânicos
           </button>
           <button 
             class="filter-btn" 
-            [class.active]="filtroRole === 'ATENDENTE'"
-            (click)="filtrarPorRole('ATENDENTE')"
+            [class.active]="filtroRole === 'atendente'"
+            (click)="filtrarPorRole('atendente')"
           >
             Atendentes
           </button>
@@ -178,9 +178,9 @@ interface Usuario {
             <div class="form-group">
               <label>Função</label>
               <select [(ngModel)]="formulario.role">
-                <option value="ADMIN">Administrador</option>
-                <option value="MECANICO">Mecânico</option>
-                <option value="ATENDENTE">Atendente</option>
+                <option value="admin">Administrador</option>
+                <option value="mecanico">Mecânico</option>
+                <option value="atendente">Atendente</option>
               </select>
             </div>
 
@@ -634,7 +634,7 @@ export class UsuariosListComponent implements OnInit {
     nome: '',
     email: '',
     senha: '',
-    role: 'ATENDENTE' as 'ADMIN' | 'MECANICO' | 'ATENDENTE',
+    role: 'atendente' as 'admin' | 'mecanico' | 'atendente',
     ativo: true
   };
 
@@ -675,7 +675,7 @@ export class UsuariosListComponent implements OnInit {
         id: '1',
         nome: 'Mauricio Silva',
         email: 'mauricio@oficina.com',
-        role: 'ADMIN',
+        role: 'admin',
         ativo: true,
         dataCriacao: new Date('2024-01-15'),
         ultimoAcesso: new Date()
@@ -684,7 +684,7 @@ export class UsuariosListComponent implements OnInit {
         id: '2',
         nome: 'João Santos',
         email: 'joao@oficina.com',
-        role: 'MECANICO',
+        role: 'mecanico',
         ativo: true,
         dataCriacao: new Date('2024-02-20'),
         ultimoAcesso: new Date('2024-01-04')
@@ -693,7 +693,7 @@ export class UsuariosListComponent implements OnInit {
         id: '3',
         nome: 'Maria Oliveira',
         email: 'maria@oficina.com',
-        role: 'ATENDENTE',
+        role: 'atendente',
         ativo: true,
         dataCriacao: new Date('2024-03-10'),
         ultimoAcesso: new Date('2024-01-03')
@@ -702,7 +702,7 @@ export class UsuariosListComponent implements OnInit {
         id: '4',
         nome: 'Pedro Costa',
         email: 'pedro@oficina.com',
-        role: 'MECANICO',
+        role: 'mecanico',
         ativo: false,
         dataCriacao: new Date('2023-12-01'),
         ultimoAcesso: new Date('2023-12-15')
@@ -747,18 +747,18 @@ export class UsuariosListComponent implements OnInit {
 
   getAvatarColor(role: string): string {
     const colors = {
-      'ADMIN': '#f59e0b',
-      'MECANICO': '#3b82f6',
-      'ATENDENTE': '#10b981'
+      'admin': '#f59e0b',
+      'mecanico': '#3b82f6',
+      'atendente': '#10b981'
     };
     return colors[role as keyof typeof colors] || '#6b7280';
   }
 
   getRoleLabel(role: string): string {
     const labels = {
-      'ADMIN': 'Administrador',
-      'MECANICO': 'Mecânico',
-      'ATENDENTE': 'Atendente'
+      'admin': 'Administrador',
+      'mecanico': 'Mecânico',
+      'atendente': 'Atendente'
     };
     return labels[role as keyof typeof labels] || role;
   }
@@ -781,7 +781,7 @@ export class UsuariosListComponent implements OnInit {
       nome: '',
       email: '',
       senha: '',
-      role: 'ATENDENTE',
+      role: 'atendente',
       ativo: true
     };
     this.mostrarModal = true;
