@@ -36,5 +36,10 @@ export const routes: Routes = [
     canActivate: [authGuard],
     loadChildren: () => import('./features/relatorios/relatorios.module').then((m) => m.RelatoriosModule),
   },
+  {
+    path: 'privado',
+    canActivate: [authGuard, OwnerGuard],
+    loadComponent: () => import('./features/privado/pagina-privada.component').then((c) => c.PaginaPrivadaComponent),
+  },
   { path: '**', redirectTo: 'clientes' },
 ];
