@@ -25,7 +25,7 @@ const COLUNAS: { status: StatusOrdem; titulo: string }[] = [
           <h1>Ordens de serviço</h1>
           <p>Acompanhe o status de cada equipamento e organize o fluxo da oficina.</p>
         </div>
-        <a class="btn primary" routerLink="nova">Nova OS</a>
+        <a class="btn primary" routerLink="/ordens/nova">Nova OS</a>
       </header>
 
       <div class="board">
@@ -43,7 +43,7 @@ const COLUNAS: { status: StatusOrdem; titulo: string }[] = [
               <p class="muted">{{ ordem.descricaoProblema }}</p>
               <footer>
                 <span>Atualizado: {{ ordem.atualizadoEm | date : 'short' }}</span>
-                <a [routerLink]="[ordem.id, 'editar']">Detalhes</a>
+                <a [routerLink]="['/ordens', ordem.id, 'editar']">Detalhes</a>
               </footer>
             </article>
             <p class="muted empty" *ngIf="!agrupadas()[coluna.status].length">

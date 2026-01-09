@@ -14,6 +14,9 @@
         <button [class.active]="abaAtiva() === 'usuarios'" (click)="setAba('usuarios')">
             👥 Usuários
         </button>
+        <button [class.active]="abaAtiva() === 'ordens'" (click)="setAba('ordens')">
+            🔧 Ordens
+        </button>
         <button [class.active]="abaAtiva() === 'sistema'" (click)="setAba('sistema')">
             ⚙️ Sistema
         </button>
@@ -26,6 +29,10 @@
 
         @if (abaAtiva() === 'usuarios') {
         <app-usuarios-list></app-usuarios-list>
+        }
+
+        @if (abaAtiva() === 'ordens') {
+        <app-ordens-board></app-ordens-board>
         }
 
         @if (abaAtiva() === 'sistema') {

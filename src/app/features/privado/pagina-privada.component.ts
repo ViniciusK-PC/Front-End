@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { PainelService } from './painel.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { UsuariosListComponent } from '../usuarios/pages/usuarios-list/usuarios-list.component';
+import { OrdensBoardComponent } from '../ordens/pages/ordens-board/ordens-board.component';
 
 @Component({
     selector: 'app-pagina-privada',
     standalone: true,
-    imports: [CommonModule, DashboardComponent, UsuariosListComponent],
+    imports: [CommonModule, DashboardComponent, UsuariosListComponent, OrdensBoardComponent],
     templateUrl: './pagina-privada.component.html',
     styleUrl: './pagina-privada.component.scss'
 })
@@ -17,7 +18,7 @@ export class PaginaPrivadaComponent implements OnInit {
     statusPainel = signal<string>('Carregando...');
     mensagemPainel = signal<string>('');
 
-    abaAtiva = signal<'dashboard' | 'usuarios' | 'sistema'>('dashboard');
+    abaAtiva = signal<'dashboard' | 'usuarios' | 'ordens' | 'sistema'>('dashboard');
 
     ngOnInit() {
         this.painelService.getStatus().subscribe({
@@ -33,7 +34,7 @@ export class PaginaPrivadaComponent implements OnInit {
         });
     }
 
-    setAba(aba: 'dashboard' | 'usuarios' | 'sistema') {
+    setAba(aba: 'dashboard' | 'usuarios' | 'ordens' | 'sistema') {
         this.abaAtiva.set(aba);
     }
 }
