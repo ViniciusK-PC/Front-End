@@ -7,7 +7,7 @@ interface Usuario {
   id: string;
   nome: string;
   email: string;
-  role: 'admin' | 'mecanico' | 'atendente';
+  perfil: 'admin' | 'mecanico' | 'atendente';
   ativo: boolean;
   dataCriacao: Date;
   ultimoAcesso?: Date;
@@ -46,29 +46,29 @@ interface Usuario {
         <div class="filter-buttons">
           <button 
             class="filter-btn" 
-            [class.active]="filtroRole === 'TODOS'"
-            (click)="filtrarPorRole('TODOS')"
+            [class.active]="filtroPerfil === 'TODOS'"
+            (click)="filtrarPorPerfil('TODOS')"
           >
             Todos
           </button>
           <button 
             class="filter-btn" 
-            [class.active]="filtroRole === 'admin'"
-            (click)="filtrarPorRole('admin')"
+            [class.active]="filtroPerfil === 'admin'"
+            (click)="filtrarPorPerfil('admin')"
           >
             Administradores
           </button>
           <button 
             class="filter-btn" 
-            [class.active]="filtroRole === 'mecanico'"
-            (click)="filtrarPorRole('mecanico')"
+            [class.active]="filtroPerfil === 'mecanico'"
+            (click)="filtrarPorPerfil('mecanico')"
           >
             Mecânicos
           </button>
           <button 
             class="filter-btn" 
-            [class.active]="filtroRole === 'atendente'"
-            (click)="filtrarPorRole('atendente')"
+            [class.active]="filtroPerfil === 'atendente'"
+            (click)="filtrarPorPerfil('atendente')"
           >
             Atendentes
           </button>
@@ -98,7 +98,7 @@ interface Usuario {
             <tr *ngFor="let usuario of usuariosFiltrados" [class.inactive]="!usuario.ativo">
               <td>
                 <div class="user-info">
-                  <div class="user-avatar" [style.background]="getAvatarColor(usuario.role)">
+                  <div class="user-avatar" [style.background]="getAvatarColor(usuario.perfil)">
                     {{ getInitials(usuario.nome) }}
                   </div>
                   <div class="user-details">
@@ -109,8 +109,8 @@ interface Usuario {
               </td>
               <td>{{ usuario.email }}</td>
               <td>
-                <span class="role-badge" [class]="'role-' + (usuario.role ? usuario.role.toLowerCase() : '')">
-                  {{ getRoleLabel(usuario.role) }}
+                <span class="role-badge" [class]="'role-' + (usuario.perfil ? usuario.perfil.toLowerCase() : '')">
+                  {{ getRoleLabel(usuario.perfil) }}
                 </span>
               </td>
               <td>
@@ -177,7 +177,7 @@ interface Usuario {
 
             <div class="form-group">
               <label>Função</label>
-              <select [(ngModel)]="formulario.role">
+              <select [(ngModel)]="formulario.perfil">
                 <option value="admin">Administrador</option>
                 <option value="mecanico">Mecânico</option>
                 <option value="atendente">Atendente</option>
@@ -624,7 +624,7 @@ export class UsuariosListComponent implements OnInit {
   usuarios: Usuario[] = [];
   usuariosFiltrados: Usuario[] = [];
   filtroTexto: string = '';
-  filtroRole: string = 'TODOS';
+  filtroPerfil: string = 'TODOS';
   mostrarModal: boolean = false;
   usuarioEditando: Usuario | null = null;
   carregando: boolean = false;
@@ -634,7 +634,7 @@ export class UsuariosListComponent implements OnInit {
     nome: '',
     email: '',
     senha: '',
-    role: 'atendente' as 'admin' | 'mecanico' | 'atendente',
+    perfil: 'atendente' as 'admin' | 'mecanico' | 'atendente',
     ativo: true
   };
 
@@ -652,7 +652,7 @@ export class UsuariosListComponent implements OnInit {
           id: u.id,
           nome: u.nome,
           email: u.email,
-          role: u.role,
+          perfil: u.perfil,
           ativo: u.ativo,
           dataCriacao: new Date(u.dataCriacao),
           ultimoAcesso: u.ultimoAcesso ? new Date(u.ultimoAcesso) : undefined
@@ -675,7 +675,7 @@ export class UsuariosListComponent implements OnInit {
         id: '1',
         nome: 'Mauricio Silva',
         email: 'mauricio@oficina.com',
-        role: 'admin',
+        perfil: 'admin',
         ativo: true,
         dataCriacao: new Date('2024-01-15'),
         ultimoAcesso: new Date()
@@ -684,7 +684,7 @@ export class UsuariosListComponent implements OnInit {
         id: '2',
         nome: 'João Santos',
         email: 'joao@oficina.com',
-        role: 'mecanico',
+        perfil: 'mecanico',
         ativo: true,
         dataCriacao: new Date('2024-02-20'),
         ultimoAcesso: new Date('2024-01-04')
@@ -693,7 +693,7 @@ export class UsuariosListComponent implements OnInit {
         id: '3',
         nome: 'Maria Oliveira',
         email: 'maria@oficina.com',
-        role: 'atendente',
+        perfil: 'atendente',
         ativo: true,
         dataCriacao: new Date('2024-03-10'),
         ultimoAcesso: new Date('2024-01-03')
@@ -702,7 +702,7 @@ export class UsuariosListComponent implements OnInit {
         id: '4',
         nome: 'Pedro Costa',
         email: 'pedro@oficina.com',
-        role: 'mecanico',
+        perfil: 'mecanico',
         ativo: false,
         dataCriacao: new Date('2023-12-01'),
         ultimoAcesso: new Date('2023-12-15')
@@ -723,16 +723,16 @@ export class UsuariosListComponent implements OnInit {
       );
     }
 
-    // Filtro por role
-    if (this.filtroRole !== 'TODOS') {
-      filtrados = filtrados.filter(u => u.role === this.filtroRole);
+    // Filtro por perfil
+    if (this.filtroPerfil !== 'TODOS') {
+      filtrados = filtrados.filter(u => u.perfil === this.filtroPerfil);
     }
 
     this.usuariosFiltrados = filtrados;
   }
 
-  filtrarPorRole(role: string) {
-    this.filtroRole = role;
+  filtrarPorPerfil(perfil: string) {
+    this.filtroPerfil = perfil;
     this.filtrarUsuarios();
   }
 
@@ -745,22 +745,22 @@ export class UsuariosListComponent implements OnInit {
       .toUpperCase();
   }
 
-  getAvatarColor(role: string): string {
+  getAvatarColor(perfil: string): string {
     const colors = {
       'admin': '#f59e0b',
       'mecanico': '#3b82f6',
       'atendente': '#10b981'
     };
-    return colors[role as keyof typeof colors] || '#6b7280';
+    return colors[perfil ? (perfil.toLowerCase() as keyof typeof colors) : 'atendente'] || '#6b7280';
   }
 
-  getRoleLabel(role: string): string {
+  getRoleLabel(perfil: string): string {
     const labels = {
       'admin': 'Administrador',
       'mecanico': 'Mecânico',
       'atendente': 'Atendente'
     };
-    return labels[role as keyof typeof labels] || role;
+    return labels[perfil ? (perfil.toLowerCase() as keyof typeof labels) : 'atendente'] || perfil;
   }
 
   formatDate(date: Date): string {
@@ -781,7 +781,7 @@ export class UsuariosListComponent implements OnInit {
       nome: '',
       email: '',
       senha: '',
-      role: 'atendente',
+      perfil: 'atendente',
       ativo: true
     };
     this.mostrarModal = true;
@@ -793,7 +793,7 @@ export class UsuariosListComponent implements OnInit {
       nome: usuario.nome,
       email: usuario.email,
       senha: '',
-      role: usuario.role,
+      perfil: usuario.perfil,
       ativo: usuario.ativo
     };
     this.mostrarModal = true;
@@ -812,7 +812,7 @@ export class UsuariosListComponent implements OnInit {
       const dados: any = {
         nome: this.formulario.nome,
         email: this.formulario.email,
-        role: this.formulario.role,
+        perfil: this.formulario.perfil,
         ativo: this.formulario.ativo
       };
 
@@ -838,7 +838,7 @@ export class UsuariosListComponent implements OnInit {
         nome: this.formulario.nome,
         email: this.formulario.email,
         senha: this.formulario.senha,
-        role: this.formulario.role,
+        perfil: this.formulario.perfil,
         ativo: this.formulario.ativo
       }).subscribe({
         next: () => {

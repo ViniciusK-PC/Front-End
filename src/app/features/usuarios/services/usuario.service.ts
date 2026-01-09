@@ -8,7 +8,7 @@ export interface Usuario {
     nome: string;
     email: string;
     senha?: string;
-    role: 'admin' | 'mecanico' | 'atendente';
+    perfil: 'admin' | 'mecanico' | 'atendente';
     ativo: boolean;
     dataCriacao?: Date;
     ultimoAcesso?: Date;
@@ -18,7 +18,7 @@ export interface UsuarioResponse {
     id: string;
     nome: string;
     email: string;
-    role: 'admin' | 'mecanico' | 'atendente';
+    perfil: 'admin' | 'mecanico' | 'atendente';
     ativo: boolean;
     dataCriacao: string;
     ultimoAcesso?: string;
@@ -28,7 +28,7 @@ export interface CriarUsuarioRequest {
     nome: string;
     email: string;
     senha: string;
-    role: 'admin' | 'mecanico' | 'atendente';
+    perfil: 'admin' | 'mecanico' | 'atendente';
     ativo: boolean;
 }
 
@@ -36,7 +36,7 @@ export interface AtualizarUsuarioRequest {
     nome?: string;
     email?: string;
     senha?: string;
-    role?: 'admin' | 'mecanico' | 'atendente';
+    perfil?: 'admin' | 'mecanico' | 'atendente';
     ativo?: boolean;
 }
 
@@ -115,8 +115,8 @@ export class UsuarioService {
     /**
      * Buscar usuários por role
      */
-    buscarPorRole(role: string): Observable<UsuarioResponse[]> {
-        return this.http.get<UsuarioResponse[]>(`${this.apiUrl}/role/${role}`, {
+    buscarPorRole(perfil: string): Observable<UsuarioResponse[]> {
+        return this.http.get<UsuarioResponse[]>(`${this.apiUrl}/role/${perfil}`, {
             headers: this.getHeaders()
         });
     }
