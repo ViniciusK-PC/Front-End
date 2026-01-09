@@ -790,7 +790,17 @@ export class UsuariosListComponent implements OnInit {
 
     // Filtro por perfil
     if (this.filtroPerfil !== 'TODOS') {
-      filtrados = filtrados.filter(u => u.perfil.toLowerCase() === this.filtroPerfil.toLowerCase());
+      filtrados = filtrados.filter(u => {
+        const perfilUsuario = u.perfil.toLowerCase();
+        const filtro = this.filtroPerfil.toLowerCase();
+
+        // Tratamento especial para admin/administrador
+        if (filtro === 'admin') {
+          return perfilUsuario === 'admin' || perfilUsuario === 'administrador';
+        }
+
+        return perfilUsuario === filtro;
+      });
     }
 
     this.usuariosFiltrados = filtrados;
