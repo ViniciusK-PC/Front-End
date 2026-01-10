@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { PrivadoAuthService } from '../../services/privado-auth.service';
 
 @Component({
-    selector: 'app-privado-login',
-    standalone: true,
-    imports: [CommonModule, FormsModule],
-    template: `
+  selector: 'app-privado-login',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: `
     <div class="login-container">
       <div class="login-card">
         <div class="brand">
@@ -24,7 +24,12 @@ import { PrivadoAuthService } from '../../services/privado-auth.service';
           
           <div class="form-group">
             <label>Senha</label>
-            <input type="password" [(ngModel)]="password" name="password" required placeholder="Sua senha">
+            <div class="password-wrapper">
+                <input [type]="showPassword() ? 'text' : 'password'" [(ngModel)]="password" name="password" required placeholder="Sua senha">
+                <button type="button" class="toggle-btn" (click)="togglePassword()">
+                    {{ showPassword() ? '🙈' : '👁️' }}
+                </button>
+            </div>
           </div>
 
           <p class="error" *ngIf="error()">{{ error() }}</p>
@@ -36,7 +41,7 @@ import { PrivadoAuthService } from '../../services/privado-auth.service';
       </div>
     </div>
   `,
-    styles: [`
+  styles: [`
     .login-container {
       height: 100vh;
       display: flex;
@@ -94,7 +99,28 @@ import { PrivadoAuthService } from '../../services/privado-auth.service';
       border-color: #f97316;
       box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
     }
-    button {
+    .password-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    .toggle-btn {
+        position: absolute;
+        right: 0.75rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding: 0;
+        width: auto;
+        color: #64748b;
+        transition: color 0.2s;
+    }
+    .toggle-btn:hover {
+        background: none;
+        color: #f97316;
+    }
+    button[type="submit"] {
       width: 100%;
       padding: 0.85rem;
       background: #f97316;
@@ -105,11 +131,12 @@ import { PrivadoAuthService } from '../../services/privado-auth.service';
       font-size: 1rem;
       cursor: pointer;
       transition: background 0.2s;
+      margin-top: 1rem;
     }
-    button:hover:not(:disabled) {
+    button[type="submit"]:hover:not(:disabled) {
       background: #ea580c;
     }
-    button:disabled {
+    button[type="submit"]:disabled {
       opacity: 0.7;
       cursor: not-allowed;
     }
@@ -124,28 +151,33 @@ import { PrivadoAuthService } from '../../services/privado-auth.service';
   `]
 })
 export class PrivadoLoginComponent {
-    private authService = inject(PrivadoAuthService);
+  private authService = inject(PrivadoAuthService);
 
-    username = '';
-    password = '';
-    loading = signal(false);
-    error = signal('');
+  username = '';
+  password = '';
+  showPassword = signal(false);
+  loading = signal(false);
+  error = signal('');
 
-    onSubmit() {
-        if (!this.username || !this.password) return;
+  togglePassword() {
+    this.showPassword.update(v => !v);
+  }
 
-        this.loading.set(true);
-        this.error.set('');
+  onSubmit() {
+    if (!this.username || !this.password) return;
 
-        this.authService.login(this.username, this.password).subscribe({
-            next: () => {
-                // Redirecionamento é feito no service
-            },
-            error: (err) => {
-                console.error(err);
-                this.error.set('Falha no login. Verifique suas credenciais.');
-                this.loading.set(false);
-            }
-        });
-    }
+    this.loading.set(true);
+    this.error.set('');
+
+    this.authService.login(this.username, this.password).subscribe({
+      next: () => {
+        // Redirecionamento é feito no service
+      },
+      error: (err) => {
+        console.error(err);
+        this.error.set('Falha no login. Verifique suas credenciais.');
+        this.loading.set(false);
+      }
+    });
+  }
 }
