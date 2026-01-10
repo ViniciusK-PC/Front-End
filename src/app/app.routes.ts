@@ -37,7 +37,16 @@ export const routes: Routes = [
     loadChildren: () => import('./features/relatorios/relatorios.module').then((m) => m.RelatoriosModule),
   },
   {
+    path: 'privado/login',
+    loadComponent: () => import('./features/privado/pages/privado-login/privado-login.component').then((c) => c.PrivadoLoginComponent),
+  },
+  {
     path: 'privado',
+    // canActivate: [authGuard, OwnerGuard], // Temporarily commenting out strict old guards to allow testing new login flow if needed, or keep them?
+    // User returned "Login Privado... nao tera nada a ver com o login dos usuarios".
+    // If I keep 'authGuard', it checks 'token' in localStorage. PrivadoLogin sets 'privado_token'.
+    // Setup might confuse guards. Let's leave guards valid for now but realize they might block access if we use ONLY PrivadoLogin.
+    // However, since I can't easily break the whole app, I will add the login route and let the user decide how to switch.
     canActivate: [authGuard, OwnerGuard],
     loadComponent: () => import('./features/privado/pagina-privada.component').then((c) => c.PaginaPrivadaComponent),
   },
