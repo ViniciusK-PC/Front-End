@@ -8,8 +8,17 @@
         <button [class.active]="abaAtiva() === 'usuarios'" (click)="setAba('usuarios')">
             👥 Usuários
         </button>
+        <button [class.active]="abaAtiva() === 'clientes'" (click)="setAba('clientes')">
+            👥 Clientes
+        </button>
+        <button [class.active]="abaAtiva() === 'novo_cliente'" (click)="setAba('novo_cliente')">
+            ➕ Novo Cliente
+        </button>
         <button [class.active]="abaAtiva() === 'ordens'" (click)="setAba('ordens')">
             🔧 Ordens
+        </button>
+        <button [class.active]="abaAtiva() === 'relatorios'" (click)="setAba('relatorios')">
+            📈 Relatórios
         </button>
         <button [class.active]="abaAtiva() === 'sistema'" (click)="setAba('sistema')">
             ⚙️ Sistema
@@ -25,8 +34,20 @@
         <app-usuarios-list></app-usuarios-list>
         }
 
+        @if (abaAtiva() === 'clientes') {
+        <app-privado-clientes-list></app-privado-clientes-list>
+        }
+
+        @if (abaAtiva() === 'novo_cliente') {
+        <app-privado-cliente-form></app-privado-cliente-form>
+        }
+
         @if (abaAtiva() === 'ordens') {
         <app-ordens-board></app-ordens-board>
+        }
+
+        @if (abaAtiva() === 'relatorios') {
+        <app-privado-relatorios-dashboard></app-privado-relatorios-dashboard>
         }
 
         @if (abaAtiva() === 'sistema') {
