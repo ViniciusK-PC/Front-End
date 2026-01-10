@@ -15,5 +15,12 @@ export const routes: Routes = [
         (m) => m.LoginComponent
       ),
   },
+  {
+    path: 'tipo-pessoa',
+    loadComponent: () =>
+      import('./core/pages/tipo-pessoa/tipo-pessoa.component').then(
+        (m) => m.TipoPessoaComponent
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];

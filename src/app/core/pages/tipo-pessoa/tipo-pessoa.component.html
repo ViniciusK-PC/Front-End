@@ -25,29 +25,45 @@
             </div>
 
             <h1>Olá, seja bem-vindo!</h1>
-            <p class="subtitle">Entre para acompanhar pedidos, ofertas e novidades.</p>
+            <p class="subtitle">Qual tipo de conta você deseja criar?</p>
 
-            <form class="login-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Digite seu E-mail, CPF ou CNPJ" class="login-input">
-                </div>
-                <button type="submit" class="btn-continue">Continuar</button>
-            </form>
+            <div class="selection-list">
+                <button class="selection-item">
+                    <div class="item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="item-text">
+                        <strong>Conta Pessoal</strong>
+                        <span>Para pessoa física (CPF)</span>
+                    </div>
+                </button>
+
+                <button class="selection-item">
+                    <div class="item-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                        </svg>
+                    </div>
+                    <div class="item-text">
+                        <strong>Conta Empresa</strong>
+                        <span>Para pessoa jurídica (CNPJ)</span>
+                    </div>
+                </button>
+            </div>
 
             <div class="divider">
                 <span>ou</span>
             </div>
 
-            <p class="social-text">Conecte-se com sua rede social</p>
-
-            <button class="btn-google">
-                <img src="https://www.google.com/favicon.ico" alt="Google">
-                Fazer login
-            </button>
-
             <div class="register-section">
-                <button class="btn-register" routerLink="/tipo-pessoa">Novo usuário? <span>Crie uma
-                        conta</span></button>
+                <button class="btn-login-redirect" routerLink="/login">Já possui uma conta? <span>Entre
+                        aqui</span></button>
             </div>
 
             <footer class="card-footer">
