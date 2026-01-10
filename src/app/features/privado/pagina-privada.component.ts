@@ -1,5 +1,6 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../core/services/auth.service';
 import { PainelService } from './painel.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { UsuariosListComponent } from '../usuarios/pages/usuarios-list/usuarios-list.component';
@@ -25,6 +26,7 @@ import { PrivadoRelatoriosComponent } from './components/privado-relatorios.comp
 })
 export class PaginaPrivadaComponent implements OnInit {
     private painelService = inject(PainelService);
+    public authService = inject(AuthService);
 
     statusPainel = signal<string>('Carregando...');
     mensagemPainel = signal<string>('');
@@ -47,5 +49,9 @@ export class PaginaPrivadaComponent implements OnInit {
 
     setAba(aba: 'dashboard' | 'usuarios' | 'ordens' | 'clientes' | 'novo_cliente' | 'relatorios' | 'sistema') {
         this.abaAtiva.set(aba);
+    }
+
+    logout() {
+        this.authService.logout();
     }
 }
