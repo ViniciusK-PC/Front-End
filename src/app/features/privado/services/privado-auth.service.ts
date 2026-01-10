@@ -19,12 +19,16 @@ export class PrivadoAuthService {
         return this.http.post<any>(`${this.apiUrl}/login`, { username, password }).pipe(
             tap(response => {
                 if (response.success) {
-                    localStorage.setItem('privado_token', 'true'); // Simples flag ou token real se houvesse
+                    localStorage.setItem('privado_token', 'true');
                     this.isAuthenticated.set(true);
                     this.router.navigate(['/privado']);
                 }
             })
         );
+    }
+
+    register(username: string, password: string): Observable<any> {
+        return this.http.post<any>(`${this.apiUrl}/setup`, { username, password });
     }
 
     logout() {

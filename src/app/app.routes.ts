@@ -41,6 +41,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/privado/pages/privado-login/privado-login.component').then((c) => c.PrivadoLoginComponent),
   },
   {
+    path: 'privado/registro',
+    loadComponent: () => import('./features/privado/pages/privado-registro/privado-registro.component').then((c) => c.PrivadoRegistroComponent),
+  },
+  {
     path: 'privado',
     // canActivate: [authGuard, OwnerGuard], // Temporarily commenting out strict old guards to allow testing new login flow if needed, or keep them?
     // User returned "Login Privado... nao tera nada a ver com o login dos usuarios".
