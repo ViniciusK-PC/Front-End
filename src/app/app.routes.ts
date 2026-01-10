@@ -22,5 +22,19 @@ export const routes: Routes = [
         (m) => m.TipoPessoaComponent
       ),
   },
+  {
+    path: 'cadastro/f',
+    loadComponent: () =>
+      import('./core/pages/cadastro/pf/pf.component').then(
+        (m) => m.PfComponent
+      ),
+  },
+  {
+    path: 'cadastro/j',
+    loadComponent: () =>
+      import('./core/pages/cadastro/pj/pj.component').then(
+        (m) => m.PjComponent
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
