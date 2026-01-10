@@ -43,5 +43,26 @@ export const routes: Routes = [
         (m) => m.PjComponent
       ),
   },
+  {
+    path: 'validacao-seguranca',
+    loadComponent: () =>
+      import('./core/pages/validacao-seguranca/validacao-seguranca.component').then(
+        (m) => m.ValidacaoSegurancaComponent
+      ),
+  },
+  {
+    path: 'verificar-codigo',
+    loadComponent: () =>
+      import('./core/pages/verificar-codigo/verificar-codigo.component').then(
+        (m) => m.VerificarCodigoComponent
+      ),
+  },
+  {
+    path: 'hotsite/alerta-laranja',
+    loadComponent: () =>
+      import('./features/hotsite/alerta-laranja/alerta-laranja.component').then(
+        (m) => m.AlertaLaranjaComponent
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];

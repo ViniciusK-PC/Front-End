@@ -27,11 +27,12 @@
             <h1>Olá, seja bem-vindo!</h1>
             <p class="subtitle">Entre para acompanhar pedidos, ofertas e novidades.</p>
 
-            <form class="login-form">
+            <form class="login-form" (ngSubmit)="onContinue()">
                 <div class="form-group">
-                    <input type="text" placeholder="Digite seu E-mail, CPF ou CNPJ" class="login-input">
+                    <input type="text" name="email" [(ngModel)]="email" placeholder="Digite seu E-mail, CPF ou CNPJ"
+                        class="login-input" required>
                 </div>
-                <button type="button" class="btn-continue" routerLink="/login-conta">Continuar</button>
+                <button type="submit" class="btn-continue">Continuar</button>
             </form>
 
             <div class="divider">

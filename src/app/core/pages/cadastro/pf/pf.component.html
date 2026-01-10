@@ -27,23 +27,26 @@
                 <h1>Criar conta pessoal</h1>
             </div>
 
-            <form class="registration-form">
+            <form class="registration-form" (ngSubmit)="onSubmit()">
                 <div class="form-grid">
                     <div class="form-group">
-                        <input type="text" id="nome" placeholder=" " class="form-input">
+                        <input type="text" id="nome" name="nome" placeholder=" " class="form-input"
+                            [(ngModel)]="userData.name" required>
                         <label for="nome">Nome <span class="required">*</span></label>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="celular" placeholder=" " class="form-input">
+                        <input type="text" id="celular" name="phone" placeholder=" " class="form-input"
+                            [(ngModel)]="userData.phone" required>
                         <label for="celular">Número de celular <span class="required">*</span></label>
                     </div>
 
                     <div class="form-group">
-                        <input type="text" id="nascimento" placeholder=" " class="form-input">
+                        <input type="text" id="nascimento" name="birthDate" placeholder=" " class="form-input"
+                            [(ngModel)]="userData.birthDate">
                         <label for="nascimento">Data de nascimento</label>
                     </div>
                     <div class="form-group has-arrow">
-                        <select id="genero" class="form-input select-input">
+                        <select id="genero" name="gender" class="form-input select-input" [(ngModel)]="userData.gender">
                             <option value="" disabled selected hidden> </option>
                             <option value="Masculino">Masculino</option>
                             <option value="Feminino">Feminino</option>
@@ -54,12 +57,14 @@
                     </div>
 
                     <div class="form-group full-width">
-                        <input type="email" id="email" placeholder=" " class="form-input">
+                        <input type="email" id="email" name="email" placeholder=" " class="form-input"
+                            [(ngModel)]="userData.email" required>
                         <label for="email">E-mail <span class="required">*</span></label>
                     </div>
 
                     <div class="form-group password-group">
-                        <input type="password" id="senha" placeholder=" " class="form-input">
+                        <input type="password" id="senha" name="password" placeholder=" " class="form-input"
+                            [(ngModel)]="userData.password" required>
                         <label for="senha">Digite sua senha <span class="required">*</span></label>
                         <span class="password-icon">
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
@@ -74,7 +79,8 @@
                     </div>
 
                     <div class="form-group password-group">
-                        <input type="password" id="confirmar" placeholder=" " class="form-input">
+                        <input type="password" id="confirmar" name="confirmPassword" placeholder=" " class="form-input"
+                            [(ngModel)]="confirmPassword" required>
                         <label for="confirmar">Confirme sua senha <span class="required">*</span></label>
                         <span class="password-icon">
                             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
@@ -112,7 +118,7 @@
                     </label>
                 </div>
 
-                <button type="submit" class="btn-create-account">Criar Conta</button>
+                <button type="submit" class="btn-create-account active">Criar Conta</button>
             </form>
 
             <footer class="card-footer">

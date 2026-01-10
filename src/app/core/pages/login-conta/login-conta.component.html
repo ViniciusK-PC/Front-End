@@ -27,16 +27,17 @@
             <h1>Olá, seja bem-vindo!</h1>
             <p class="subtitle">Entre para acompanhar pedidos, ofertas e novidades.</p>
 
-            <form class="login-form">
+            <form class="login-form" (ngSubmit)="onLogin()">
                 <div class="form-group floating-label">
-                    <input type="text" id="identificador" placeholder=" " class="login-input"
-                        value="viniciuskb38@gmail.com">
-                    <label for="identificador">Digite seu E-mail, CPF ou CNPJ</label>
-                    <span class="clear-input">×</span>
+                    <input type="text" id="identificador" name="email" [(ngModel)]="email" placeholder=" "
+                        class="login-input" readonly>
+                    <label for="identificador">E-mail, CPF ou CNPJ</label>
+                    <span class="clear-input" (click)="email = ''">×</span>
                 </div>
 
                 <div class="form-group floating-label password-wrapper">
-                    <input type="password" id="senha" placeholder=" " class="login-input">
+                    <input type="password" id="senha" name="password" [(ngModel)]="password" placeholder=" "
+                        class="login-input" required autoFocus>
                     <label for="senha">Senha</label>
                     <span class="password-toggle">👁️</span>
                 </div>

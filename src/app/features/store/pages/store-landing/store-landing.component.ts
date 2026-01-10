@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
 })
 export class StoreLandingComponent implements OnInit {
   isScrolled = false;
+  userName: string | null = null;
   private lastScrollTop = 0;
   private ticking = false;
 
@@ -26,6 +27,7 @@ export class StoreLandingComponent implements OnInit {
   visibleCards = 6;
 
   ngOnInit() {
+    this.userName = localStorage.getItem('user_name');
     // Initial check
     this.checkScroll();
     // Start banner auto-play
@@ -50,8 +52,8 @@ export class StoreLandingComponent implements OnInit {
   }
 
   prevBannerSlide() {
-    this.currentBannerIndex = this.currentBannerIndex === 0 
-      ? this.bannerSlides.length - 1 
+    this.currentBannerIndex = this.currentBannerIndex === 0
+      ? this.bannerSlides.length - 1
       : this.currentBannerIndex - 1;
   }
 
