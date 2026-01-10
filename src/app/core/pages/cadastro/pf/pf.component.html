@@ -15,37 +15,34 @@
         </div>
     </header>
 
-    <main class="login-main">
+    <main class="registration-main">
         <div class="registration-card">
-            <div class="user-avatar-orange">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
+            <div class="icon-header">
+                <div class="orange-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                    </svg>
+                </div>
+                <h1>Criar conta pessoal</h1>
             </div>
 
-            <h1>Criar conta pessoal</h1>
-
             <form class="registration-form">
-                <div class="form-row">
-                    <div class="form-group floating-label">
+                <div class="form-grid">
+                    <div class="form-group">
                         <input type="text" id="nome" placeholder=" " class="form-input">
-                        <label for="nome">Nome *</label>
+                        <label for="nome">Nome <span class="required">*</span></label>
                     </div>
-                    <div class="form-group floating-label">
+                    <div class="form-group">
                         <input type="text" id="celular" placeholder=" " class="form-input">
-                        <label for="celular">Número de celular *</label>
+                        <label for="celular">Número de celular <span class="required">*</span></label>
                     </div>
-                </div>
 
-                <div class="form-row">
-                    <div class="form-group floating-label">
+                    <div class="form-group">
                         <input type="text" id="nascimento" placeholder=" " class="form-input">
                         <label for="nascimento">Data de nascimento</label>
                     </div>
-                    <div class="form-group floating-label">
+                    <div class="form-group has-arrow">
                         <select id="genero" class="form-input select-input">
                             <option value="" disabled selected hidden> </option>
                             <option value="Masculino">Masculino</option>
@@ -53,61 +50,84 @@
                             <option value="Outro">Outro</option>
                         </select>
                         <label for="genero">Gênero</label>
+                        <span class="select-arrow"></span>
                     </div>
-                </div>
 
-                <div class="form-group floating-label full-width">
-                    <input type="email" id="email" placeholder=" " class="form-input">
-                    <label for="email">E-mail *</label>
-                </div>
+                    <div class="form-group full-width">
+                        <input type="email" id="email" placeholder=" " class="form-input">
+                        <label for="email">E-mail <span class="required">*</span></label>
+                    </div>
 
-                <div class="form-row">
-                    <div class="form-group floating-label password-wrapper">
+                    <div class="form-group password-group">
                         <input type="password" id="senha" placeholder=" " class="form-input">
-                        <label for="senha">Digite sua senha *</label>
-                        <span class="password-toggle">👁️</span>
+                        <label for="senha">Digite sua senha <span class="required">*</span></label>
+                        <span class="password-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                </path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </span>
+                        <span class="password-subtext">Use entre 6 a 20 caracteres</span>
                     </div>
-                    <div class="form-group floating-label password-wrapper">
+
+                    <div class="form-group password-group">
                         <input type="password" id="confirmar" placeholder=" " class="form-input">
-                        <label for="confirmar">Confirme sua senha *</label>
-                        <span class="password-toggle">👁️</span>
+                        <label for="confirmar">Confirme sua senha <span class="required">*</span></label>
+                        <span class="password-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                </path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </span>
                     </div>
                 </div>
 
-                <div class="password-hint">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path
-                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-                    </svg>
-                    <span>Sua senha deve ter entre 8 a 20 caracteres. Não coloque seu nome, sobrenome, e-mail, nem
-                        caracteres idênticos e consecutivos.</span>
+                <div class="warning-box">
+                    <div class="warning-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                            </path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <p>Sua senha deve ter entre 6 a 20 caracteres. Não coloque seu nome, sobrenome, e-mail, nem
+                        caracteres idênticos e consecutivos.</p>
                 </div>
 
-                <div class="terms-group">
-                    <label class="checkbox-container">
+                <div class="terms-section">
+                    <label class="custom-checkbox">
                         <input type="checkbox">
                         <span class="checkmark"></span>
-                        <span class="terms-text">Li, entendi e estou de acordo com os <a href="#">Termos e condições</a>
-                            e autorizo o uso de meus dados de acordo com a <a href="#">Política de
-                                Privacidade</a>.</span>
+                        <span class="text">Li, entendi e estou de acordo com os <a href="#">Termos e condições</a> e
+                            autorizo o uso de meus dados de acordo com a <a href="#">Política de Privacidade</a>.</span>
                     </label>
                 </div>
 
-                <button type="submit" class="btn-submit-green">Criar Conta</button>
+                <button type="submit" class="btn-create-account">Criar Conta</button>
             </form>
 
             <footer class="card-footer">
-                <div class="security">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <div class="security-seal">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                         <path
                             d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 10V6l5 1.88v4.21c0 3.84-2.14 7.4-5 8.35-2.86-.94-5-4.51-5-8.35V7.88L12 6v6z" />
                     </svg>
-                    <div class="security-text">
+                    <div class="seal-text">
                         <strong>AMBIENTE 100%</strong>
                         <span>SEGURO</span>
                     </div>
                 </div>
-                <p class="copyright">Copyright © 2000-2025 Eletrotécnica Maurício. Todos os direitos reservados.</p>
+                <p class="copyright">Copyright © 2000-2025 Eletrotécnica Maurício</p>
+                <p class="rights">Todos os direitos reservados.</p>
             </footer>
         </div>
     </main>

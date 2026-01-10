@@ -58,12 +58,12 @@
     }
 }
 
-.login-main {
+.registration-main {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 40px 20px;
+    padding: 30px 20px;
 }
 
 .registration-card {
@@ -71,42 +71,38 @@
     width: 100%;
     max-width: 800px;
     padding: 40px;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     text-align: center;
 
-    .user-avatar-orange {
-        width: 44px;
-        height: 44px;
-        background-color: #ff6b35;
-        color: white;
-        border-radius: 4px; // Square-ish like the image
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 15px;
+    .icon-header {
+        margin-bottom: 30px;
 
-        svg {
-            width: 24px;
-            height: 24px;
+        .orange-badge {
+            width: 40px;
+            height: 40px;
+            background-color: #ff6b35;
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
         }
-    }
 
-    h1 {
-        font-size: 1.4rem;
-        margin-bottom: 25px;
-        color: #333;
-        font-weight: 700;
+        h1 {
+            font-size: 1.25rem;
+            color: #333;
+            font-weight: 700;
+        }
     }
 }
 
 .registration-form {
-    text-align: left;
-
-    .form-row {
+    .form-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
+        gap: 15px 20px;
         margin-bottom: 20px;
 
         @media (max-width: 600px) {
@@ -116,10 +112,23 @@
 
     .form-group {
         position: relative;
-        margin-bottom: 20px;
+        text-align: left;
 
         &.full-width {
             grid-column: span 2;
+        }
+
+        &.has-arrow .select-arrow {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid #ff6b35;
+            border-bottom: 2px solid #ff6b35;
+            transform: translateY(-70%) rotate(45deg);
+            pointer-events: none;
         }
 
         label {
@@ -127,21 +136,26 @@
             top: 50%;
             left: 15px;
             transform: translateY(-50%);
-            background: white;
-            padding: 0 5px;
             color: #666;
             font-size: 1rem;
-            pointer-events: none;
             transition: all 0.2s ease;
+            background: white;
+            padding: 0 4px;
+            pointer-events: none;
+
+            .required {
+                color: #ff6b35;
+            }
         }
 
         .form-input {
             width: 100%;
             padding: 12px 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
             outline: none;
+            height: 48px;
 
             &:focus,
             &:not(:placeholder-shown) {
@@ -149,54 +163,73 @@
 
                 +label {
                     top: 0;
-                    font-size: 0.8rem;
+                    font-size: 0.75rem;
                     color: #ff6b35;
                     font-weight: 600;
                 }
             }
         }
 
-        &.password-wrapper {
-            .password-toggle {
+        select.form-input {
+            appearance: none;
+            background: white;
+        }
+
+        &.password-group {
+            .password-icon {
                 position: absolute;
                 right: 15px;
-                top: 50%;
+                top: 24px;
                 transform: translateY(-50%);
-                cursor: pointer;
-                font-size: 1.2rem;
                 color: #999;
+                cursor: pointer;
+            }
+
+            .password-subtext {
+                display: block;
+                font-size: 0.75rem;
+                color: #999;
+                margin-top: 4px;
+                margin-left: 5px;
             }
         }
     }
 }
 
-.password-hint {
+.warning-box {
     background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 4px;
+    border-radius: 6px;
+    padding: 15px 20px;
     display: flex;
     gap: 15px;
     align-items: center;
+    margin-top: 25px;
     margin-bottom: 25px;
-    color: #666;
-    font-size: 0.85rem;
-    line-height: 1.4;
+    text-align: left;
 
-    svg {
+    .warning-icon {
         color: #999;
         flex-shrink: 0;
     }
+
+    p {
+        font-size: 0.8rem;
+        color: #666;
+        line-height: 1.4;
+        margin: 0;
+    }
 }
 
-.terms-group {
+.terms-section {
     margin-bottom: 25px;
+    text-align: left;
 
-    .checkbox-container {
+    .custom-checkbox {
         display: flex;
-        align-items: flex-start;
-        gap: 10px;
+        gap: 12px;
+        align-items: center;
         cursor: pointer;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         color: #666;
         line-height: 1.5;
 
@@ -207,7 +240,7 @@
                 background-color: #ff6b35;
                 border-color: #ff6b35;
 
-                &:after {
+                &::after {
                     display: block;
                 }
             }
@@ -216,14 +249,13 @@
         .checkmark {
             width: 20px;
             height: 20px;
-            background-color: white;
-            border: 1px solid #ccc;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            display: inline-block;
             flex-shrink: 0;
             position: relative;
+            background: white;
 
-            &:after {
+            &::after {
                 content: "";
                 position: absolute;
                 display: none;
@@ -237,59 +269,70 @@
             }
         }
 
-        .terms-text a {
+        a {
             color: #ff6b35;
             text-decoration: underline;
         }
     }
 }
 
-.btn-submit-green {
+.btn-create-account {
     width: 100%;
+    max-width: 320px;
     padding: 15px;
-    background-color: #28a745;
-    color: white;
+    background-color: #eee; // Match the "disabled" look in image, but we'll make it green
+    color: #999;
     border: none;
     border-radius: 4px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    margin-bottom: 20px;
-    transition: background-color 0.2s;
+    margin: 0 auto 30px;
+    display: block;
+    transition: all 0.2s;
 
-    &:hover {
-        background-color: #218838;
+    // Actual green state when ready/hovered
+    &:hover,
+    &.active {
+        background-color: #28a745;
+        color: white;
     }
 }
 
 .card-footer {
-    margin-top: 20px;
     border-top: 1px solid #eee;
-    padding-top: 20px;
+    padding-top: 25px;
 
-    .security {
+    .security-seal {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px;
-        color: #666;
+        gap: 10px;
+        color: #999;
         margin-bottom: 15px;
-    }
 
-    .security-text {
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-        font-size: 0.6rem;
-        line-height: 1.1;
+        .seal-text {
+            text-align: left;
+            line-height: 1.1;
 
-        strong {
-            color: #333;
+            strong {
+                display: block;
+                font-size: 0.70rem;
+                color: #333;
+            }
+
+            span {
+                font-size: 0.70rem;
+                color: #28a745;
+                font-weight: 800;
+            }
         }
     }
 
-    .copyright {
+    .copyright,
+    .rights {
         font-size: 0.65rem;
         color: #999;
+        margin: 0;
     }
 }
