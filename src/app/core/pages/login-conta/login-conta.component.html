@@ -28,27 +28,22 @@
             <p class="subtitle">Entre para acompanhar pedidos, ofertas e novidades.</p>
 
             <form class="login-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Digite seu E-mail, CPF ou CNPJ" class="login-input">
+                <div class="form-group floating-label">
+                    <input type="text" id="identificador" placeholder=" " class="login-input"
+                        value="viniciuskb38@gmail.com">
+                    <label for="identificador">Digite seu E-mail, CPF ou CNPJ</label>
+                    <span class="clear-input">×</span>
                 </div>
-                <button type="button" class="btn-continue" routerLink="/login-conta">Continuar</button>
+
+                <div class="form-group floating-label password-wrapper">
+                    <input type="password" id="senha" placeholder=" " class="login-input">
+                    <label for="senha">Senha</label>
+                    <span class="password-toggle">👁️</span>
+                </div>
+
+                <button type="submit" class="btn-continue">Continuar</button>
+                <button type="button" class="btn-forgot">Esqueci minha senha</button>
             </form>
-
-            <div class="divider">
-                <span>ou</span>
-            </div>
-
-            <p class="social-text">Conecte-se com sua rede social</p>
-
-            <button class="btn-google">
-                <img src="https://www.google.com/favicon.ico" alt="Google">
-                Fazer login
-            </button>
-
-            <div class="register-section">
-                <button class="btn-register" routerLink="/tipo-pessoa">Novo usuário? <span>Crie uma
-                        conta</span></button>
-            </div>
 
             <footer class="card-footer">
                 <div class="security">

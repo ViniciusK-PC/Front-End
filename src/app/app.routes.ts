@@ -16,6 +16,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'login-conta',
+    loadComponent: () =>
+      import('./core/pages/login-conta/login-conta.component').then(
+        (m) => m.LoginContaComponent
+      ),
+  },
+  {
     path: 'tipo-pessoa',
     loadComponent: () =>
       import('./core/pages/tipo-pessoa/tipo-pessoa.component').then(
