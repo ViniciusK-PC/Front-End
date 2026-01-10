@@ -8,5 +8,12 @@ export const routes: Routes = [
         (m) => m.StoreLandingComponent
       ),
   },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./core/pages/login/login.component').then(
+        (m) => m.LoginComponent
+      ),
+  },
   { path: '**', redirectTo: '' },
 ];
