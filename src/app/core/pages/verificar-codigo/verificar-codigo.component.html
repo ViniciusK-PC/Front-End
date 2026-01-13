@@ -1,0 +1,52 @@
+<div class="validation-page">
+    <header class="login-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-box">⚡</div>
+                <div class="logo-text">
+                    <span>Eletrotécnica</span>
+                    <span>Maurício</span>
+                </div>
+            </div>
+            <div class="header-info">
+                <span>Atendimento</span>
+                <span>Televendas (11) 3508-9979</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="validation-main">
+        <h1>Validação de segurança</h1>
+
+        <div class="validation-card">
+            <h2>Insira o código enviado</h2>
+            <p>Enviamos um código de segurança para o seu e-mail cadastrado. Por favor, insira-o abaixo para validar sua
+                conta.</p>
+
+            <form class="code-form" (ngSubmit)="onVerify()">
+                <div class="code-inputs">
+                    <input type="text" maxlength="6" [(ngModel)]="code" name="code" placeholder="000000"
+                        class="code-input" [disabled]="loading">
+                </div>
+
+                <div *ngIf="errorMessage" class="error-message">
+                    {{ errorMessage }}
+                </div>
+
+                <button type="submit" class="btn-verify" [disabled]="loading">
+                    <span *ngIf="!loading">Validar código</span>
+                    <span *ngIf="loading">Validando...</span>
+                </button>
+            </form>
+
+            <div class="resend-section">
+                <p>Não recebeu o código? <a href="#" (click)="onResendCode(); $event.preventDefault()">Reenviar e-mail</a></p>
+            </div>
+
+            <p class="help-text">
+                Se estiver com problemas, entre em contato com nossa
+                <a href="#">Central de Atendimento</a>
+            </p>
+        </div>
+    </main>
+</div>

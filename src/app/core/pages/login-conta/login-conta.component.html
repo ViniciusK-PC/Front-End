@@ -1,0 +1,64 @@
+<div class="login-page">
+    <header class="login-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-box">⚡</div>
+                <div class="logo-text">
+                    <span>Eletrotécnica</span>
+                    <span>Maurício</span>
+                </div>
+            </div>
+            <div class="header-info">
+                <span>Atendimento</span>
+                <span>Televendas (11) 3508-9979</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="login-main">
+        <div class="login-card">
+            <div class="user-avatar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </div>
+
+            <h1>Olá, seja bem-vindo!</h1>
+            <p class="subtitle">Entre para acompanhar pedidos, ofertas e novidades.</p>
+
+            <form class="login-form" (ngSubmit)="onLogin()">
+                <div class="form-group floating-label">
+                    <input type="text" id="identificador" name="email" [(ngModel)]="email" placeholder=" "
+                        class="login-input" readonly>
+                    <label for="identificador">E-mail, CPF ou CNPJ</label>
+                    <span class="clear-input" (click)="email = ''">×</span>
+                </div>
+
+                <div class="form-group floating-label password-wrapper">
+                    <input type="password" id="senha" name="password" [(ngModel)]="password" placeholder=" "
+                        class="login-input" required autoFocus>
+                    <label for="senha">Senha</label>
+                    <span class="password-toggle">👁️</span>
+                </div>
+
+                <button type="submit" class="btn-continue">Continuar</button>
+                <button type="button" class="btn-forgot">Esqueci minha senha</button>
+            </form>
+
+            <footer class="card-footer">
+                <div class="security">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path
+                            d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 10V6l5 1.88v4.21c0 3.84-2.14 7.4-5 8.35-2.86-.94-5-4.51-5-8.35V7.88L12 6v6z" />
+                    </svg>
+                    <div class="security-text">
+                        <strong>AMBIENTE 100%</strong>
+                        <span>SEGURO</span>
+                    </div>
+                </div>
+                <p class="copyright">Copyright © 2000-2025 Eletrotécnica Maurício. Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </main>
+</div>

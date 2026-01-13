@@ -1,0 +1,140 @@
+<div class="registration-page">
+    <header class="login-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-box">⚡</div>
+                <div class="logo-text">
+                    <span>Eletrotécnica</span>
+                    <span>Maurício</span>
+                </div>
+            </div>
+            <div class="header-info">
+                <span>Atendimento</span>
+                <span>Televendas (11) 3508-9979</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="registration-main">
+        <div class="registration-card">
+            <div class="icon-header">
+                <div class="orange-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                        <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                    </svg>
+                </div>
+                <h1>Criar conta pessoal</h1>
+            </div>
+
+            <form class="registration-form" (ngSubmit)="onSubmit()">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <input type="text" id="nome" name="nome" placeholder=" " class="form-input"
+                            [(ngModel)]="userData.name" required>
+                        <label for="nome">Nome <span class="required">*</span></label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="celular" name="phone" placeholder=" " class="form-input"
+                            [(ngModel)]="userData.phone" required>
+                        <label for="celular">Número de celular <span class="required">*</span></label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="nascimento" name="birthDate" placeholder=" " class="form-input"
+                            [(ngModel)]="userData.birthDate">
+                        <label for="nascimento">Data de nascimento</label>
+                    </div>
+                    <div class="form-group has-arrow">
+                        <select id="genero" name="gender" class="form-input select-input" [(ngModel)]="userData.gender">
+                            <option value="" disabled selected hidden> </option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                        <label for="genero">Gênero</label>
+                        <span class="select-arrow"></span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <input type="email" id="email" name="email" placeholder=" " class="form-input"
+                            [(ngModel)]="userData.email" required>
+                        <label for="email">E-mail <span class="required">*</span></label>
+                    </div>
+
+                    <div class="form-group password-group">
+                        <input type="password" id="senha" name="password" placeholder=" " class="form-input"
+                            [(ngModel)]="userData.password" required>
+                        <label for="senha">Digite sua senha <span class="required">*</span></label>
+                        <span class="password-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                </path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </span>
+                        <span class="password-subtext">Use entre 6 a 20 caracteres</span>
+                    </div>
+
+                    <div class="form-group password-group">
+                        <input type="password" id="confirmar" name="confirmPassword" placeholder=" " class="form-input"
+                            [(ngModel)]="confirmPassword" required>
+                        <label for="confirmar">Confirme sua senha <span class="required">*</span></label>
+                        <span class="password-icon">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                </path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <div class="warning-icon">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                            </path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <p>Sua senha deve ter entre 6 a 20 caracteres. Não coloque seu nome, sobrenome, e-mail, nem
+                        caracteres idênticos e consecutivos.</p>
+                </div>
+
+                <div class="terms-section">
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        <span class="text">Li, entendi e estou de acordo com os <a href="#">Termos e condições</a> e
+                            autorizo o uso de meus dados de acordo com a <a href="#">Política de Privacidade</a>.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-create-account active">Criar Conta</button>
+            </form>
+
+            <footer class="card-footer">
+                <div class="security-seal">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path
+                            d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 10V6l5 1.88v4.21c0 3.84-2.14 7.4-5 8.35-2.86-.94-5-4.51-5-8.35V7.88L12 6v6z" />
+                    </svg>
+                    <div class="seal-text">
+                        <strong>AMBIENTE 100%</strong>
+                        <span>SEGURO</span>
+                    </div>
+                </div>
+                <p class="copyright">Copyright © 2000-2025 Eletrotécnica Maurício</p>
+                <p class="rights">Todos os direitos reservados.</p>
+            </footer>
+        </div>
+    </main>
+</div>

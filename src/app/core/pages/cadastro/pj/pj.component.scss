@@ -1,0 +1,338 @@
+.registration-page {
+    min-height: 100vh;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-header {
+    background-color: #ff6b35;
+    padding: 10px 0;
+    color: white;
+
+    .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .logo-box {
+            background: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+            color: #ff6b35;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+
+            span {
+                font-size: 16px;
+                font-weight: 800;
+                color: white;
+                letter-spacing: -0.3px;
+            }
+        }
+    }
+
+    .header-info {
+        font-size: 0.8rem;
+        display: flex;
+        gap: 20px;
+    }
+}
+
+.registration-main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 20px;
+}
+
+.registration-card {
+    background: white;
+    width: 100%;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+
+    .icon-header {
+        margin-bottom: 30px;
+
+        .orange-badge {
+            width: 40px;
+            height: 40px;
+            background-color: #ff6b35;
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            color: #333;
+            font-weight: 700;
+        }
+    }
+}
+
+.registration-form {
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px 20px;
+        margin-bottom: 20px;
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .form-group {
+        position: relative;
+        text-align: left;
+
+        &.full-width {
+            grid-column: span 2;
+        }
+
+        &.has-arrow .select-arrow {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid #ff6b35;
+            border-bottom: 2px solid #ff6b35;
+            transform: translateY(-70%) rotate(45deg);
+            pointer-events: none;
+        }
+
+        label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            background: white;
+            padding: 0 4px;
+            pointer-events: none;
+
+            .required {
+                color: #ff6b35;
+            }
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+            height: 48px;
+
+            &:focus,
+            &:not(:placeholder-shown) {
+                border-color: #ff6b35;
+
+                +label {
+                    top: 0;
+                    font-size: 0.75rem;
+                    color: #ff6b35;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        select.form-input {
+            appearance: none;
+            background: white;
+        }
+
+        &.password-group {
+            .password-icon {
+                position: absolute;
+                right: 15px;
+                top: 24px;
+                transform: translateY(-50%);
+                color: #999;
+                cursor: pointer;
+            }
+
+            .password-subtext {
+                display: block;
+                font-size: 0.75rem;
+                color: #999;
+                margin-top: 4px;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+
+.warning-box {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 15px 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: left;
+
+    .warning-icon {
+        color: #999;
+        flex-shrink: 0;
+    }
+
+    p {
+        font-size: 0.8rem;
+        color: #666;
+        line-height: 1.4;
+        margin: 0;
+    }
+}
+
+.terms-section {
+    margin-bottom: 25px;
+    text-align: left;
+
+    .custom-checkbox {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        cursor: pointer;
+        font-size: 0.8rem;
+        color: #666;
+        line-height: 1.5;
+
+        input {
+            display: none;
+
+            &:checked+.checkmark {
+                background-color: #ff6b35;
+                border-color: #ff6b35;
+
+                &::after {
+                    display: block;
+                }
+            }
+        }
+
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex-shrink: 0;
+            position: relative;
+            background: white;
+
+            &::after {
+                content: "";
+                position: absolute;
+                display: none;
+                left: 6px;
+                top: 2px;
+                width: 6px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+        }
+
+        a {
+            color: #ff6b35;
+            text-decoration: underline;
+        }
+    }
+}
+
+.btn-create-account {
+    width: 100%;
+    max-width: 320px;
+    padding: 15px;
+    background-color: #eee; // Match the "disabled" look in image, but we'll make it green
+    color: #999;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 auto 30px;
+    display: block;
+    transition: all 0.2s;
+
+    // Actual green state when ready/hovered
+    &:hover,
+    &.active {
+        background-color: #28a745;
+        color: white;
+    }
+}
+
+.card-footer {
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+
+    .security-seal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: #999;
+        margin-bottom: 15px;
+
+        .seal-text {
+            text-align: left;
+            line-height: 1.1;
+
+            strong {
+                display: block;
+                font-size: 0.70rem;
+                color: #333;
+            }
+
+            span {
+                font-size: 0.70rem;
+                color: #28a745;
+                font-weight: 800;
+            }
+        }
+    }
+
+    .copyright,
+    .rights {
+        font-size: 0.65rem;
+        color: #999;
+        margin: 0;
+    }
+}

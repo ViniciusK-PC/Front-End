@@ -1,0 +1,861 @@
+<div class="store-container">
+    <!-- Top Bar (Dark Navy) -->
+    <div class="top-bar" [ngClass]="{'hidden': isScrolled}">
+        <div class="top-bar-wrapper">
+            <a href="#cupons">Cupons de Desconto</a>
+            <a href="#ofertas">Melhor Preço Hoje</a>
+            <a href="#vendas">Vendas corporativas</a>
+            <a href="#lojas">Nossas Lojas</a>
+            <a href="#atendimento">Atendimento</a>
+        </div>
+    </div>
+
+    <!-- Main Header (Orange Gradient) - Always Fixed -->
+    <header class="main-header" [ngClass]="{'sticky': isScrolled}">
+        <div class="header-wrapper">
+            <!-- Logo -->
+            <div class="logo-section">
+                <div class="logo-box">⚡</div>
+                <h1 class="logo-text">Eletrotécnica Maurício</h1>
+            </div>
+
+            <!-- Search -->
+            <div class="search-section">
+                <input type="text" placeholder="Buscar produtos" class="search-field">
+                <button class="search-button">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions-section">
+                <a href="tel:1135089978" class="action-box">
+                    <svg class="action-icon" width="20" height="20" viewBox="0 0 640 640" fill="currentColor">
+                        <path
+                            d="M320 128C241 128 175.3 185.3 162.3 260.7C171.6 257.7 181.6 256 192 256L208 256C234.5 256 256 277.5 256 304L256 400C256 426.5 234.5 448 208 448L192 448C139 448 96 405 96 352L96 288C96 164.3 196.3 64 320 64C443.7 64 544 164.3 544 288L544 456.1C544 522.4 490.2 576.1 423.9 576.1L336 576L304 576C277.5 576 256 554.5 256 528C256 501.5 277.5 480 304 480L336 480C362.5 480 384 501.5 384 528L384 528L424 528C463.8 528 496 495.8 496 456L496 435.1C481.9 443.3 465.5 447.9 448 447.9L432 447.9C405.5 447.9 384 426.4 384 399.9L384 303.9C384 277.4 405.5 255.9 432 255.9L448 255.9C458.4 255.9 468.3 257.5 477.7 260.6C464.7 185.3 399.1 127.9 320 127.9z">
+                        </path>
+                    </svg>
+                    <div class="action-label">
+                        <span>Televendas</span>
+                        <strong>(11) 3508-9978</strong>
+                    </div>
+                </a>
+
+                <div class="auth-button-orange" *ngIf="!userName">
+                    <svg class="auth-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <div class="auth-text">
+                        <a routerLink="/login" class="auth-line">Entre ou</a>
+                        <a routerLink="/tipo-pessoa" class="auth-line">Cadastre-se</a>
+                    </div>
+                </div>
+
+                <div class="account-dropdown-wrapper" *ngIf="userName">
+                    <div class="auth-button-orange logged-in">
+                        <svg class="auth-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <div class="auth-text">
+                            <span class="auth-line">Ola, {{ userName.split(' ')[0] }}</span>
+                            <span class="auth-line bold">minha conta <svg width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="m6 9 6 6 6-6" />
+                                </svg></span>
+                        </div>
+                    </div>
+                    <div class="account-dropdown">
+                        <a href="#" class="account-dropdown-link">Minha Conta</a>
+                        <a href="#" class="account-dropdown-link">Meus Pedidos</a>
+                        <a href="#" class="account-dropdown-link">Meus Favoritos</a>
+                        <a href="#" class="account-dropdown-link">Meus Tickets</a>
+                        <a class="account-dropdown-link logout" (click)="logout()">Sair</a>
+                    </div>
+                </div>
+                <button class="cart-button">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar (Dark) -->
+    <nav class="nav-bar" [ngClass]="{'hidden': isScrolled}">
+        <div class="nav-wrapper">
+            <div class="cat-dropdown-wrapper">
+                <button class="cat-button">
+                    <span class="cat-icon">☰</span>
+                    <span class="cat-text">CATEGORIAS</span>
+                    <span class="cat-arrow">▼</span>
+                </button>
+                <div class="cat-dropdown">
+                    <!-- Ferramentas Elétricas e Máquinas -->
+                    <div class="cat-dropdown-item">
+                        <a href="#ferramentas" class="cat-dropdown-link">
+                            Ferramentas Elétricas e Máquinas <span class="submenu-arrow">›</span>
+                        </a>
+                        <div class="cat-submenu cat-submenu-wide">
+                            <h4 class="cat-submenu-header">Ferramentas Elétricas e Máquinas</h4>
+                            <div class="submenu-grid-columns">
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Compressores de ar</a>
+                                    <a href="#" class="submenu-link">Marteletes Elétricos</a>
+                                    <a href="#" class="submenu-link">Lixadeira e Politriz</a>
+                                    <a href="#" class="submenu-link">Utilidades Para Máquinas Elétricas</a>
+                                    <a href="#" class="submenu-link">Motor Elétrico</a>
+                                    <a href="#" class="submenu-link">Soprador Térmico</a>
+                                    <a href="#" class="submenu-link">Motobomba</a>
+                                    <a href="#" class="submenu-link">Afiador</a>
+                                </div>
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Serra Elétrica</a>
+                                    <a href="#" class="submenu-link">Esmerilhadeira</a>
+                                    <a href="#" class="submenu-link">Tupias e Plainas</a>
+                                    <a href="#" class="submenu-link">Moto Esmeril</a>
+                                    <a href="#" class="submenu-link">Retificadeiras Elétricas</a>
+                                    <a href="#" class="submenu-link">Sopradores Elétricos</a>
+                                    <a href="#" class="submenu-link">Grampeador/Pinador Elétrico</a>
+                                    <a href="#" class="submenu-link">Serras Fita</a>
+                                </div>
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Parafusadeiras Elétricas</a>
+                                    <a href="#" class="submenu-link">Furadeira elétrica</a>
+                                    <a href="#" class="submenu-link">Chave de Impacto</a>
+                                    <a href="#" class="submenu-link">Máquinas Industriais</a>
+                                    <a href="#" class="submenu-link">Fresadora/ Frisadeira</a>
+                                    <a href="#" class="submenu-link">Rosqueadeiras</a>
+                                    <a href="#" class="submenu-link">Linha Bateria</a>
+                                    <a href="#" class="submenu-link">Chave Catraca Bateria</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Equipamento Auto Center -->
+                    <div class="cat-dropdown-item">
+                        <a href="#autocenter" class="cat-dropdown-link">
+                            Equipamento Auto Center <span class="submenu-arrow">›</span>
+                        </a>
+                        <div class="cat-submenu cat-submenu-wide">
+                            <h4 class="cat-submenu-header">Equipamento Auto Center</h4>
+                            <div class="submenu-grid-columns">
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Elevadores e Rampas</a>
+                                    <a href="#" class="submenu-link">Equipamento Hidráulico</a>
+                                    <a href="#" class="submenu-link">Móveis Para Oficina</a>
+                                    <a href="#" class="submenu-link">Torno Mecânico</a>
+                                </div>
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Desmontadora de Pneus</a>
+                                    <a href="#" class="submenu-link">Alinhamento e Balanceamento</a>
+                                    <a href="#" class="submenu-link">Lubrificação</a>
+                                    <a href="#" class="submenu-link">Morsas e Tornos</a>
+                                </div>
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Calibrador de pneus</a>
+                                    <a href="#" class="submenu-link">Ar Condicionado</a>
+                                    <a href="#" class="submenu-link">Secador de Ar Comprimido</a>
+                                    <a href="#" class="submenu-link">Lavadora de Peças</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ferramentas Manuais -->
+                    <div class="cat-dropdown-item">
+                        <a href="#manuais" class="cat-dropdown-link">
+                            Ferramentas Manuais <span class="submenu-arrow">›</span>
+                        </a>
+                        <div class="cat-submenu cat-submenu-wide">
+                            <h4 class="cat-submenu-header">Ferramentas Manuais</h4>
+                            <div class="submenu-grid-columns">
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Kit de Ferramentas</a>
+                                    <a href="#" class="submenu-link">Alicates</a>
+                                    <a href="#" class="submenu-link">Jogo de Soquetes</a>
+                                    <a href="#" class="submenu-link">Caixa de Ferramentas</a>
+                                    <a href="#" class="submenu-link">Jogo de Chave Combinada</a>
+                                </div>
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Maleta de Ferramentas e Bolsas</a>
+                                    <a href="#" class="submenu-link">Chave L Biela</a>
+                                    <a href="#" class="submenu-link">Chave de Fenda e Philips</a>
+                                    <a href="#" class="submenu-link">Grampos</a>
+                                    <a href="#" class="submenu-link">Chave Combinada</a>
+                                </div>
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Soquete de 1/2</a>
+                                    <a href="#" class="submenu-link">Jogo de Tork e Ribe</a>
+                                    <a href="#" class="submenu-link">Martelos</a>
+                                    <a href="#" class="submenu-link">Arco de Serra</a>
+                                    <a href="#" class="submenu-link">Rebitador Manual</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Injeção Eletrônica e Motor -->
+                    <div class="cat-dropdown-item">
+                        <a href="#motor" class="cat-dropdown-link">
+                            Injeção Eletrônica e Motor <span class="submenu-arrow">›</span>
+                        </a>
+                        <div class="cat-submenu">
+                            <h4 class="cat-submenu-header">Injeção Eletrônica e Motor</h4>
+                            <div class="submenu-grid-columns">
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Scanners Automotivos</a>
+                                    <a href="#" class="submenu-link">Limpeza de Bicos</a>
+                                    <a href="#" class="submenu-link">Testadores de Bateria</a>
+                                </div>
+                                <div class="submenu-col">
+                                    <a href="#" class="submenu-link">Sincronismo de Motor</a>
+                                    <a href="#" class="submenu-link">Medidores de Pressão</a>
+                                    <a href="#" class="submenu-link">Manômetros</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#pneumaticas" class="cat-dropdown-link">Ferramentas Pneumáticas</a>
+                    <a href="#lavajato" class="cat-dropdown-link">Lava Jato e Posto</a>
+                    <a href="#automotivas" class="cat-dropdown-link">Ferramentas Automotivas</a>
+                    <a href="#jardinagem" class="cat-dropdown-link">Jardinagem</a>
+                    <a href="#todos" class="cat-dropdown-link cat-dropdown-all">Ver todos os departamentos</a>
+                </div>
+            </div>
+            <a href="#frete" class="nav-link">Frete Grátis</a>
+            <a href="#cupons" class="nav-link">Cupons de Desconto</a>
+            <a href="#whatsapp" class="nav-link">Canal WhatsApp</a>
+            <a href="#saldos" class="nav-link">Saldos</a>
+            <a href="#eletrica" class="nav-link">Auto elétrica</a>
+        </div>
+    </nav>
+
+
+
+    <!-- Carrossel de Imagens/Banners -->
+    <section class="banner-carousel-section">
+        <div class="banner-carousel-container">
+            <button class="carousel-nav-btn prev-btn" (click)="prevBannerSlide()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <div class="banner-carousel-track" [style.transform]="'translateX(-' + (currentBannerIndex * 100) + '%)'">
+                <!-- Banner 1 -->
+                <div class="banner-slide">
+                    <div class="banner-content-left">
+                        <span class="banner-tag">RENOVE</span>
+                        <h2 class="banner-title">SUA <span>OFICINA</span></h2>
+                    </div>
+                    <div class="banner-content-right">
+                        <span class="banner-promo">Em até</span>
+                        <span class="banner-parcelas">12X</span>
+                        <span class="banner-juros">Sem juros</span>
+                        <button class="banner-cta">CONFIRA ►</button>
+                    </div>
+                    <img class="banner-bg-image"
+                        src="https://img.lojadomecanico.com.br/banners/d/home_desk_f_1735932560.webp"
+                        alt="Renove sua oficina">
+                </div>
+
+                <!-- Banner 2 -->
+                <div class="banner-slide banner-blue">
+                    <div class="banner-content-left">
+                        <span class="banner-tag">MEGA</span>
+                        <h2 class="banner-title">PROMOÇÃO <span>2025</span></h2>
+                    </div>
+                    <div class="banner-content-right">
+                        <span class="banner-promo">Até</span>
+                        <span class="banner-parcelas">40%</span>
+                        <span class="banner-juros">OFF</span>
+                        <button class="banner-cta">VER MAIS ►</button>
+                    </div>
+                    <img class="banner-bg-image"
+                        src="https://img.lojadomecanico.com.br/banners/d/home_desk_f_1735932560.webp"
+                        alt="Mega Promoção">
+                </div>
+
+                <!-- Banner 3 -->
+                <div class="banner-slide banner-orange">
+                    <div class="banner-content-left">
+                        <span class="banner-tag">ESPECIAL</span>
+                        <h2 class="banner-title">AUTO <span>CENTER</span></h2>
+                    </div>
+                    <div class="banner-content-right">
+                        <span class="banner-promo">Frete</span>
+                        <span class="banner-parcelas">GRÁTIS</span>
+                        <span class="banner-juros">*consulte</span>
+                        <button class="banner-cta">APROVEITE ►</button>
+                    </div>
+                    <img class="banner-bg-image"
+                        src="https://img.lojadomecanico.com.br/banners/d/home_desk_f_1735932560.webp" alt="Auto Center">
+                </div>
+
+                <!-- Banner 4 -->
+                <div class="banner-slide">
+                    <div class="banner-content-left">
+                        <span class="banner-tag">LINHA</span>
+                        <h2 class="banner-title">MÁQUINAS <span>PESADAS</span></h2>
+                    </div>
+                    <div class="banner-content-right">
+                        <span class="banner-promo">Em até</span>
+                        <span class="banner-parcelas">18X</span>
+                        <span class="banner-juros">Sem juros</span>
+                        <button class="banner-cta">CONFIRA ►</button>
+                    </div>
+                    <img class="banner-bg-image"
+                        src="https://img.lojadomecanico.com.br/banners/d/home_desk_f_1735932560.webp"
+                        alt="Máquinas Pesadas">
+                </div>
+
+                <!-- Banner 5 -->
+                <div class="banner-slide banner-blue">
+                    <div class="banner-content-left">
+                        <span class="banner-tag">SALDÃO</span>
+                        <h2 class="banner-title">FERRAMENTAS <span>ELÉTRICAS</span></h2>
+                    </div>
+                    <div class="banner-content-right">
+                        <span class="banner-promo">Até</span>
+                        <span class="banner-parcelas">50%</span>
+                        <span class="banner-juros">OFF</span>
+                        <button class="banner-cta">VER OFERTAS ►</button>
+                    </div>
+                    <img class="banner-bg-image"
+                        src="https://img.lojadomecanico.com.br/banners/d/home_desk_f_1735932560.webp"
+                        alt="Ferramentas Elétricas">
+                </div>
+
+                <!-- Banner 6 -->
+                <div class="banner-slide banner-orange">
+                    <div class="banner-content-left">
+                        <span class="banner-tag">BLACK</span>
+                        <h2 class="banner-title">WEEK <span>TOTAL</span></h2>
+                    </div>
+                    <div class="banner-content-right">
+                        <span class="banner-promo">Descontos</span>
+                        <span class="banner-parcelas">INCRÍVEIS</span>
+                        <span class="banner-juros">Toda loja</span>
+                        <button class="banner-cta">COMPRAR ►</button>
+                    </div>
+                    <img class="banner-bg-image"
+                        src="https://img.lojadomecanico.com.br/banners/d/home_desk_f_1735932560.webp" alt="Black Week">
+                </div>
+
+                <!-- Banner 7 -->
+                <div class="banner-slide">
+                    <div class="banner-content-left">
+                        <span class="banner-tag">PIX</span>
+                        <h2 class="banner-title">DESCONTO <span>EXTRA</span></h2>
+                    </div>
+                    <div class="banner-content-right">
+                        <span class="banner-promo">Mais</span>
+                        <span class="banner-parcelas">10%</span>
+                        <span class="banner-juros">No PIX</span>
+                        <button class="banner-cta">PAGAR COM PIX ►</button>
+                    </div>
+                    <img class="banner-bg-image"
+                        src="https://img.lojadomecanico.com.br/banners/d/home_desk_f_1735932560.webp"
+                        alt="Desconto PIX">
+                </div>
+
+                <!-- Banner 8 -->
+                <div class="banner-slide banner-blue">
+                    <div class="banner-content-left">
+                        <span class="banner-tag">COMBO</span>
+                        <h2 class="banner-title">COMPRESSORES <span>PRO</span></h2>
+                    </div>
+                    <div class="banner-content-right">
+                        <span class="banner-promo">A partir de</span>
+                        <span class="banner-parcelas">R$999</span>
+                        <span class="banner-juros">Parcele</span>
+                        <button class="banner-cta">VER COMBOS ►</button>
+                    </div>
+                    <img class="banner-bg-image"
+                        src="https://img.lojadomecanico.com.br/banners/d/home_desk_f_1735932560.webp"
+                        alt="Compressores">
+                </div>
+
+                <!-- Banner 9 -->
+                <div class="banner-slide banner-orange">
+                    <div class="banner-content-left">
+                        <span class="banner-tag">OFERTAS</span>
+                        <h2 class="banner-title">SEMANA <span>ESPECIAL</span></h2>
+                    </div>
+                    <div class="banner-content-right">
+                        <span class="banner-promo">Produtos</span>
+                        <span class="banner-parcelas">TOP</span>
+                        <span class="banner-juros">Selecionados</span>
+                        <button class="banner-cta">VER TUDO ►</button>
+                    </div>
+                    <img class="banner-bg-image"
+                        src="https://img.lojadomecanico.com.br/banners/d/home_desk_f_1735932560.webp"
+                        alt="Ofertas Semana">
+                </div>
+
+                <!-- Banner 10 -->
+                <div class="banner-slide">
+                    <div class="banner-content-left">
+                        <span class="banner-tag">NOVO</span>
+                        <h2 class="banner-title">LANÇAMENTOS <span>2025</span></h2>
+                    </div>
+                    <div class="banner-content-right">
+                        <span class="banner-promo">Chegaram</span>
+                        <span class="banner-parcelas">NOVIDADES</span>
+                        <span class="banner-juros">Exclusivas</span>
+                        <button class="banner-cta">CONHECER ►</button>
+                    </div>
+                    <img class="banner-bg-image"
+                        src="https://img.lojadomecanico.com.br/banners/d/home_desk_f_1735932560.webp" alt="Lançamentos">
+                </div>
+            </div>
+
+            <button class="carousel-nav-btn next-btn" (click)="nextBannerSlide()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+
+            <!-- Indicadores de navegação -->
+            <div class="banner-indicators">
+                <span *ngFor="let banner of bannerSlides; let i = index" class="indicator-dot"
+                    [class.active]="i === currentBannerIndex" (click)="goToBannerSlide(i)">
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrossel de Cards de Produtos -->
+    <section class="products-carousel-section">
+        <div class="products-carousel-header">
+            <span class="carousel-tag">OFERTAS IMPERDÍVEIS</span>
+        </div>
+
+        <div class="products-carousel-container">
+            <button class="carousel-nav-btn prev-btn" (click)="prevProductSlide()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+
+            <div class="products-carousel-wrapper">
+                <div class="products-carousel-track"
+                    [style.transform]="'translateX(-' + (currentProductIndex * cardWidth) + 'px)'">
+                    <!-- Card 1 -->
+                    <div class="product-carousel-card">
+                        <div class="card-discount-badge">
+                            <span class="discount-percent">10%</span>
+                            <span class="discount-text">DE DESCONTO<br><small>à vista no Pix ou Boleto</small></span>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://img.lojadomecanico.com.br/250/21/558/1643/1653426189.JPG"
+                                alt="Parafusadeira">
+                        </div>
+                        <div class="card-info">
+                            <h4>Combo Parafusadeira Furadeira 3/8 Pol 20V...</h4>
+                            <div class="card-price">
+                                <span class="symbol">R$</span>
+                                <span class="value">187,90</span>
+                            </div>
+                            <p class="card-pix">à vista no Pix ou Boleto</p>
+                            <p class="card-installment">ou R$ 208,78 em 4x de R$ 52,20 sem juros</p>
+                        </div>
+                        <div class="card-footer">
+                            <span>Produto com entrega <strong>RÁPIDA</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="product-carousel-card">
+                        <div class="card-discount-badge">
+                            <span class="discount-percent">10%</span>
+                            <span class="discount-text">DE DESCONTO<br><small>à vista no Pix ou Boleto</small></span>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://img.lojadomecanico.com.br/250/21/159/1647/16534281358.JPG"
+                                alt="Betoneira">
+                        </div>
+                        <div class="card-info">
+                            <h4>Betoneira 150L Motor 1/2CV 220V com Chave...</h4>
+                            <div class="card-price">
+                                <span class="symbol">R$</span>
+                                <span class="value">1.876,90</span>
+                            </div>
+                            <p class="card-pix">à vista no Pix ou Boleto</p>
+                            <p class="card-installment">ou R$ 2.085,44 em 10x de R$ 208,55</p>
+                        </div>
+                        <div class="card-footer">
+                            <span>Produto com entrega <strong>RÁPIDA</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="product-carousel-card">
+                        <div class="card-discount-badge">
+                            <span class="discount-percent">10%</span>
+                            <span class="discount-text">DE DESCONTO<br><small>à vista no Pix ou Boleto</small></span>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://img.lojadomecanico.com.br/250/21/223/151322/1653424185244.JPG"
+                                alt="Lavadora">
+                        </div>
+                        <div class="card-info">
+                            <h4>Lavadora de Pressão Profissional 1800W...</h4>
+                            <div class="card-price">
+                                <span class="symbol">R$</span>
+                                <span class="value">76,90</span>
+                            </div>
+                            <p class="card-pix">à vista no Pix ou Boleto</p>
+                            <p class="card-installment">ou R$ 85,44 em 2x de R$ 42,72</p>
+                        </div>
+                        <div class="card-footer">
+                            <span>Produto com entrega <strong>RÁPIDA</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="product-carousel-card">
+                        <div class="card-discount-badge">
+                            <span class="discount-percent">10%</span>
+                            <span class="discount-text">DE DESCONTO<br><small>à vista no Pix ou Boleto</small></span>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://img.lojadomecanico.com.br/250/21/558/1638/1653426182.JPG" alt="Carrinho">
+                        </div>
+                        <div class="card-info">
+                            <h4>Carrinho Oficina 7 Gavetas Fechado Premium...</h4>
+                            <div class="card-price">
+                                <span class="symbol">R$</span>
+                                <span class="value">1.404,94</span>
+                            </div>
+                            <p class="card-pix">à vista no Pix ou Boleto</p>
+                            <p class="card-installment">ou R$ 1.561,05 em 10x de R$ 156,11</p>
+                        </div>
+                        <div class="card-footer">
+                            <span>Produto com entrega <strong>RÁPIDA</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="product-carousel-card">
+                        <div class="card-discount-badge">
+                            <span class="discount-percent">10%</span>
+                            <span class="discount-text">DE DESCONTO<br><small>à vista no Pix ou Boleto</small></span>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://img.lojadomecanico.com.br/250/21/773/151329/16534341908.JPG" alt="Macaco">
+                        </div>
+                        <div class="card-info">
+                            <h4>Macaco Hidráulico Garrafa 20 Toneladas...</h4>
+                            <div class="card-price">
+                                <span class="symbol">R$</span>
+                                <span class="value">498,90</span>
+                            </div>
+                            <p class="card-pix">à vista no Pix ou Boleto</p>
+                            <p class="card-installment">ou R$ 554,33 em 6x de R$ 92,39</p>
+                        </div>
+                        <div class="card-footer">
+                            <span>Produto com entrega <strong>RÁPIDA</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="product-carousel-card highlight-card-red">
+                        <div class="card-discount-badge red">
+                            <span class="discount-percent">10%</span>
+                            <span class="discount-text">DE DESCONTO<br><small>à vista no Pix ou Boleto</small></span>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://img.lojadomecanico.com.br/250/21/159/1647/16534281358.JPG"
+                                alt="Compressor">
+                        </div>
+                        <div class="card-info">
+                            <h4>Compressor de Ar Profissional 300L 2HP...</h4>
+                            <div class="card-price highlight">
+                                <span class="symbol">R$</span>
+                                <span class="value">2.698,90</span>
+                            </div>
+                            <p class="card-pix">à vista no Pix ou Boleto</p>
+                            <p class="card-installment">ou R$ 2.998,78 em 10x de R$ 299,88</p>
+                        </div>
+                        <div class="card-footer">
+                            <span>Produto com entrega <strong>RÁPIDA</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 -->
+                    <div class="product-carousel-card">
+                        <div class="card-discount-badge">
+                            <span class="discount-percent">15%</span>
+                            <span class="discount-text">DE DESCONTO<br><small>à vista no Pix ou Boleto</small></span>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://img.lojadomecanico.com.br/250/21/558/1643/1653426189.JPG" alt="Rampa">
+                        </div>
+                        <div class="card-info">
+                            <h4>Rampa Hidráulica para Veículos 4 Toneladas...</h4>
+                            <div class="card-price">
+                                <span class="symbol">R$</span>
+                                <span class="value">1.373,90</span>
+                            </div>
+                            <p class="card-pix">à vista no Pix ou Boleto</p>
+                            <p class="card-installment">ou R$ 1.526,56 em 10x de R$ 152,66</p>
+                        </div>
+                        <div class="card-footer">
+                            <span>Produto com entrega <strong>RÁPIDA</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 -->
+                    <div class="product-carousel-card">
+                        <div class="card-discount-badge">
+                            <span class="discount-percent">10%</span>
+                            <span class="discount-text">DE DESCONTO<br><small>à vista no Pix ou Boleto</small></span>
+                        </div>
+                        <div class="card-image">
+                            <img src="https://img.lojadomecanico.com.br/250/21/773/151329/16534341908.JPG"
+                                alt="Chave Impacto">
+                        </div>
+                        <div class="card-info">
+                            <h4>Chave de Impacto Pneumática 1/2" 680Nm...</h4>
+                            <div class="card-price">
+                                <span class="symbol">R$</span>
+                                <span class="value">309,90</span>
+                            </div>
+                            <p class="card-pix">à vista no Pix ou Boleto</p>
+                            <p class="card-installment">ou R$ 344,33 em 6x de R$ 57,39</p>
+                        </div>
+                        <div class="card-footer">
+                            <span>Produto com entrega <strong>RÁPIDA</strong></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-nav-btn next-btn" (click)="nextProductSlide()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <p class="economy-text">Aqui tem economia</p>
+    </section>
+
+    <!-- Page Content (with padding for fixed header) -->
+    <div class="page-content">
+    </div>
+    <!-- End Page Content -->
+
+    <footer class="store-footer-new">
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <div class="footer-wrapper">
+                <!-- Institucional -->
+                <div class="footer-column">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="#">Atendimento</a></li>
+                        <li><a href="#">Central de ajuda</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Acompanhe seu pedido</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Cartão Eletrotécnica</a></li>
+                        <li><a href="#">Entregas</a></li>
+                        <li><a href="#">Formas de Pagamento</a></li>
+                        <li><a href="#">Nossas Lojas</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                        <li><a href="#">LGPD</a></li>
+                        <li><a href="#">Revenda Entidade</a></li>
+                    </ul>
+                </div>
+
+                <!-- Televendas -->
+                <div class="footer-column">
+                    <h4>Televendas</h4>
+                    <div class="phone-region">
+                        <span class="region-label">São Paulo-SP</span>
+                        <a href="tel:1135089978" class="phone-number">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                            </svg>
+                            11 3508-9978
+                        </a>
+                    </div>
+                    <div class="phone-region">
+                        <span class="region-label">Rio de Janeiro-RJ</span>
+                        <a href="tel:2125123090" class="phone-number">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                            </svg>
+                            21 2512-3090
+                        </a>
+                    </div>
+                    <div class="phone-region">
+                        <span class="region-label">Belo Horizonte-MG</span>
+                        <a href="tel:3130330998" class="phone-number">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                            </svg>
+                            31 3033-0998
+                        </a>
+                    </div>
+                    <div class="phone-region">
+                        <span class="region-label">Brasília-DF</span>
+                        <a href="tel:6132469999" class="phone-number">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                            </svg>
+                            61 3246-9999
+                        </a>
+                    </div>
+                    <a href="#" class="all-locations-link">Outras Localidades</a>
+                </div>
+
+                <!-- Categorias -->
+                <div class="footer-column categories-column">
+                    <h4>Veja todas as categorias</h4>
+                    <div class="categories-grid">
+                        <ul>
+                            <li><a href="#">Ferramentas Elétricas e Máquinas</a></li>
+                            <li><a href="#">Equipamento Auto Center</a></li>
+                            <li><a href="#">Injeção Eletrônica e Motor</a></li>
+                            <li><a href="#">Ferramentas Pneumáticas</a></li>
+                            <li><a href="#">Ferramentas Automotivas</a></li>
+                            <li><a href="#">Jardinagem</a></li>
+                            <li><a href="#">Construção Civil</a></li>
+                            <li><a href="#">Funilaria e Pintura</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Auto Elétrica</a></li>
+                            <li><a href="#">Ferramentas Para Motor</a></li>
+                            <li><a href="#">Borracharia</a></li>
+                            <li><a href="#">Ferramentas em Geral</a></li>
+                            <li><a href="#">Equipamentos Caminhões</a></li>
+                            <li><a href="#">Para Você e sua Casa</a></li>
+                            <li><a href="#">Aditivos e Lubrificantes</a></li>
+                            <li><a href="#">Movimentação e Carga</a></li>
+                            <li><a href="#">Camping e Hobby</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navegação A-Z -->
+        <div class="footer-az-nav">
+            <div class="footer-wrapper">
+                <span class="az-label">Navegue pelas Marcas:</span>
+                <div class="az-letters">
+                    <a href="#">A</a><a href="#">B</a><a href="#">C</a><a href="#">D</a><a href="#">E</a>
+                    <a href="#">F</a><a href="#">G</a><a href="#">H</a><a href="#">I</a><a href="#">J</a>
+                    <a href="#">K</a><a href="#">L</a><a href="#">M</a><a href="#">N</a><a href="#">O</a>
+                    <a href="#">P</a><a href="#">Q</a><a href="#">R</a><a href="#">S</a><a href="#">T</a>
+                    <a href="#">U</a><a href="#">V</a><a href="#">W</a><a href="#">X</a><a href="#">Y</a>
+                    <a href="#">Z</a><a href="#">0-9</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Links Bar -->
+        <div class="footer-links-bar">
+            <div class="footer-wrapper">
+                <div class="links-left">
+                    <a href="#">Atendimento</a>
+                    <a href="#">Central de ajuda</a>
+                    <a href="#">Troca e Devolução</a>
+                    <a href="#">Quem somos</a>
+                    <a href="#">Regulamento</a>
+                    <a href="#">Entrega</a>
+                </div>
+                <div class="links-right">
+                    <div class="qr-section">
+                        <div class="qr-code">
+                            <svg width="60" height="60" viewBox="0 0 100 100" fill="#333">
+                                <rect x="10" y="10" width="30" height="30" rx="3" />
+                                <rect x="60" y="10" width="30" height="30" rx="3" />
+                                <rect x="10" y="60" width="30" height="30" rx="3" />
+                                <rect x="45" y="45" width="10" height="10" />
+                                <rect x="60" y="60" width="10" height="10" />
+                                <rect x="75" y="60" width="15" height="10" />
+                                <rect x="60" y="75" width="10" height="15" />
+                                <rect x="75" y="80" width="15" height="10" />
+                            </svg>
+                        </div>
+                        <span>Baixe nosso App</span>
+                    </div>
+                    <div class="trust-seals">
+                        <div class="seal">
+                            <span class="seal-title">SITE SEGURO</span>
+                            <span class="seal-subtitle">Compra Protegida</span>
+                        </div>
+                        <div class="seal google-seal">
+                            <span class="seal-rating">★★★★★</span>
+                            <span class="seal-text">Google</span>
+                        </div>
+                        <div class="seal reclame-seal">
+                            <span class="seal-text">RA</span>
+                            <span class="seal-subtitle">1000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social & Copyright -->
+        <div class="footer-bottom-new">
+            <div class="footer-wrapper">
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor"
+                                stroke-width="2" />
+                            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+                            <circle cx="18" cy="6" r="1.5" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#fff" />
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                            <rect x="2" y="9" width="4" height="12" />
+                            <circle cx="4" cy="4" r="2" />
+                        </svg>
+                    </a>
+                </div>
+                <p class="copyright">&copy; 2025 Eletrotécnica Maurício. Todos os direitos reservados. CNPJ:
+                    00.000.000/0001-00</p>
+            </div>
+        </div>
+    </footer>
+</div>
